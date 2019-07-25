@@ -1,6 +1,15 @@
 # koulutuskanta
 Tietokantasovellus-harjoitustyö loppukesä-2019  
 
-Aihe: Työntekijöiden suorittamien koulutusten hallinta ja seuranta. 
+## Aihe: Työntekijöiden suorittamien koulutusten hallinta ja seuranta. 
 
-Työpaikoilla on hyödyksi tietää, mitä ja kuinka tuoretta osaamista eri työntekijöillä on. Työntekijät voivat päivittää koulutuskantaan suorittamiaan koulutuksia sekä koulutuksiin kuuluneita materiaaleja. HR-henkilöt, myyjät ja johtoryhmä voivat tarkastella koulutuskannasta, millainen yrityksen osaamistaso on ja tehdä sen pohjalta analyysejä siitä, minkälaisia rekrytointeja ehkä tarvitsee tehdä tai kenet voisi lähettää mihinkin asiakasprojektiin.
+Koulutuskanta on järjestelmä, jolla voidaan seurata työpaikalla suoritettuja koulutuksia sekä työntekijöiden osaamista. Järjestelmää on tarkoitus käyttää tehostamaan rekrytointia ja myyntiä. Toimitusjohtaja saa järjestelmältä yhteenvetoja suoritetuista koulutuksista henkilöittäin ja aiheittain. Kukin koulutuksia suorittava henkilö kirjaa järjestelmän suorittamansa koulutuksen ja siihen liittyvät materiaalit tai lisää itselleen suorituksen jo jonkun muun lisäämästä kurssista. Työntekijä näkee vain omat suorituksensa. Toimitusjohtaja voi hakea tietoa myös henkilöittäin.
+
+### Toimintoja:
+
+Kirjautuminen
+Koulutuksen suorittamisen kirjaaminen
+Koulutuksen perustaminen
+Materiaalin lisääminen
+Materiaalin liittäminen koulutukseen.
+Toimitusjohtajan raportit
