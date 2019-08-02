@@ -1,5 +1,6 @@
 # koulutuskanta
-Tietokantasovellus-harjoitustyö loppukesä-2019  
+Tietokantasovellus-harjoitustyö loppukesä-2019 
+Sovellus löytyy osoitteesta https://tsoha-koulutuskanta.herokuapp.com/
 
 ## Aihe: Työntekijöiden suorittamien koulutusten hallinta ja seuranta. 
 
