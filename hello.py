@@ -1,4 +1,4 @@
-from flask import Flask, render_template 
+from flask import Flask, render_template
 app = Flask(__name__)
 
 class Item:
@@ -14,7 +14,7 @@ esineet.append(Item("Eka"))
 esineet.append(Item("Toka"))
 esineet.append(Item("Kolmas"))
 esineet.append(Item("Neljäs"))
-
+  
 @app.route("/")
 def hello():
     return render_template("index.html")
