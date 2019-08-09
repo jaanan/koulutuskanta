@@ -8,7 +8,7 @@ def tasks_index():
 
 @app.route("/tasks/new/")
 def tasks_form():
-    return render_template("tasks/new.html")
+    return render_template("tasks/new.html", form = TaskForm())
   
 @app.route("/tasks/<task_id>/", methods=["POST"])
 def tasks_set_done(task_id):
