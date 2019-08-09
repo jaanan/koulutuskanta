@@ -6,3 +6,5 @@ class TaskForm(FlaskForm):
  
     class Meta:
         csrf = False
+
+// tähän vähän kommenttia testiksi
