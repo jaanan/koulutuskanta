@@ -7,4 +7,4 @@ class TaskForm(FlaskForm):
     class Meta:
         csrf = False
 
-// tähän vähän kommenttia testiksi
+# tähän vähän kommenttia testiksi
