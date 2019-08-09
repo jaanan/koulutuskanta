@@ -1,1 +1,1 @@
-web: gunicorn --preload --workers 1 python-koulutuskanta:app
+web: gunicorn --preload --workers 1 run:app
