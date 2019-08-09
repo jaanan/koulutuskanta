@@ -1,12 +1,12 @@
 from flask import render_template, request, redirect, url_for
 
-@app.route("/tasks", methods=["GET"])
-def tasks_index():
-return render_template("tasks/list.html", tasks = Task.query.all())
-
 from application import app, db
 from application.tasks.models import Task
 from application.tasks.forms import TaskForm
+
+@app.route("/tasks", methods=["GET"])
+def tasks_index():
+return render_template("tasks/list.html", tasks = Task.query.all())
 
 @app.route("/tasks/new/")
 def tasks_form():
