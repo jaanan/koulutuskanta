@@ -24,6 +24,9 @@ def tasks_set_done(task_id):
 @app.route("/tasks/", methods=["POST"])
 def tasks_create():
     form = TaskForm(request.form)
+    
+    if not form.validate():
+        return render_template("tasks/new.html", form = form)    
 
     t = Task(form.name.data)
     t.done = form.done.data
