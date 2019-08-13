@@ -34,5 +34,7 @@ def auth_form():
 @app.route("/auth/", methods=["POST"])
 def auth_create():
     print(request.form.get("name"))
+    print(request.form.get("username"))
+    print(request.form.get("password"))
   
     return "hello world!"
