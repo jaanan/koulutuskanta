@@ -3,7 +3,7 @@ from wtforms import BooleanField, StringField, validators
 
 class TaskForm(FlaskForm):
     name = StringField("Koulutuksen nimi", [validators.Length(min=8)])
-    done = BooleanField("Done")
+    done = BooleanField("Suoritettu")
  
     class Meta:
         csrf = False
