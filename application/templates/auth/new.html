@@ -3,6 +3,8 @@
 {% block body %}
 <form method="POST" action="{{ url_for('auth_create') }}">
   <input type="text" name="name"/>
+  <input type="text" username="username"/>
+  <input type="text" password="password"/>
   <input type="submit" value="Lisää uusi käyttäjä"/>
 </form>
 {% endblock %}
