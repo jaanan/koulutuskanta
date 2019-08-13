@@ -26,3 +26,13 @@ def auth_login():
 def auth_logout():
     logout_user()
     return redirect(url_for("index"))
+
+@app.route("/auth/new/")
+def auth_form():
+    return render_template("auth/new.html")
+
+@app.route("/auth/", methods=["POST"])
+def auth_create():
+    print(request.form.get("name"))
+  
+    return "hello world!"
