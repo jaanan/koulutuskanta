@@ -10,7 +10,7 @@ class LoginForm(FlaskForm):
 
         from wtforms import Form, BooleanField, StringField, PasswordField, validators
 
-class RegistrationForm(Form):
+class RegistrationForm(FlaskForm):
     username = StringField('Name', [validators.Length(min=4, max=25)])
     email = StringField('Username', [validators.Length(min=6, max=35)])
     password = PasswordField('New Password', [
