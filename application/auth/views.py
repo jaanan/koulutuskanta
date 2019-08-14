@@ -52,7 +52,7 @@ def auth_create():
     
     form = RegistrationForm(request.form)
 
-    if request.method == "POST":
+    if request.method == "GET":
 
         user = User(form.name.data, form.username.data,
 
