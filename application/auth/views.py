@@ -50,9 +50,9 @@ def auth_logout():
 
 def register():
 
-    form = RegistrationForm(request.form)
-
-    if request.method == 'POST' and form.validate():
+    if request.method == 'POST'
+        
+        form = RegistrationForm(request.form)
 
         user = User(form.name.data, form.username.data,
 
