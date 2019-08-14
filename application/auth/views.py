@@ -37,15 +37,28 @@ def auth_logout():
 @app.route("/auth/new/", methods=['GET', 'POST'])
 def auth_create():
     form = RegistrationForm(request.form)
+    if request.method == 'POST' and form.validate():
+        user = User(form.username.data, form.email.data,
+                    form.password.data)
+        db.session.add(user)
+        db.session().commit()
+        flash('Thanks for registering')
+        return render_template("auth/loginform.html", form = LoginForm())
+    return render_template("auth/loginform.html", form=form)
 
-    if not form.validate():
-        return render_template("auth/new.html", form = form)    
 
-    t = User(form.name.data, form.username.data, form.password.data)
+# @app.route("/auth/new/", methods=['GET', 'POST'])
+# def auth_create():
+#    form = RegistrationForm(request.form)
+
+#   if not form.validate():
+#        return render_template("auth/new.html", form = form)    
+
+#    t = User(form.name.data, form.username.data, form.password.data)
   
-    db.session().add(t)
-    db.session().commit()
-    return render_template("auth/loginform.html", form = LoginForm())  
+#    db.session().add(t)
+#    db.session().commit()
+#    return render_template("auth/loginform.html", form = LoginForm())  
 
 #    if request.method == 'POST' and form.validate():
 #        user = User(form.name.data, form.username.data,
