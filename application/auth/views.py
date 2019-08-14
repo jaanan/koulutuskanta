@@ -39,6 +39,7 @@ def auth_create():
         user = User(form.name.data, form.username.data,
                     form.password.data)
         db_session.add(user)
+        db.session().commit()
         flash('Thanks for registering')
         return render_template("auth/loginform.html", form = LoginForm())
     return render_template("auth/loginform.html", form = LoginForm())
