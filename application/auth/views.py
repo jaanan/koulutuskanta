@@ -35,5 +35,5 @@ def register():
                     form.password.data)
         db_session.add(user)
         flash('Thanks for registering')
-        return redirect(url_for("/auth/login")
-    return redirect(url_for("/auth/login"))
+        return render_template("auth/loginform.html", form = LoginForm())
+    return render_template("auth/loginform.html", form = LoginForm())
