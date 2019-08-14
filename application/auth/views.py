@@ -28,7 +28,11 @@ def auth_logout():
     logout_user()
     return redirect(url_for("index"))
 
-@app.route("/auth/new/", methods=['GET', 'POST'])
+@app.route("/auth/new/")
+def auth_form():
+    return render_template("auth/new.html")
+
+@app.route("/auth/", methods=["POST"])
 def register():
     form = RegistrationForm(request.form)
     if request.method == 'POST' and form.validate():
@@ -38,3 +42,14 @@ def register():
         flash('Thanks for registering')
         return render_template("auth/loginform.html", form = LoginForm())
     return render_template("auth/loginform.html", form = LoginForm())
+
+# @app.route("/auth/new/", methods=['GET', 'POST'])
+# def register():
+#    form = RegistrationForm(request.form)
+#    if request.method == 'POST' and form.validate():
+#        user = User(form.name.data, form.username.data,
+#                    form.password.data)
+#        db_session.add(user)
+#        flash('Thanks for registering')
+#        return render_template("auth/loginform.html", form = LoginForm())
+#    return render_template("auth/loginform.html", form = LoginForm())
