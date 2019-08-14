@@ -58,7 +58,7 @@ def auth_create():
 
                     form.password.data)
 
-        db_session.add(user)
+        db.session.add(user)
 
         flash('Thanks for registering')
 
