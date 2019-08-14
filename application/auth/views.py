@@ -60,8 +60,6 @@ def auth_create():
 
         db.session.add(user)
 
-        flash('Thanks for registering')
-
         return render_template("auth/loginform.html", form = LoginForm())
 
     return render_template("auth/loginform.html", form = LoginForm())
