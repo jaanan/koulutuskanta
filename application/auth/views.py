@@ -48,7 +48,7 @@ def auth_logout():
 
 @app.route("/auth/new/", methods=["GET", "POST"])
 
-def register():
+def auth_create():
 
     if request.method == "GET"
         
