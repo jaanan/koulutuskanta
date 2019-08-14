@@ -33,7 +33,7 @@ def auth_form():
     return render_template("auth/new.html")
 
 @app.route("/auth/", methods=["POST"])
-def register():
+def auth_create():
     form = RegistrationForm(request.form)
     if request.method == 'POST' and form.validate():
         user = User(form.name.data, form.username.data,
