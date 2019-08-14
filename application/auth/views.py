@@ -62,7 +62,7 @@ def auth_create():
 
         return render_template("auth/loginform.html", form = LoginForm())
 
-    return render_template("auth/loginform.html", form = RegistrationForm(request.form))
+    return render_template("auth/new.html", form = RegistrationForm(request.form))
 
 
 # @app.route("/auth/new/", methods=['GET', 'POST'])
