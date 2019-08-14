@@ -36,25 +36,25 @@ def auth_form():
 def auth_create():
     form = RegistrationForm(request.form)
     
-    if not form.validate():
-        return render_template("auth/new.html", form = form)    
+    if request.method == 'POST' and form.validate():
+        user = User(form.name.data, form.username.data,
+                    form.password.data)
+        db_session.add(user)
+        db.session().commit()
+        flash('Thanks for registering')
+        return render_template("auth/loginform.html", form = LoginForm())
+    return render_template("auth/loginform.html", form = LoginForm())
 
-    t = User(User(form.name.data, form.username.data, form.password.data)
-    t.done = form.done.data
+#    if not form.validate():
+#        return render_template("auth/new.html", form = form)    
+
+#    t = User(User(form.name.data, form.username.data, form.password.data)
+#    t.done = form.done.data
   
-    db.session().add(t)
-    db.session().commit()
+#    db.session().add(t)
+#    db.session().commit()
   
-    return redirect(url_for("tasks_index"))
-    
-#    if request.method == 'POST' and form.validate():
-#        user = User(form.name.data, form.username.data,
-#                    form.password.data)
-#        db_session.add(user)
-#        db.session().commit()
-#        flash('Thanks for registering')
-#        return render_template("auth/loginform.html", form = LoginForm())
-#    return render_template("auth/loginform.html", form = LoginForm())
+#    return redirect(url_for("tasks_index"))
 
 # @app.route("/auth/new/", methods=['GET', 'POST'])
 # def register():
