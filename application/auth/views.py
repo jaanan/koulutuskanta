@@ -50,7 +50,7 @@ def auth_logout():
 
 def auth_create():
 
-    if request.method == "GET"
+    if request.method == "GET":
         
         form = RegistrationForm(request.form)
 
