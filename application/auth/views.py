@@ -44,7 +44,7 @@ def auth_create():
         db.session().commit()
         flash('Thanks for registering')
         return render_template("auth/loginform.html", form = LoginForm())
-    return render_template("auth/loginform.html", form=form)
+    return render_template("auth/new.html", form=form)
 
 
 # @app.route("/auth/new/", methods=['GET', 'POST'])
