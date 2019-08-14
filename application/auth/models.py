@@ -15,8 +15,8 @@ class User(db.Model):
 
     def __init__(self, name, username, password):
         self.name = name
-        self.name = username
-        self.name = password
+        self.username = username
+        self.password = password
   
     def get_id(self):
         return self.id
