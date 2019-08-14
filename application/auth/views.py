@@ -32,7 +32,8 @@ def auth_logout():
 def auth_form():
     return render_template("auth/new.html", form = RegistrationForm())
 
-@app.route("/auth/", methods=["POST"])
+# @app.route("/auth/", methods=["POST"])
+@app.route("/auth/new/", methods=['GET', 'POST'])
 def auth_create():
     form = RegistrationForm(request.form)
 
