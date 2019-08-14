@@ -49,10 +49,10 @@ def auth_logout():
 @app.route("/auth/new/", methods=["GET", "POST"])
 
 def auth_create():
-    
-    form = RegistrationForm(request.form)
 
     if request.method == "POST":
+        
+        form = RegistrationForm(request.form)
 
         user = User(form.name.data, form.username.data, form.password.data)
 
@@ -60,7 +60,7 @@ def auth_create():
 
         return render_template("auth/loginform.html", form = LoginForm())
 
-    return render_template("auth/new.html", form = RegistrationForm(request.form))
+    return render_template("auth/new.html", form = RegistrationForm(form))
 
 
 # @app.route("/auth/new/", methods=['GET', 'POST'])
