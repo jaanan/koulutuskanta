@@ -27,14 +27,13 @@ def auth_logout():
     logout_user()
     return redirect(url_for("index"))
 
-@app.route("/auth/new/")
-def auth_form():
-    return render_template("auth/new.html")
-
-@app.route("/auth/", methods=["POST"])
-def auth_create():
-    print(request.form.get("name"))
-    print(request.form.get("username"))
-    print(request.form.get("password"))
-  
-    return "hello world!"
+@app.route("/auth/new/", methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm(request.form)
+    if request.method == 'POST' and form.validate():
+        user = User(form.name.data, form.username.data,
+                    form.password.data)
+        db_session.add(user)
+        flash('Thanks for registering')
+        return redirect(url_for("/auth/login")
+    return render_template('register.html', form=form)
