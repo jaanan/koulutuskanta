@@ -36,4 +36,4 @@ def register():
         db_session.add(user)
         flash('Thanks for registering')
         return redirect(url_for("/auth/login")
-    return "hello world!"
+    return redirect(url_for("/auth/login"))
