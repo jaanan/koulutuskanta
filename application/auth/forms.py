@@ -9,6 +9,6 @@ class LoginForm(FlaskForm):
         csrf = False
 
 class RegistrationForm(FlaskForm):
-    nimi = StringField("Name")
+    name = StringField("Name")
     username = StringField("Username")
     password = PasswordField("Password")
