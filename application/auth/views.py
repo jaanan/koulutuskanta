@@ -46,11 +46,11 @@ def auth_logout():
 #        return render_template("auth/loginform.html", form = LoginForm())
 #    return render_template("auth/new.html", form=form)
 
-@app.route("/auth/new/", methods=['GET', 'POST'])
+@app.route("/auth/new/", methods=["GET", "POST"])
 
 def register():
 
-    if request.method == 'POST'
+    if request.method == "GET"
         
         form = RegistrationForm(request.form)
 
