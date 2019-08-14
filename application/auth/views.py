@@ -30,7 +30,7 @@ def auth_logout():
 
 @app.route("/auth/new/")
 def auth_form():
-    return render_template("auth/new.html", form = AuthForm())
+    return render_template("auth/new.html", form = RegistrationForm())
 
 @app.route("/auth/", methods=["POST"])
 def auth_create():
