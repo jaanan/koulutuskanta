@@ -38,7 +38,7 @@ def auth_logout():
 def auth_create():
     form = RegistrationForm(request.form)
     if request.method == 'POST' and form.validate():
-        user = User(form.username.data, form.email.data,
+        user = User(form.name.data, form.username.data,
                     form.password.data)
         db.session.add(user)
         db.session().commit()
