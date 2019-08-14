@@ -34,17 +34,37 @@ def auth_logout():
 
 # @app.route("/auth/", methods=["POST"])
 
+# @app.route("/auth/new/", methods=['GET', 'POST'])
+# def auth_create():
+#    if request.method == 'POST' and form.validate():
+#        form = RegistrationForm(request.form)
+#        user = User(form.name.data, form.username.data,
+#                    form.password.data)
+#        db.session.add(user)
+#        db.session().commit()
+#        flash('Thanks for registering')
+#        return render_template("auth/loginform.html", form = LoginForm())
+#    return render_template("auth/new.html", form=form)
+
 @app.route("/auth/new/", methods=['GET', 'POST'])
-def auth_create():
+
+def register():
+
     form = RegistrationForm(request.form)
+
     if request.method == 'POST' and form.validate():
+
         user = User(form.name.data, form.username.data,
+
                     form.password.data)
-        db.session.add(user)
-        db.session().commit()
+
+        db_session.add(user)
+
         flash('Thanks for registering')
+
         return render_template("auth/loginform.html", form = LoginForm())
-    return render_template("auth/new.html", form=form)
+
+    return render_template("auth/loginform.html", form = LoginForm())
 
 
 # @app.route("/auth/new/", methods=['GET', 'POST'])
