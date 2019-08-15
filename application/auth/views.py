@@ -28,24 +28,6 @@ def auth_logout():
     logout_user()
     return redirect(url_for("index"))
 
-#@app.route("/auth/new/")
-#def auth_form():
-#    return render_template("auth/new.html", form = RegistrationForm())
-
-# @app.route("/auth/", methods=["POST"])
-
-# @app.route("/auth/new/", methods=['GET', 'POST'])
-# def auth_create():
-#    if request.method == 'POST' and form.validate():
-#        form = RegistrationForm(request.form)
-#        user = User(form.name.data, form.username.data,
-#                    form.password.data)
-#        db.session.add(user)
-#        db.session().commit()
-#        flash('Thanks for registering')
-#        return render_template("auth/loginform.html", form = LoginForm())
-#    return render_template("auth/new.html", form=form)
-
 @app.route("/auth/new/", methods=["GET", "POST"])
 
 def auth_create():
@@ -56,38 +38,3 @@ def auth_create():
         db.session().commit()
         return render_template("auth/loginform.html", form = LoginForm())
     return render_template("auth/new.html", form = RegistrationForm())
-
-
-# @app.route("/auth/new/", methods=['GET', 'POST'])
-# def auth_create():
-#    form = RegistrationForm(request.form)
-
-#   if not form.validate():
-#        return render_template("auth/new.html", form = form)    
-
-#    t = User(form.name.data, form.username.data, form.password.data)
-  
-#    db.session().add(t)
-#    db.session().commit()
-#    return render_template("auth/loginform.html", form = LoginForm())  
-
-#    if request.method == 'POST' and form.validate():
-#        user = User(form.name.data, form.username.data,
-#                    form.password.data)
-#        db_session.add(user)
-#        db.session().commit()
-#        flash('Thanks for registering')
-#        return render_template("auth/loginform.html", form = LoginForm())
-#    return render_template("auth/loginform.html", form = LoginForm())
-#    return redirect(url_for("tasks_index"))
-
-# @app.route("/auth/new/", methods=['GET', 'POST'])
-# def register():
-#    form = RegistrationForm(request.form)
-#    if request.method == 'POST' and form.validate():
-#        user = User(form.name.data, form.username.data,
-#                    form.password.data)
-#        db_session.add(user)
-#        flash('Thanks for registering')
-#        return render_template("auth/loginform.html", form = LoginForm())
-#    return render_template("auth/loginform.html", form = LoginForm())
