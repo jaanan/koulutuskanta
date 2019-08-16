@@ -40,7 +40,7 @@ login_manager.login_message = "Please login to use this functionality."
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(user_id, needs_tasks=User.find_users_with_no_tasks())
+    return User.query.get(user_id)
 
 # lisätään edelliseen sulkuun, mikäli saadaan toimimaan, needs_tasks=User.find_users_with_no_tasks()
 
