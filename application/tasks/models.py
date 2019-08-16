@@ -7,6 +7,7 @@ class Task(Base):
     done = db.Column(db.Boolean, nullable=False)
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
+    materials = db.relationship("Material", backref='material', lazy=True)
 
     def __init__(self, name):
         self.name = name
