@@ -23,7 +23,7 @@ from application.auth import models
 from application.auth import views
 
 from application.material import models
-# from application.material import views
+from application.material import views
 
 
 # login
