@@ -22,8 +22,8 @@ from application.tasks import views
 from application.auth import models
 from application.auth import views
 
-from application.material import models
-from application.material import views
+from application.materials import models
+from application.materials import views
 
 
 # login
