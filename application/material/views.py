@@ -2,8 +2,8 @@ from flask import render_template, request, redirect, url_for
 from flask_login import login_required, current_user
 
 from application import app, db
-from application.tasks.models import Material
-from application.tasks.forms import MaterialForm
+from application.material.models import Material
+from application.material.forms import MaterialForm
 
 @app.route("/material", methods=["GET"])
 def material_index():
