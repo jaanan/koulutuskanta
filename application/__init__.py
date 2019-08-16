@@ -42,6 +42,8 @@ login_manager.login_message = "Please login to use this functionality."
 def load_user(user_id):
     return User.query.get(user_id)
 
+# lisätään edelliseen sulkuun, mikäli saadaan toimimaan, needs_tasks=User.find_users_with_no_tasks()
+
 
 try: 
     db.create_all()
