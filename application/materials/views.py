@@ -23,7 +23,6 @@ def materials_create():
         return render_template("materials/new.html", form = form)    
 
     t = Material(form.name.data)
-    t.task_id = 1
     
 #lisätään aina kaikki materiaalit task eli koulutus id:llä 1:seen, kunnes keskitään, miten tämä toimii    
   
