@@ -9,7 +9,10 @@ class Task(Base):
     done = db.Column(db.Boolean, nullable=False)
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
-    materials = db.relationship("Material", backref='task', lazy=True)
+
+    #Relationships
+    material2task = db.relationship("Material", secondary = material2task,
+                               backref=db.backref('tasks', lazy = 'joined'))
 
     def __init__(self, name):
         self.name = name
