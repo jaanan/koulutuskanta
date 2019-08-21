@@ -16,15 +16,21 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+	    <li class="nav-item">
+	      <a class="nav-link" href="{{ url_for('auth_create') }}">Lisää käyttäjä</a>
+	    </li>
+	    <li class="nav-item">
+	    <li class="nav-item">
               <a class="nav-link" href="{{ url_for('tasks_index') }} ">Listaa koulutukset</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('tasks_form') }} ">Lisää koulutus</a>
             </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="{{ url_for('auth_create') }}">Lisää käyttäjä</a>
-	    </li>
+              <a class="nav-link" href="{{ url_for('materials_form') }} ">Lisää materiaali</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('materials_index') }} ">Listaa materiaalit</a>
+            </li>		  
           </ul>
           <div class="form-inline mt-2 mt-md-0">
 	    {% if current_user.is_authenticated %}
