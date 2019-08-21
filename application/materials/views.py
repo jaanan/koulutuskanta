@@ -14,19 +14,20 @@ def material_index():
 def materials_form():
     return render_template("materials/new.html", form = MaterialForm())
 
-# @app.route("/materials/", methods=["POST"])
-# @login_required
-# def materials_create():
-#    form = MaterialForm(request.form)
+@app.route("/materials/", methods=["POST"])
+@login_required
+def materials_create():
+    form = MaterialForm(request.form)
     
-#    if not form.validate():
-#        return render_template("materials/new.html", form = form)    
+    if not form.validate():
+        return render_template("materials/new.html", form = form)    
 
-#    t = Material(form.name.data)
-#    t.done = form.done.data
-#    t.task_id = current_user.id TÄMÄ ON ONGELMA!!!
+    t = Material(form.name.data)
+    t.task_id = 1
+    
+#lisätään aina kaikki materiaalit task eli koulutus id:llä 1:seen, kunnes keskitään, miten tämä toimii    
   
-#    db.session().add(t)
-#    db.session().commit()
+    db.session().add(t)
+    db.session().commit()
   
-#    return redirect(url_for("materials_index"))
+    return redirect(url_for("materials_index"))
