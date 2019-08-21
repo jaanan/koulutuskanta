@@ -7,7 +7,7 @@ from application.materials.forms import MaterialForm
 
 @app.route("/material", methods=["GET"])
 def material_index():
-    return render_template("material/list.html", materials = Material.query.all())
+    return render_template("materials/list.html", materials = Material.query.all())
 
 @app.route("/materials/new/")
 @login_required
