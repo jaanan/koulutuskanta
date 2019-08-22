@@ -36,4 +36,19 @@
 
 {% endif %}
 
+{% if all_tasks is defined %}
+<p>
+  Järjestelmän tuntemat käyttäjät:
+</p>
+
+<ul>
+  {% for user in all_tasks %}
+  <li>
+    {{user.id}} {{user.name}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
 {% endblock %}
