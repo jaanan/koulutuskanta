@@ -5,6 +5,8 @@ from application import app, db
 from application.materials.models import Material
 from application.materials.forms import MaterialForm
 
+from sqlalchemy.sql import text
+
 @app.route("/material", methods=["GET"])
 def material_index():
     return render_template("materials/list.html", materials = Material.query.all())
@@ -23,8 +25,9 @@ def materials_create():
         return render_template("materials/new.html", form = form)    
 
     t = Material(form.name.data)
+    text = text(form.name.data)
     
-    m = Material.query.filter(form.name.data).count()
+    m = Material.query.filter(name = text).count()
     
     if m > 0:
         return redirect(url_for("material_new"))
