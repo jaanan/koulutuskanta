@@ -45,3 +45,14 @@ class User(Base):
             response.append({"id":row[0], "name":row[1]})
 
         return response
+
+    @staticmethod
+    def all_users():
+        stmt = text("SELECT Account.id, Account.name FROM Account")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"id":row[0], "name":row[1]})
+
+        return response
