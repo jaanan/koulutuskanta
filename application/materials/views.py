@@ -26,8 +26,9 @@ def materials_create():
 #    t.task_id = 1 
     
 #lisätään aina kaikki materiaalit task eli koulutus id:llä 1:seen, kunnes keskitään, miten tämä toimii    
-  
-    db.session().add(t)
-    db.session().commit()
+    m = Material.query.filter_by(name=t).count()
+    if m = 0:
+        db.session().add(t)
+        db.session().commit()
   
     return redirect(url_for("material_index"))
