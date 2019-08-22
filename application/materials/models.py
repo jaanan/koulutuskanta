@@ -12,3 +12,14 @@ class Material(Base):
 
     def __init__(self, name):
         self.name = name
+        
+    @staticmethod
+    def find_materials():
+        stmt = text("SELECT Material.id, Material.name FROM Material")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"id":row[0], "name":row[1]})
+
+        return response 
