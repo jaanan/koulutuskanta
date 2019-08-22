@@ -17,3 +17,14 @@ class Task(Base):
     def __init__(self, name):
         self.name = name
         self.done = False
+        
+    @staticmethod
+    def find_tasks():
+        stmt = text("SELECT Task.id, Task.name FROM Task")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"id":row[0], "name":row[1]})
+
+        return response        
