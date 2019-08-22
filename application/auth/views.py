@@ -34,7 +34,11 @@ def auth_create():
     if request.method == "POST":
         form = RegistrationForm(request.form)
         user = User(form.name.data, form.username.data, form.password.data)
-        db.session().add(user)
-        db.session().commit()
-        return render_template("auth/loginform.html", form = LoginForm())
-    return render_template("auth/new.html", form = RegistrationForm())
+        m = User.query.filter(User.name == form.name.data).count()
+        
+        if m > 0:
+            return render_template("auth/new.html", form = RegistrationForm())
+        else:
+            db.session().add(user)
+            db.session().commit()
+    return render_template("auth/loginform.html", form = LoginForm())
