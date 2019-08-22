@@ -51,4 +51,19 @@
 
 {% endif %}
 
+{% if all_materials is defined %}
+<p>
+  Koulutuksissa käytetty materiaali:
+</p>
+
+<ul>
+  {% for user in all_materials %}
+  <li>
+    {{user.id}} {{user.name}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
 {% endblock %}
