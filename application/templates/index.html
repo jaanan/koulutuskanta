@@ -21,4 +21,19 @@
 
 {% endif %}
 
+{% if all_users is defined %}
+<p>
+  Järjestelmän tuntemat käyttäjät:
+</p>
+
+<ul>
+  {% for user in all_users %}
+  <li>
+    {{user.id}} {{user.name}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
 {% endblock %}
