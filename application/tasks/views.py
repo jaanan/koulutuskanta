@@ -37,9 +37,15 @@ def tasks_create():
 
     t = Task(form.name.data)
     t.done = form.done.data
-    t.account_id = current_user.id
-  
-    db.session().add(t)
-    db.session().commit()
+    m = Task.query.filter(Task.name == form.name.data).count()
+    
+    if m > 0:
+        return redirect(url_for("tasks_index"))
+    else:
+        t.done = form.done.data
+        t.account_id = current_user.id
+
+        db.session().add(t)
+        db.session().commit()
   
     return redirect(url_for("tasks_index"))
