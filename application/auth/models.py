@@ -47,7 +47,7 @@ class User(Base):
         return response
 
     @staticmethod
-    def all_users():
+    def find_users():
         stmt = text("SELECT Account.id, Account.name FROM Account")
         res = db.engine.execute(stmt)
 
