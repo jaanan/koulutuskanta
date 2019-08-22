@@ -24,7 +24,7 @@ def materials_create():
 
     t = Material(form.name.data)
     
-    m = Material.query.filter(Material.name = 'anna').count()
+    m = Material.query.filter(Material.name = t).count()
     
     if m > 0:
         return redirect(url_for("material_new"))
