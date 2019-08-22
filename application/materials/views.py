@@ -25,9 +25,8 @@ def materials_create():
         return render_template("materials/new.html", form = form)    
 
     t = Material(form.name.data)
-    text = text(Material(form.name.data))
     
-    m = Material.query.filter(name = text).count()
+    m = Material.query.filter(Material.name == form.name.data).count()
     
     if m > 0:
         return redirect(url_for("material_new"))
