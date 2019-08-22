@@ -27,7 +27,10 @@ def materials_create():
     
 #lisätään aina kaikki materiaalit task eli koulutus id:llä 1:seen, kunnes keskitään, miten tämä toimii    
     m = Material.query.filter_by(name=t).count()
-    if m == 0:
+    
+    if m > 0:
+        return redirect(url_for("material_new"))
+    else:
         db.session().add(t)
         db.session().commit()
   
