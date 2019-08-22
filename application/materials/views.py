@@ -29,7 +29,7 @@ def materials_create():
     m = Material.query.filter(Material.name == form.name.data).count()
     
     if m > 0:
-        return redirect(url_for("material_new"))
+        return redirect(url_for("materials_new"))
     else:
         db.session().add(t)
         db.session().commit()
