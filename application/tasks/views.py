@@ -60,16 +60,21 @@ def unite_create():
     if not form.validate():
         return render_template("tasks/new.html", form = form)    
 
-    t = Task(form.name.data)
+    p = Task(form.name.data)
     m = Task.query.filter(Task.name == form.name.data).count()
     
-    if m > 0:
-        return redirect(url_for("tasks_index"))
-    else:
-        t.done = form.done.data
-        t.account_id = current_user.id
+    if m = 0:
+        p.account_id = current_user.id
 
-        db.session().add(t)
+        db.session().add(p)
+        db.session().commit()
+
+    c = Material(form.name.data)
+    
+    m = Material.query.filter(Material.name == form.name.data).count()
+    
+    if m = 0:
+        db.session().add(c)
         db.session().commit()
   
     return redirect(url_for("tasks_index"))
