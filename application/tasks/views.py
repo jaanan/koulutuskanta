@@ -4,7 +4,6 @@ from flask_login import login_required, current_user
 from application import app, db
 from application.tasks.models import Task
 from application.tasks.forms import TaskForm
-from application.tasks.forms import UniteForm
 
 @app.route("/tasks", methods=["GET"])
 def tasks_index():
@@ -50,37 +49,3 @@ def tasks_create():
         db.session().commit()
   
     return redirect(url_for("tasks_index"))
-
-#Alla hahmotelma uudesta metodista
-
-#@app.route("/tasks/", methods=["GET", "POST"])
-#@login_required
-#def unite_create():
-#    form = UniteForm(request.form)
-    
-#    if not form.validate():
-#       return render_template("tasks/new.html", form = form)    
-
-#    p = Task(form.task.data)
-#    m = Task.query.filter(Task.name == form.task.data).count()
-    
-#    if m == 0:
-#        p.account_id = current_user.id
-
-#        db.session().add(p)
-#        db.session().commit()
-
-#    c = Material(form.material.data)
-    
-#    m = Material.query.filter(Material.name == form.material.data).count()
-    
-#    if m == 0:
-#        db.session().add(c)
-#        db.session().commit()
-        
-#    p.material2task.append(c)
-#    db.session.add(p)
-#    db.session.commit()        
-  
-#    return redirect(url_for("tasks_index"))
-
