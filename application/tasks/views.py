@@ -63,7 +63,7 @@ def unite_create():
     p = Task(form.name.data)
     m = Task.query.filter(Task.name == form.task.data).count()
     
-    if m = 0:
+    if m == 0:
         p.account_id = current_user.id
 
         db.session().add(p)
@@ -73,7 +73,7 @@ def unite_create():
     
     m = Material.query.filter(Material.name == form.material.data).count()
     
-    if m = 0:
+    if m == 0:
         db.session().add(c)
         db.session().commit()
         
