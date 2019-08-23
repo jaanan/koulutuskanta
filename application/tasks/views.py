@@ -53,7 +53,7 @@ def tasks_create():
 
 #Alla hahmotelma uudesta metodista
 
-@app.route("/tasks/", methods=["POST"])
+@app.route("/tasks/", methods=["GET", "POST"])
 @login_required
 def unite_create():
     form = UniteForm(request.form)
