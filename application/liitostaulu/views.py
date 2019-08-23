@@ -5,6 +5,10 @@ from application import app, db
 from application.auth.models import User
 from application.liitostaulu.forms import UniteForm
 
+@app.route("/liitostaulu", methods=["GET"])
+def liitostaulu_index():
+    return render_template("liitostauluform.html")
+
 @app.route("/liitostaulu", methods=["GET", "POST"])
 @login_required
 def unite_create():
