@@ -24,7 +24,7 @@ from application.auth import views
 
 from application.materials import models
 from application.materials import views
-from application import liitostaulu
+from application.liitostaulu import views
 
 
 # login
