@@ -13,7 +13,7 @@ from sqlalchemy.sql import text
 
 @app.route("/liitostaulu", methods=["GET"])
 def liitostaulu_index():
-    return render_template("liitostauluform.html")
+    return render_template("liitostaulu/liitostauluform.html", form = UniteForm())
 
 @app.route("/liitostaulu", methods=["GET", "POST"])
 def unite_create():
