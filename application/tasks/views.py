@@ -49,3 +49,27 @@ def tasks_create():
         db.session().commit()
   
     return redirect(url_for("tasks_index"))
+
+#Alla hahmotelma uudesta metodista
+
+@app.route("/tasks/", methods=["POST"])
+@login_required
+def unite_create():
+    form = UniteForm(request.form)
+    
+    if not form.validate():
+        return render_template("tasks/new.html", form = form)    
+
+    t = Task(form.name.data)
+    m = Task.query.filter(Task.name == form.name.data).count()
+    
+    if m > 0:
+        return redirect(url_for("tasks_index"))
+    else:
+        t.done = form.done.data
+        t.account_id = current_user.id
+
+        db.session().add(t)
+        db.session().commit()
+  
+    return redirect(url_for("tasks_index"))
