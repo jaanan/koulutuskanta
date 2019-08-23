@@ -25,21 +25,8 @@ def unite_create():
        return render_template("tasks/new.html", form = form)    
 
     p = Task(form.task.data)
-    m = Task.query.filter(Task.name == form.task.data).count()
-    
-    if m == 0:
-        p.account_id = current_user.id
-
-        db.session().add(p)
-        db.session().commit()
 
     c = Material(form.material.data)
-    
-    m = Material.query.filter(Material.name == form.material.data).count()
-    
-    if m == 0:
-        db.session().add(c)
-        db.session().commit()
         
     p.material2task.append(c)
     db.session.add(p)
