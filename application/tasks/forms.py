@@ -8,4 +8,8 @@ class TaskForm(FlaskForm):
     class Meta:
         csrf = False
 
-# tähän vähän kommenttia testiksi
+# s = Student()
+# c = Class()
+# c.students.append(s)
+# db.session.add(c)
+# db.session.commit()
