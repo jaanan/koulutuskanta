@@ -2,7 +2,8 @@ from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user
 
 from application import app, db
-from application.auth.models import User
+from application.materials.models import Material
+from application.tasks.models import Task
 from application.liitostaulu.forms import UniteForm
 
 @app.route("/liitostaulu", methods=["GET"])
