@@ -61,7 +61,7 @@ def unite_create():
     if not form.validate():
         return render_template("tasks/new.html", form = form)    
 
-    p = Task(form.name.data)
+    p = Task(form.task.data)
     m = Task.query.filter(Task.name == form.task.data).count()
     
     if m == 0:
