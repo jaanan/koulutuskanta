@@ -16,7 +16,6 @@ def liitostaulu_index():
     return render_template("liitostauluform.html")
 
 @app.route("/liitostaulu", methods=["GET", "POST"])
-@login_required
 def unite_create():
     form = UniteForm(request.form)
     
