@@ -12,10 +12,12 @@ from application.liitostaulu.forms import UniteForm
 from sqlalchemy.sql import text
 
 @app.route("/liitostaulu", methods=["GET"])
+@login_required
 def liitostaulu_index():
     return render_template("liitostaulu/liitostauluform.html", form = UniteForm())
 
 @app.route("/liitostaulu", methods=["GET", "POST"])
+@login_required
 def unite_create():
     form = UniteForm(request.form)
     
