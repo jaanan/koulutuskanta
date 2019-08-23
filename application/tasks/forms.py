@@ -9,14 +9,8 @@ class TaskForm(FlaskForm):
         csrf = False
         
 # class UniteForm(FlaskForm):
-#    name = StringField("Koulutuksen nimi", [validators.Length(min=8)])
-#    name = StringField("Materiaalin nimi", [validators.Length(min=8)])
-        
-#    s = Student()
-#    c = Class()
-#    c.students.append(s)
-#    db.session.add(c)
-#    db.session.commit()
+#    koulutus = StringField("Koulutuksen nimi", [validators.Length(min=8)])
+#    material = StringField("Materiaalin nimi", [validators.Length(min=8)])
 
 #    class Meta:
 #        csrf = False
