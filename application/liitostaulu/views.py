@@ -6,6 +6,8 @@ from application.materials.models import Material
 from application.tasks.models import Task
 from application.liitostaulu.forms import UniteForm
 
+from sqlalchemy.sql import text
+
 @app.route("/liitostaulu", methods=["GET"])
 def liitostaulu_index():
     return render_template("liitostauluform.html")
