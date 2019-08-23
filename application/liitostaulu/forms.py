@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import BooleanField, StringField, validators
 
 class UniteForm(FlaskForm):
     task = StringField("Koulutuksen nimi", [validators.Length(min=8)])
