@@ -26,11 +26,11 @@ def unite_create():
        return render_template("tasks/new.html", form = form)    
 
     p = Task(form.task.data)
-    koulutus = Task.query.filter_by(name=p).first()
+    koulutus = Task.query.filter_by(Task.name=p).first()
     #koulutus_id = koulutus.id
 
     c = Material(form.material.data)
-    materiaali = Material.query.filter_by(name=c).first()
+    materiaali = Material.query.filter_by(Materil.name=c).first()
     #materiaali_id = materiaali.id
         
     #conn = db.session.connection()
