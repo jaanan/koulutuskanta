@@ -9,6 +9,6 @@ class Base(db.Model):
     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
         onupdate=db.func.current_timestamp())
 
-material2task = db.Table('material2task',
+koulutusmateriaali = db.Table('koulutusmateriaali',
                           db.Column('task.id', db.Integer, db.ForeignKey('task.id')),
                           db.Column('material.id', db.Integer, db.ForeignKey('material.id')))
