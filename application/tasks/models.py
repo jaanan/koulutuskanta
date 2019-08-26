@@ -1,5 +1,5 @@
 from application import db
-from application.models import Base, material2task
+from application.models import Base, koulutusmateriaali
 
 from sqlalchemy.sql import text
 
