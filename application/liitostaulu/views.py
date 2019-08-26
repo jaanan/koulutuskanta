@@ -2,7 +2,7 @@ from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user
 from wtforms import BooleanField, StringField, validators
 from flask_login import login_required, current_user
-from application.models import Base, material2task
+from application.models import Base, koulutusmateriaali
 
 
 from application import app, db
