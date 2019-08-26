@@ -27,15 +27,18 @@ def unite_create():
 
     p = Task(form.task.data)
     koulutus = Task.query.filter_by(name=p).first()
-    koulutus_id = koulutus.id
+    #koulutus_id = koulutus.id
 
     c = Material(form.material.data)
     materiaali = Material.query.filter_by(name=c).first()
-    materiaali_id = materiaali.id
+    #materiaali_id = materiaali.id
         
-    conn = db.session.connection()
-    ins = koulutusmateriaali.insert().values('task.id'=koulutus_id, 'material.id'=materiaali_id)
-    result = conn.execute(ins)
+    #conn = db.session.connection()
+    #ins = koulutusmateriaali.insert().values('task.id'=koulutus_id, 'material.id'=materiaali_id)
+    #result = conn.execute(ins)
+    #db.session.commit()
+    koulutus.koulutusmateriaali.append(materiaali)
+    db.session.add(koulutus)
     db.session.commit()       
   
     return redirect(url_for("tasks_index"))
