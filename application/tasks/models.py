@@ -18,7 +18,7 @@ class Task(Base):
         self.done = False
         
     def get_id(name):
-        return self.id        
+        return id        
         
     @staticmethod
     def find_tasks():
