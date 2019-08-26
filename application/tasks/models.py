@@ -29,4 +29,9 @@ class Task(Base):
         for row in res:
             response.append({"id":row[0], "name":row[1]})
 
-        return response        
+        return response 
+    
+    @staticmethod
+    def find_taskmaterials():
+
+        return Task.taskmaterials.query.all()  
