@@ -25,9 +25,9 @@ def unite_create():
     if not form.validate():
        return render_template("tasks/new.html", form = form)    
 
-    p = Task.query.get_id(form.task.data)
+    p = Task.get_id(form.task.data)
 
-    c = Material.query.get_id(form.material.data)
+    c = Material.get_id(form.material.data)
         
     p.taskmaterials.append(c)
     db.session.commit()        
