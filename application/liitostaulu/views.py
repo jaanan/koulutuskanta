@@ -37,7 +37,7 @@ def unite_create():
     #ins = koulutusmateriaali.insert().values('task.id'=koulutus_id, 'material.id'=materiaali_id)
     #result = conn.execute(ins)
     #db.session.commit()
-    koulutus.koulutusmateriaali.append(materiaali)
+    koulutus.taskmaterials.append(materiaali)
     db.session.add(koulutus)
     db.session.commit()       
   
