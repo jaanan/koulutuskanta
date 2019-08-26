@@ -25,11 +25,11 @@ def unite_create():
     if not form.validate():
        return render_template("tasks/new.html", form = form)    
 
-    p = Task.get_id(form.task.data)
+    p = Task(form.task.data)
 
-    c = Material.get_id(form.material.data)
+    c = Material(form.material.data)
         
     p.taskmaterials.append(c)
-    db.session.commit()        
+    db.session().commit()        
   
     return redirect(url_for("tasks_index"))
