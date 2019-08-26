@@ -26,7 +26,7 @@ def unite_create():
        return render_template("tasks/new.html", form = form)    
 
     #p = Task(form.task.data)
-    koulutus = Task.query.filter_by(Task.name==form.task.data).first()
+    koulutus = Task.query.filter(Task.name==form.task.data).first()
     #koulutus_id = koulutus.id
 
     #c = Material(form.material.data)
