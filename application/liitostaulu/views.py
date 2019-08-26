@@ -29,7 +29,7 @@ def unite_create():
 
     c = Material(form.material.data)
         
-    p.material2task.append(c)
+    p.materials.append(c)
     db.session.add(p)
     db.session.commit()        
   
