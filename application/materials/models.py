@@ -10,6 +10,9 @@ class Material(Base):
     def __init__(self, name):
         self.name = name
         
+    def get_id(name):
+        return self.id
+        
     @staticmethod
     def find_materials():
         stmt = text("SELECT Material.id, Material.name FROM Material")
