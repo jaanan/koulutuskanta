@@ -26,10 +26,16 @@ def unite_create():
        return render_template("tasks/new.html", form = form)    
 
     p = Task(form.task.data)
+    koulutus = Task.query.filter_by(name=p).first()
+    koulutus_id = koulutus.id
 
     c = Material(form.material.data)
+    materiaali = Material.query.filter_by(name=c).first()
+    materiaali_id = materiaali.id
         
-    p.taskmaterials.append(c)
-    db.session().commit()        
+    conn = db.session.connection()
+    ins = assoc.insert().values(book_id=koulutus_id,tag_id=materiaali_id)
+    result = conn.execute(ins)
+    db.session.commit()       
   
     return redirect(url_for("tasks_index"))
