@@ -25,12 +25,12 @@ def unite_create():
     if not form.validate():
        return render_template("tasks/new.html", form = form)    
 
-    p = Task(form.task.data)
-    koulutus = Task.query.filter_by(Task.name=p).first()
+    #p = Task(form.task.data)
+    koulutus = Task.query.filter_by(Task.name==form.task.data).first()
     #koulutus_id = koulutus.id
 
-    c = Material(form.material.data)
-    materiaali = Material.query.filter_by(Materil.name=c).first()
+    #c = Material(form.material.data)
+    materiaali = Material.query.filter(Material.name==form.material.data).first()
     #materiaali_id = materiaali.id
         
     #conn = db.session.connection()
