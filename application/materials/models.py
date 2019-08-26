@@ -11,7 +11,7 @@ class Material(Base):
         self.name = name
         
     def get_id(name):
-        return self.id
+        return id
         
     @staticmethod
     def find_materials():
