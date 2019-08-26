@@ -30,7 +30,6 @@ def unite_create():
     c = Material(form.material.data)
         
     p.materials.append(c)
-    db.session.add(p)
     db.session.commit()        
   
     return redirect(url_for("tasks_index"))
