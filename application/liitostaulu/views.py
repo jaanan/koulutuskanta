@@ -34,7 +34,7 @@ def unite_create():
     materiaali_id = materiaali.id
         
     conn = db.session.connection()
-    ins = assoc.insert().values(book_id=koulutus_id,tag_id=materiaali_id)
+    ins = koulutusmateriaali.insert().values(book_id=koulutus_id,tag_id=materiaali_id)
     result = conn.execute(ins)
     db.session.commit()       
   
