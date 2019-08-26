@@ -17,6 +17,9 @@ class Task(Base):
         self.name = name
         self.done = False
         
+    def get_id(name):
+        return self.id        
+        
     @staticmethod
     def find_tasks():
         stmt = text("SELECT Task.id, Task.name FROM Task")
