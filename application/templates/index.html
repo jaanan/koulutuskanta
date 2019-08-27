@@ -66,4 +66,19 @@
 
 {% endif %}
 
+{% if all_taskmaterials is defined %}
+<p>
+  Koulutuskohtaiset materiaalit:
+</p>
+
+<ul>
+  {% for user in all_materials %}
+  <li>
+    {{user.id}} {{user.name}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
 {% endblock %}
