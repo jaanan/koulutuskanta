@@ -72,9 +72,9 @@
 </p>
 
 <ul>
-  {% for task in all_taskmaterial %}
+  {% for koulutusmateriaali in all_taskmaterial %}
   <li>
-    {{task.id}} {{material.id}}
+    {{koulutusmateriaali.task.id}} {{koulutusmateriaali.material.id}}
   </li>
   {% endfor %}
 </ul>
