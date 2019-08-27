@@ -32,6 +32,13 @@ class Task(Base):
         return response 
     
     @staticmethod
-    def find_taskmaterials():
-
-        return Task.taskmaterials.query.all()  
+    def connect_material():
+        stmt = text('SELECT Task.name, Material.name FROM Task' 
+                        ' RIGHT JOIN koulutusmateriaali ON Task.id == koulutusmateriaali.Task.id' 
+                        ' LEFT JOIN Material ON koulutusmateriaali.Material.id == Material.id;')
+        result = db.engine.execute(stmt)
+        ids = []
+        for row in result:
+            ids.append({"Koulutus":row[0],"Materiaali":row[1]})
+           
+        return ids
