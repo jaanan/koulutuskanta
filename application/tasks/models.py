@@ -33,9 +33,7 @@ class Task(Base):
     
     @staticmethod
     def connect_material():
-        stmt = text('SELECT Task.name, Material.name FROM Task' 
-                        ' RIGHT JOIN koulutusmateriaali ON Task.id == koulutusmateriaali.Task.id' 
-                        ' LEFT JOIN Material ON koulutusmateriaali.Material.id == Material.id;')
+        stmt = text('SELECT * FROM koulutusmateriaali;')
         result = db.engine.execute(stmt)
         ids = []
         for row in result:
