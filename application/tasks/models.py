@@ -37,6 +37,6 @@ class Task(Base):
         result = db.engine.execute(stmt)
         ids = []
         for row in result:
-            ids.append({"Koulutus":row[1],"Materiaali":row[1]})
+            ids.append({"Koulutus":row[0],"Materiaali":row[1]})
            
         return ids
