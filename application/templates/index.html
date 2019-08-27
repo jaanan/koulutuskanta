@@ -74,7 +74,7 @@
 <ul>
   {% for koulutusmateriaali in all_taskmaterials %}
   <li>
-    {{task.id}} {{material.id}}
+    {{koulutusmateriaali.task.id}} {{koulutusmateriaali.material.id}}
   </li>
   {% endfor %}
 </ul>
