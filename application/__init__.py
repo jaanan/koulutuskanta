@@ -24,7 +24,13 @@ from application.auth import views
 
 from application.materials import models
 from application.materials import views
+
 from application.liitostaulu import views
+
+from application.courses import models
+from application.courses import views
+
+from application.kurssimateriaalitaulu import views
 
 
 # login
