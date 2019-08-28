@@ -44,3 +44,15 @@ class Task(Base):
             ids.append({"Koulutus":row[0],"Materiaali":row[1]})
            
         return ids
+
+    @staticmethod
+    def connect_account():
+        stmt = text("SELECT Account.name AS Työntekijä, Task.name AS Koulutus  FROM Task, Account"
+                        " WHERE Account.id = Task.account_id;")
+        
+        result = db.engine.execute(stmt)
+        ids = []
+        for row in result:
+            ids.append({"Työntekijä":row[0],"Koulutus":row[1]})
+           
+        return ids
