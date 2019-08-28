@@ -28,10 +28,12 @@ def unite_create():
 
     koulutus = Task.query.filter(Task.name==form.task.data).first()
 
-    materiaali = Material.query.filter(Material.name==form.material.data).first()  
-
-    koulutus.taskmaterials.append(materiaali)
-    db.session.commit()       
+    materiaali = Material.query.filter(Material.name==form.material.data).first() 
+    
+    if not(koulutus.name in materiaali.xxx_backref):
+    #materiaali.xxx_backref.append(koulutus)
+        koulutus.taskmaterials.append(materiaali)
+        db.session.commit()       
   
     return redirect(url_for("tasks_index"))
 
