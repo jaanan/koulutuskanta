@@ -11,4 +11,5 @@ class Base(db.Model):
 
 koulutusmateriaali = db.Table('koulutusmateriaali',
                           db.Column('task.id', db.Integer, db.ForeignKey('task.id')),
-                          db.Column('material.id', db.Integer, db.ForeignKey('material.id')))
+                          db.Column('material.id', db.Integer, db.ForeignKey('material.id')),
+                          PrimaryKeyConstraint('task.id', 'material.id'),)
