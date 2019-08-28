@@ -60,7 +60,7 @@ class Task(Base):
     
     @staticmethod
     def connect_taskmaterial():
-        stmt = text("SELECT Account.name AS Työntekijä, Task.name AS Koulutus, Material.name AS Materiaali FROM Task, Material, koulutusmateriaali"
+        stmt = text("SELECT Account.name AS Työntekijä, Task.name AS Koulutus, Material.name AS Materiaali FROM Account, Task, Material, koulutusmateriaali"
                         " WHERE Task.id = koulutusmateriaali.'task.id'"
                             " AND Material.id = koulutusmateriaali.'material.id'"
                             " AND Account.id = Task.account_id"
