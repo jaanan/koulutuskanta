@@ -3,11 +3,13 @@
 {% block body %}
   <table>
     <tr>
+      <th>Työntekijä</th>
       <th>Koulutus</th>
       <th>Suoritettu</th>
     </tr>
     {% for task in tasks %}
     <tr>
+      <td>{{ task.account_id }}</td>
       <td>{{ task.name }}</td>
       <td>{{ task.done }}</td>
       <td>
