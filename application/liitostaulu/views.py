@@ -26,14 +26,16 @@ def unite_create():
        return render_template("tasks/new.html", form = form)    
 
 
-    koulutus = Task.query.filter(Task.name==form.task.data).last()
+    koulutus = Task.query.filter(Task.name==form.task.data).first()
 
     materiaali = Material.query.filter(Material.name==form.material.data).first() 
     
     #if not(koulutus.name in materiaali.koulutusmateriaalit):
-    if not(koulutus.id in materiaali.koulutusmateriaalit):
-        materiaali.koulutusmateriaalit.append(koulutus)
-        #koulutus.taskmaterials.append(materiaali)
+    
+    
+    if not(koulutus.name in materiaali.koulutusmateriaalit):
+        #materiaali.koulutusmateriaalit.append(koulutus)
+        koulutus.taskmaterials.append(materiaali)
         db.session.commit()       
   
     return redirect(url_for("tasks_index"))
