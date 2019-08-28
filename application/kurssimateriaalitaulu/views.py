@@ -35,4 +35,4 @@ def union_create():
         kurssi.coursematerials.append(materiaali)
         db.session.commit()       
   
-    return redirect(url_for("courses_index"))
+    return redirect(url_for("course_index"))
