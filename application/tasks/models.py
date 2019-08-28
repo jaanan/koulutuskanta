@@ -49,7 +49,7 @@ class Task(Base):
     def connect_account():
         stmt = text("SELECT Account.name AS Työntekijä, Task.name AS Koulutus  FROM Task, Account"
                         " WHERE Account.id = Task.account_id"
-                        " GROUP BY Account.name;")
+                        " ORDER BY Account.name;")
         
         result = db.engine.execute(stmt)
         ids = []
