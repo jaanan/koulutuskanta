@@ -26,4 +26,19 @@
       </td>
     </tr>
 </form>
+
+{% if course_materials is defined %}
+<p>
+  Kurssimateriaalit:
+</p>
+
+<ul>
+  {% for coursematerials in course_materials %}
+  <li>
+    {{coursematerials.Kurssi}} {{coursematerials.Materiaali}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
 {% endblock %}
