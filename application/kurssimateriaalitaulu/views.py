@@ -26,7 +26,7 @@ def union_create():
        return render_template("courses/new.html", form = form)    
 
 
-    kurssi = Course.query.filter(Course.name==form.task.data).first()
+    kurssi = Course.query.filter(Course.name==form.course.data).first()
     
     materiaali = Material.query.filter(Material.name==form.material.data).first() 
     
