@@ -6,7 +6,7 @@ from application.models import Base, kurssilainen
 
 
 from application import app, db
-from application.courses.models import Courses
+from application.courses.models import Course
 from application.auth.models import User
 from application.kurssilaistaulu.forms import StudentForm
 
