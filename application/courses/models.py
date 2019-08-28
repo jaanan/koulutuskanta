@@ -16,3 +16,14 @@ class Course(Base):
         
     def get_id(name):
         return id        
+
+    @staticmethod
+    def courseto_material():
+        stmt = text("SELECT Course.name AS Koulutus, Material.name AS Materiaali FROM Course, Material, kurssimateriaali"
+                        " WHERE Course.id = kurssimateriaali.'course.id'"
+                            " AND Material.id = kurssimateriaali.'material.id';")
+        
+        result = db.engine.execute(stmt)
+        ids = []
+        for row in result:
+            ids.append({"Kurssi":row[0],"Materiaali":row[1]})
