@@ -27,7 +27,7 @@ def unite_create():
 
 
     koulutus = Task.query.filter(Task.name==form.task.data).first()
-    käyttäjänkoulutus = Task.query.filter(Task.account_id==current_user_id).first()
+    käyttäjänkoulutus = Task.query.filter(Task.account_id==current_user).first()
     
     materiaali = Material.query.filter(Material.name==form.material.data).first() 
     
