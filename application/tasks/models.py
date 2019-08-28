@@ -28,7 +28,7 @@ class Task(Base):
 
         response = []
         for row in res:
-            response.append({"id":row[0], "name":row[1]})
+            response.append({"name":row[0]})
 
         return response 
     
