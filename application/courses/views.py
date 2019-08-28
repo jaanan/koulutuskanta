@@ -9,7 +9,7 @@ from sqlalchemy.sql import text
 
 @app.route("/course", methods=["GET"])
 def course_index():
-    return render_template("course/list.html", courses = Course.query.all())
+    return render_template("courses/list.html", courses = Course.query.all())
 
 @app.route("/courses/new/")
 @login_required
