@@ -3,6 +3,7 @@ from application import app
 from application.auth.models import User
 from application.tasks.models import Task
 from application.materials.models import Material
+from application.courses.models import Course
 
 @app.route("/")
 def index():
