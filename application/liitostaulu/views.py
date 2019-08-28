@@ -30,7 +30,7 @@ def unite_create():
 
     materiaali = Material.query.filter(Material.name==form.material.data).first() 
     
-    if not(koulutus.name in materiaali.xxx_backref):
+    if not(koulutus.name in materiaali.koulutusmateriaalit):
     #materiaali.xxx_backref.append(koulutus)
         koulutus.taskmaterials.append(materiaali)
         db.session.commit()       
