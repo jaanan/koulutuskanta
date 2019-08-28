@@ -32,8 +32,8 @@ def unite_create():
     
     #if not(koulutus.name in materiaali.koulutusmateriaalit):
     if not(koulutus.id in materiaali.koulutusmateriaalit):
-        #materiaali.koulutusmateriaalit.append(koulutus)
-        koulutus.taskmaterials.append(materiaali)
+        materiaali.koulutusmateriaalit.append(koulutus)
+        #koulutus.taskmaterials.append(materiaali)
         db.session.commit()       
   
     return redirect(url_for("tasks_index"))
