@@ -20,10 +20,10 @@
 	      <a class="nav-link" href="{{ url_for('auth_create') }}">Lisää käyttäjä</a>
 	    </li>
 	    <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('tasks_index') }} ">Listaa koulutukset</a>
+              <a class="nav-link" href="{{ url_for('courses_index') }} ">Listaa kurssit</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('tasks_form') }} ">Lisää koulutus</a>
+              <a class="nav-link" href="{{ url_for('courses_form') }} ">Lisää kurssi</a>
             </li>
 	    <li class="nav-item">
               <a class="nav-link" href="{{ url_for('materials_form') }} ">Lisää materiaali</a>
@@ -34,10 +34,16 @@
 	    <li class="nav-item">
               <a class="nav-link" href="{{ url_for('unite_create') }} ">Koulutusmateriaalit</a>
             </li>
+	    <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('union_create') }} ">Kurssimateriaalit</a>
+            </li>
+	    <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('student_create') }} ">Kurssilaiset</a>
+            </li>
           </ul>
           <div class="form-inline mt-2 mt-md-0">
 	    {% if current_user.is_authenticated %}
-	    <a href="{{ url_for('auth_logout') }}">Moi, olet kirjautunut nimellä {{ current_user.name }} -- Kirjaudu ulos</a>
+	    <a href="{{ url_for('auth_logout') }}">Moi, {{ current_user.name }} tunnuksesi on {{ current_user.id }} -- Kirjaudu ulos</a>
 	    {% else %}
 	    <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
 	    {% endif %}
