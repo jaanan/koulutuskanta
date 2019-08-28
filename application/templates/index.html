@@ -81,4 +81,17 @@
 
 {% endif %}
 
+{% if task_users is defined %}
+<p>
+  Koulutukset työntekijöittäin:
+</p>
+
+<ul>
+  {% for user in task_users %}
+  <li>
+    {{user.Työntekijä}} {{user.Koulutus}}
+  </li>
+  {% endfor %}
+</ul>
+
 {% endblock %}
