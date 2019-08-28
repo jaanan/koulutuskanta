@@ -27,3 +27,5 @@ class Course(Base):
         ids = []
         for row in result:
             ids.append({"Kurssi":row[0],"Materiaali":row[1]})
+            
+            return ids
