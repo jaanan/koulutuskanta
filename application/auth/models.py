@@ -12,6 +12,7 @@ class User(Base):
     password = db.Column(db.String(144), nullable=False)
 
     tasks = db.relationship("Task", backref='account', lazy=True)
+    courseusers = db.relationship('Course', secondary=kurssilainen, backref=db.backref('kurssilaiset', lazy = 'dynamic'))
   
     def __init__(self, name, username, password):
         self.name = name
