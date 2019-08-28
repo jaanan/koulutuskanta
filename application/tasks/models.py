@@ -63,12 +63,12 @@ class Task(Base):
         stmt = text("SELECT Account.name AS Työntekijä, Task.name AS Koulutus, Material.name AS Materiaali FROM Task, Material, koulutusmateriaali"
                         " WHERE Task.id = koulutusmateriaali.'task.id'"
                             " AND Material.id = koulutusmateriaali.'material.id'"
-                        " LEFT JOIN Account ON Account.id = Task.account_id"
+                        " RIGHT JOIN Account ON Account.id = Task.account_id"
                         " ORDER BY Account.name;")
         
         result = db.engine.execute(stmt)
         ids = []
         for row in result:
-            ids.append({"Työntekijä":row[0],"Koulutus":row[1],"Materiaali":row[1]})
+            ids.append({"Työntekijä":row[0],"Koulutus":row[1],"Materiaali":row[2]})
            
         return ids
