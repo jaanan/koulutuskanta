@@ -35,7 +35,7 @@ class Task(Base):
     def connect_material():
         stmt = text('SELECT Task.name AS Koulutus, Material.name AS Materiaali FROM Task, Material, koulutusmateriaali'
                         'WHERE Task.id = koulutusmateriaali.Task.id'
-                            'AND Material.id = koulutusmateriaali.Material.id;)
+                            'AND Material.id = koulutusmateriaali.Material.id;')
         
         result = db.engine.execute(stmt)
         ids = []
