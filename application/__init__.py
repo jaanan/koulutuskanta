@@ -31,6 +31,7 @@ from application.courses import models
 from application.courses import views
 
 from application.kurssimateriaalitaulu import views
+from application.kurssilaistaulu import views
 
 
 # login
