@@ -8,4 +8,5 @@ from application.materials.models import Material
 def index():
     return render_template("index.html", needs_tasks=User.find_users_with_no_tasks(), all_users=User.find_users(), 
                            all_tasks=Task.find_tasks(), all_materials=Material.find_materials(), 
-                           all_taskmaterials=Task.connect_material(), task_users=Task.connect_account())
+                           all_taskmaterials=Task.connect_material(), task_users=Task.connect_account(),
+                           users_taskmaterials=Task.connect_taskmaterial())
