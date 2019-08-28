@@ -111,4 +111,19 @@
 
 {% endif %}
 
+{% if course_materials is defined %}
+<p>
+  Kurssimateriaalit:
+</p>
+
+<ul>
+  {% for course in course_materials %}
+  <li>
+    {{course.Kurssi}} {{course.Materiaali}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
 {% endblock %}
