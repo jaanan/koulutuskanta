@@ -96,4 +96,19 @@
 
 {% endif %}
 
+{% if users_taskmaterials is defined %}
+<p>
+  Materiaalit, joihin työntekijät ovat kursseilla perehtyneet:
+</p>
+
+<ul>
+  {% for user in users_taskmaterials %}
+  <li>
+    {{user.Työntekijä}} {{user.Koulutus}} {{user.Materiaali}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
 {% endblock %}
