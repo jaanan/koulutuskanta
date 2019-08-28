@@ -9,7 +9,7 @@
     </tr>
     {% for task in tasks %}
     <tr>
-      <td>{{ task.account_id }}</td>
+      <td>{{ account.name where account.id == task.account_id }}</td>
       <td>{{ task.name }}</td>
       <td>{{ task.done }}</td>
       <td>
