@@ -12,7 +12,7 @@ from application.kurssimateriaalitaulu.forms import UnionForm
 
 from sqlalchemy.sql import text
 
-@app.route("/kurssimateriaalitaulu", methods=["GET"])
+@app.route("/kurssimateriaalitaulu", methods=["GET", "POST"])
 @login_required
 def kurssimateriaalitaulu_index():
     return render_template("kurssimateriaalitaulu/kurssimateriaalitauluform.html", form = UnionForm(), course_materials=Course.courseto_material())
