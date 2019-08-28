@@ -40,7 +40,7 @@ def tasks_create():
     m = Task.query.filter(Task.name == form.name.data).count()
     
     if m > 0:
-        if t.account_id = current_user.id:
+        if t.account_id == current_user.id:
             return redirect(url_for("tasks_index"))
 
     else:
