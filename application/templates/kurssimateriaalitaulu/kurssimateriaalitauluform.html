@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{{ error }}
+<form method="POST" action="{{ url_for('union_create') }}">
+  <table>
+    <tr>
+      <td>
+	{{ form.course.label }}
+      </td>
+      <td>
+	{{ form.course }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+	{{ form.material.label }}
+      </td>
+      <td>
+	{{ form.material }}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+	<input type="submit" value="Liitä materiaali kurssiin"/>
+      </td>
+    </tr>
+</form>
+{% endblock %}
