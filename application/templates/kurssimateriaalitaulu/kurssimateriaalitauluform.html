@@ -33,9 +33,9 @@
 </p>
 
 <ul>
-  {% for coursematerials in course_materials %}
+  {% for course in course_materials %}
   <li>
-    {{coursematerials.Kurssi}} {{coursematerials.Materiaali}}
+    {{course.Kurssi}} {{course.Materiaali}}
   </li>
   {% endfor %}
 </ul>
