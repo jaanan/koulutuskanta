@@ -63,7 +63,7 @@ class Task(Base):
         stmt = text("SELECT Account.name AS Työntekijä, Task.name AS Koulutus, Material.name AS Materiaali FROM Task, Material, koulutusmateriaali"
                         " WHERE Task.id = koulutusmateriaali.'task.id'"
                             " AND Material.id = koulutusmateriaali.'material.id'"
-                        " RIGHT JOIN Account ON Account.id = Task.account_id"
+                            " AND Account.id = Task.account_id"
                         " ORDER BY Account.name;")
         
         result = db.engine.execute(stmt)
