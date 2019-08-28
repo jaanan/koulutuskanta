@@ -22,7 +22,8 @@ class Task(Base):
         
     @staticmethod
     def find_tasks():
-        stmt = text("SELECT Task.id, Task.name FROM Task")
+        stmt = text("SELECT Task.name FROM Task"
+                        " GROUP BY Task.name;")
         res = db.engine.execute(stmt)
 
         response = []
