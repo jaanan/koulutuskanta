@@ -27,14 +27,11 @@ def unite_create():
 
 
     koulutus = Task.query.filter(Task.name==form.task.data).first()
-    käyttäjänkoulutus = Task.query.filter(Task.account_id==current_user.id).first()
     
     materiaali = Material.query.filter(Material.name==form.material.data).first() 
     
-    #if not(koulutus.name in materiaali.koulutusmateriaalit):
+    if not(koulutus.name in materiaali.koulutusmateriaalit):
     
-    
-    if not(käyttäjänkoulutus.id in materiaali.koulutusmateriaalit):
         #materiaali.koulutusmateriaalit.append(koulutus)
         koulutus.taskmaterials.append(materiaali)
         db.session.commit()       
