@@ -7,4 +7,4 @@ from application.courses.models import Course
 
 @app.route("/")
 def index():
-    return render_template("index.html", all_users=User.find_users(), all_materials=Material.find_materials())
+    return render_template("index.html", all_users=User.find_users(), all_materials=Material.find_materials(), course_students=User.studentto_course())
