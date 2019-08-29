@@ -3,27 +3,12 @@
 
 {% block body %}
 <p>
-  Rekisteröidy tai kirjaudu lisätäksesi koulutuksia ja niihin liittyviä materiaaleja. 
+  Lisää itsesi käyttäjäksi tai kirjaudu lisätäksesi käymiäsi kursseja sekä niihin liittyviä materiaaleja. 
 </p>
-
-{% if needs_tasks is defined %}
-<p>
-  Työntekijät, jotka eivät tällä hetkellä kouluttaudu:
-</p>
-
-<ul>
-  {% for user in needs_tasks %}
-  <li>
-    {{user.id}} {{user.name}}
-  </li>
-  {% endfor %}
-</ul>
-
-{% endif %}
 
 {% if all_users is defined %}
 <p>
-  Järjestelmän tuntemat käyttäjät:
+  Järjestelmän tuntemat käyttäjät ja heidän käyttäjätunnuksensa:
 </p>
 
 <ul>
@@ -36,75 +21,15 @@
 
 {% endif %}
 
-{% if all_tasks is defined %}
-<p>
-  Työntekijöiden käymät koulutukset:
-</p>
-
-<ul>
-  {% for user in all_tasks %}
-  <li>
-    {{user.id}} {{user.name}}
-  </li>
-  {% endfor %}
-</ul>
-
-{% endif %}
-
 {% if all_materials is defined %}
 <p>
-  Koulutuksissa käytetty materiaali:
+  Kursseilla käytetty materiaali:
 </p>
 
 <ul>
-  {% for user in all_materials %}
+  {% for material in all_materials %}
   <li>
-    {{user.id}} {{user.name}}
-  </li>
-  {% endfor %}
-</ul>
-
-{% endif %}
-
-{% if all_taskmaterials is defined %}
-<p>
-  Koulutuskohtaiset materiaalit:
-</p>
-
-<ul>
-  {% for user in all_taskmaterials %}
-  <li>
-    {{user.Koulutus}} {{user.Materiaali}}
-  </li>
-  {% endfor %}
-</ul>
-
-{% endif %}
-
-{% if task_users is defined %}
-<p>
-  Koulutukset työntekijöittäin:
-</p>
-
-<ul>
-  {% for user in task_users %}
-  <li>
-    {{user.Työntekijä}} {{user.Koulutus}}
-  </li>
-  {% endfor %}
-</ul>
-
-{% endif %}
-
-{% if users_taskmaterials is defined %}
-<p>
-  Materiaalit, joihin työntekijät ovat kursseilla perehtyneet:
-</p>
-
-<ul>
-  {% for user in users_taskmaterials %}
-  <li>
-    {{user.Työntekijä}} {{user.Koulutus}} {{user.Materiaali}}
+    {{material.id}} {{material.name}}
   </li>
   {% endfor %}
 </ul>
