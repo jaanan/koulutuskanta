@@ -70,5 +70,5 @@ class User(Base):
         for row in result:
             ids.append({"Työntekijä":row[0], "Kurssi":row[1]})
             
-            return ids
+        return ids
 
