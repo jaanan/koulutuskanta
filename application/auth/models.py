@@ -78,7 +78,7 @@ class User(Base):
     def find_materials_and_users():
         stmt = text("SELECT Account.name AS Työntekijä, Material.name AS Materiaali FROM account"
                      " INNER JOIN Account ON kurssilainen.'course.id' = kurssimateriaali.'course.id'"
-                     " INNER JOIN Course ON kurssimateriaali.'materiali.id' = Material.id")
+                     " INNER JOIN Material ON kurssimateriaali.'materiali.id' = Material.id")
         
         res = db.engine.execute(stmt)
 
