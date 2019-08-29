@@ -15,7 +15,7 @@ def course_index():
 @app.route("/courses/new/")
 @login_required
 def courses_form():
-    return render_template("courses/new.html", form = CourseForm())
+    return render_template("courses/new.html", form = CourseForm(), courses = Course.query.all())
 
 @app.route("/courses/", methods=["POST"])
 @login_required
