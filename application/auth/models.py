@@ -61,7 +61,7 @@ class User(Base):
     
     @staticmethod
     def studentto_course():
-        stmt = text("SELECT account.id AS Työntekijä, course.id AS Kurssi FROM kurssilainen")
+        stmt = text("SELECT 'account.id' AS Työntekijä, 'course.id' AS Kurssi FROM kurssilainen")
         
         result = db.engine.execute(stmt)
         ids = []
