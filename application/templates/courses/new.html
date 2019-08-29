@@ -4,6 +4,12 @@
 
   <table>
     <tr>
+    <br>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </br>
       <th>Jo listatut kurssit</th>
     </tr>
     {% for course in courses %}
@@ -15,13 +21,6 @@
     {% endfor %}
 
   </table>
-
-    <br>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </br>
 
   <form method="POST" action="{{ url_for('courses_create') }}">
     <table>
