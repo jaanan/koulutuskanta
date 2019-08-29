@@ -51,4 +51,19 @@
 
 {% endif %}	
 
+{% if student_materials is defined %}
+<p>
+  Työntekijöiden lukemat materiaalit:
+</p>
+
+<ul>
+  {% for materiaalit in student_materials %}
+  <li>
+    {{materiaalit.Työntekijä}} {{materiaalit.Kurssi}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
 {% endblock %}
