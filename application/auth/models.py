@@ -63,7 +63,8 @@ class User(Base):
     def studentto_course():
         stmt = text('SELECT Account.name AS Työntekijä, Course.name AS Kurssi FROM Account, Course, kurssilainen'
                         ' WHERE Course.id = kurssilainen."course.id"'
-                        ' ORDER BY Course.name')
+                            ' AND Account.id = kurssilainen."account.id"'
+                        ' ORDER BY Account.name')
         
         result = db.engine.execute(stmt)
         ids = []
