@@ -76,9 +76,8 @@ class User(Base):
     
     @staticmethod
     def find_materials_and_users():
-        stmt = text('SELECT Account.name AS Työntekijä, Material.name AS Materiaali FROM kurssimateriaali'
-                     ' JOIN kurssilainen ON kurssilainen."course.id" = kurssimateriaali."course.id"'
-                     ' ORDER BY Material.name')
+        stmt = text('SELECT Account.name AS Työntekijä, Material.name AS Materiaali FROM kurssilainen'
+                     ' JOIN kurssimateriaali ON kurssilainen."course.id" = kurssimateriaali."course.id"')
         
         res = db.engine.execute(stmt)
 
