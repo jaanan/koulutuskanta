@@ -15,7 +15,7 @@ from sqlalchemy.sql import text
 @app.route("/kurssilaistaulu", methods=["GET"])
 @login_required
 def kurssilaistaulu_index():
-    return render_template("kurssilaistaulu/kurssilaistauluform.html", form = StudentForm())
+    return render_template("kurssilaistaulu/kurssilaistauluform.html", form = StudentForm(), course_student=studentto_course())
 
 @app.route("/kurssilaistaulu", methods=["GET", "POST"])
 @login_required
