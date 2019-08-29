@@ -20,6 +20,6 @@ kurssimateriaali = db.Table('kurssimateriaali',
                           db.PrimaryKeyConstraint('course.id', 'material.id'))
 
 kurssilainen = db.Table('kurssilainen',
-                          db.Column('account.id', db.Integer, db.ForeignKey('account.id')),
+                          db.Column('user.id', db.Integer, db.ForeignKey('user.id')),
                           db.Column('course.id', db.Integer, db.ForeignKey('course.id')),
                           db.PrimaryKeyConstraint('account.id', 'course.id'))
