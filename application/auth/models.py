@@ -61,7 +61,7 @@ class User(Base):
     
     @staticmethod
     def studentto_course():
-        stmt = text('SELECT account.name AS Työntekijä, Course.name AS Kurssi FROM Account, Course, kurssilainen'
+        stmt = text('SELECT Account.name AS Työntekijä, Course.name AS Kurssi FROM Account, Course, kurssilainen'
                         ' WHERE Course.id = kurssilainen."course.id"'
                             ' AND Account.id = kurssilainen."account.id"'
                         ' ORDER BY Account.name')
@@ -76,7 +76,7 @@ class User(Base):
     
     @staticmethod
     def find_materials_and_users():
-        stmt = text('SELECT User.name AS Työntekijä, Material.name AS Materiaali FROM account'
+        stmt = text('SELECT account.name AS Työntekijä, Material.name AS Materiaali FROM account'
                      ' INNER JOIN Account ON kurssilainen."course.id" = kurssimateriaali."course.id"'
                      ' INNER JOIN Course ON kurssimateriaali."materiali.id" = Material.id')
         
