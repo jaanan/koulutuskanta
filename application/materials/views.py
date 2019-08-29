@@ -8,6 +8,7 @@ from application.materials.forms import MaterialForm
 from sqlalchemy.sql import text
 
 @app.route("/material", methods=["GET"])
+@login_required
 def material_index():
     return render_template("materials/list.html", materials = Material.query.all())
 
