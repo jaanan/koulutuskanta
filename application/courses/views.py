@@ -8,6 +8,7 @@ from application.courses.forms import CourseForm
 from sqlalchemy.sql import text
 
 @app.route("/course", methods=["GET"])
+@login_required
 def course_index():
     return render_template("courses/list.html", courses = Course.query.all())
 
