@@ -61,7 +61,7 @@ class User(Base):
     
     @staticmethod
     def studentto_course():
-        stmt = text('SELECT Account.name AS Työntekijä, Course.name AS Kurssi FROM Account, Course, kurssilainen'
+        stmt = text('SELECT account.name AS Työntekijä, Course.name AS Kurssi FROM Account, Course, kurssilainen'
                         ' WHERE Course.id = kurssilainen."course.id"'
                             ' AND Account.id = kurssilainen."account.id"'
                         ' ORDER BY Account.name')
