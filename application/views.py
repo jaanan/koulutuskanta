@@ -9,4 +9,5 @@ from flask_login import login_required, current_user
 @app.route("/")
 @login_required
 def index():
-    return render_template("index.html", all_users=User.find_users(), all_materials=Material.find_materials(), course_students=User.studentto_course())
+    return render_template("index.html", all_users=User.find_users(), all_materials=Material.find_materials(), 
+                           course_students=User.studentto_course(), student_materials=User.find_materials_and_users())
