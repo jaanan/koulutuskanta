@@ -2,24 +2,14 @@
 
   {% block body %}
 
-  <table>
-    <br>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </br>	  
+  <table>  
     <tr>
       <th>Jo listatut kurssit</th>
     </tr>
     {% for course in courses %}
     <tr>
       <td>{{ course.name }}</td>
-	<br></br>
-	</br>
     </t>
-
-
     {% endfor %}
 
   </table>
