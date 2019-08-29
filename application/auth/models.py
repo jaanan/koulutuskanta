@@ -72,4 +72,19 @@ class User(Base):
             ids.append({"Työntekijä":row[0], "Kurssi":row[1]})
             
         return ids
+    
+    
+    @staticmethod
+    def find_materials_and_users():
+        stmt = text('SELECT Account.name AS Työntekijä, Material.name AS Materiaali FROM Account, kurssilainen, Material, kurssimateriaali'
+                     ' WHERE kurssilainen."course.id" = kurssimateriaali."course.id"'
+                     ' ORDER BY Account.name')
+        
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"Työntekijä":row[0], "Materiaali":row[1]})
+
+        return response
 
