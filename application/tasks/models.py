@@ -11,7 +11,7 @@ class Task(Base):
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
 
     #Relationships
-    taskmaterials = db.relationship('Material', secondary=koulutusmateriaali, backref=db.backref('koulutusmateriaalit', lazy = 'dynamic'))
+    #taskmaterials = db.relationship('Material', secondary=koulutusmateriaali, backref=db.backref('koulutusmateriaalit', lazy = 'dynamic'))
 
     def __init__(self, name):
         self.name = name
@@ -31,19 +31,6 @@ class Task(Base):
             response.append({"name":row[0]})
 
         return response 
-    
-    @staticmethod
-    def connect_material():
-        stmt = text("SELECT Task.name AS Koulutus, Material.name AS Materiaali FROM Task, Material, koulutusmateriaali"
-                        " WHERE Task.id = koulutusmateriaali.'task.id'"
-                            " AND Material.id = koulutusmateriaali.'material.id';")
-        
-        result = db.engine.execute(stmt)
-        ids = []
-        for row in result:
-            ids.append({"Koulutus":row[0],"Materiaali":row[1]})
-           
-        return ids
 
     @staticmethod
     def connect_account():
@@ -58,17 +45,17 @@ class Task(Base):
            
         return ids
     
-    @staticmethod
-    def connect_taskmaterial():
-        stmt = text("SELECT Account.name AS Työntekijä, Task.name AS Koulutus, Material.name AS Materiaali FROM Account, Task, Material, koulutusmateriaali"
-                        " WHERE Task.id = koulutusmateriaali.'task.id'"
-                            " AND Material.id = koulutusmateriaali.'material.id'"
-                            " AND Account.id = Task.account_id"
-                        " ORDER BY Account.name;")
+    #@staticmethod
+    #def connect_taskmaterial():
+        #stmt = text("SELECT Account.name AS Työntekijä, Task.name AS Koulutus, Material.name AS Materiaali FROM Account, Task, Material, koulutusmateriaali"
+                        #" WHERE Task.id = koulutusmateriaali.'task.id'"
+                            #" AND Material.id = koulutusmateriaali.'material.id'"
+                            #" AND Account.id = Task.account_id"
+                        #" ORDER BY Account.name;")
         
-        result = db.engine.execute(stmt)
-        ids = []
-        for row in result:
-            ids.append({"Työntekijä":row[0],"Koulutus":row[1],"Materiaali":row[2]})
+        #result = db.engine.execute(stmt)
+        #ids = []
+        #for row in result:
+            #ids.append({"Työntekijä":row[0],"Koulutus":row[1],"Materiaali":row[2]})
            
-        return ids
+        #return ids
