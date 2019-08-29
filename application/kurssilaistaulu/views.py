@@ -26,7 +26,7 @@ def student_create():
        return render_template("auth/new.html", form = form)    
 
 
-    opiskelija = Task.query.filter(User.name==form.user.data).first()
+    opiskelija = User.query.filter(User.name==form.user.data).first()
     
     kurssi = Course.query.filter(Course.name==form.course.data).first() 
     
