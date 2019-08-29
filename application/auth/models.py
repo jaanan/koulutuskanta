@@ -57,3 +57,18 @@ class User(Base):
             response.append({"id":row[0], "name":row[1]})
 
         return response
+    
+    
+    @staticmethod
+    def studentto_course():
+        stmt = text("SELECT User.name AS Työntekijä, Course.name AS Kurssi FROM Account, Course, kurssilainen"
+                        " WHERE User.id = kurssilainen.'user.id'"
+                            " AND Course.id = kurssilainen.'course.id';")
+        
+        result = db.engine.execute(stmt)
+        ids = []
+        for row in result:
+            ids.append({"Työntekijä":row[0],"Kurssi":row[1]})
+            
+            return ids
+
