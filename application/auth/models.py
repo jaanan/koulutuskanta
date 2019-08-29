@@ -78,7 +78,7 @@ class User(Base):
     def find_materials_and_users():
         stmt = text('SELECT Account.name AS Työntekijä, Material.name AS Materiaali FROM Account, kurssilainen, Material, kurssimateriaali'
                      ' WHERE kurssilainen."course.id" = kurssimateriaali."course.id"'
-                     ' ORDER BY Account.name')
+                     ' ORDER BY Material.name')
         
         res = db.engine.execute(stmt)
 
