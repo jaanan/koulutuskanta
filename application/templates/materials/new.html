@@ -17,4 +17,14 @@
 	</td>
       </tr>
   </form>
+  <table>
+    <tr>
+      <th>Material</th>
+    </tr>
+    {% for material in materials %}
+    <tr>
+      <td>{{ material.name }}</td>
+    </tr>
+    {% endfor %}
+  </table>
   {% endblock %}
