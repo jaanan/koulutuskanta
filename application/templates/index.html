@@ -36,4 +36,19 @@
 
 {% endif %}
 
+{% if course_students is defined %}
+<p>
+  Millä kursseilla työkaverisi ovat:
+</p>
+
+<ul>
+  {% for kurssilaiset in course_students %}
+  <li>
+    {{kurssilaiset.Työntekijä}} {{kurssilaiset.Kurssi}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}	
+
 {% endblock %}
