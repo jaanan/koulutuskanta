@@ -9,8 +9,12 @@
     {% for course in courses %}
     <tr>
       <td>{{ course.name }}</td>
-    </tr>
+    </t>
+
+
     {% endfor %}
+
+
   </table>
 
   <form method="POST" action="{{ url_for('courses_create') }}">
