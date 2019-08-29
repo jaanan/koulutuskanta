@@ -79,7 +79,8 @@ class User(Base):
         stmt = text('SELECT Account.name AS Työntekijä, Material.name AS Materiaali FROM Account'
                      ' LEFT JOIN kurssilainen ON kurssilainen."account.id" = Account.id'
                      ' LEFT JOIN kurssimateriaali ON kurssilainen."course.id" = kurssimateriaali."course.id"'
-                     ' LEFT JOIN Material ON kurssimateriaali."material.id" = Material.id')
+                     ' LEFT JOIN Material ON kurssimateriaali."material.id" = Material.id'
+                     ' WHERE Material.name IS NOT NULL')
         
         res = db.engine.execute(stmt)
 
