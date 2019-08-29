@@ -1,7 +1,7 @@
   {% extends "layout.html" %}
 
   {% block body %}
-  <table>
+
   <form method="POST" action="{{ url_for('courses_create') }}">
     <table>
       <tr>
@@ -18,10 +18,9 @@
 	</td>
       </tr>
   </form>
-  </table>
 
 
-
+  <table>
     <tr>
       <th>Jo listatut kurssit</th>
     </tr>
@@ -30,6 +29,7 @@
       <td>{{ course.name }}</td>
     </t>
     {% endfor %}
+  </table>
 	  
 	  
   {% endblock %}
