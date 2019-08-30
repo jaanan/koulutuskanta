@@ -1,3 +1,5 @@
+from application import db
+from application.models import Base, roles_users
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_security import current_user, login_required, RoleMixin, Security, \
@@ -5,10 +7,9 @@ from flask_security import current_user, login_required, RoleMixin, Security, \
 
 from wtforms.fields import PasswordField
 
-class Role(db.Model, RoleMixin):
+class Role(Base, RoleMixin):
 
     # Our Role has three fields, ID, name and description
-    id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(80), unique=True)
     description = db.Column(db.String(255))
 
