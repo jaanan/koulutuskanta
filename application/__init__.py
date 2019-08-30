@@ -2,7 +2,7 @@ from flask import Flask
 app = Flask(__name__)
 
 from flask_sqlalchemy import SQLAlchemy
-from flask import login_required, RoleMixin, Security, \
+from flask_security import login_required, RoleMixin, Security, \
     SQLAlchemyUserDatastore, UserMixin, utils
 
 import os
