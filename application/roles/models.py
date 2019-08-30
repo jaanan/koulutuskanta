@@ -2,9 +2,6 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_security import current_user, login_required, RoleMixin, Security, \
     SQLAlchemyUserDatastore, UserMixin, utils
-from flask_mail import Mail
-from flask_admin import Admin
-from flask_admin_contrib import sqla
 
 from wtforms.fields import PasswordField
 
