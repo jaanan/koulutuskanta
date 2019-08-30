@@ -1,6 +1,6 @@
 from application import db
 from application.models import Base, kurssilainen
-from flask.ext.security import current_user, login_required, RoleMixin, Security, \
+from flask_security import current_user, login_required, RoleMixin, Security, \
     SQLAlchemyUserDatastore, UserMixin, utils
 
 from sqlalchemy.sql import text
