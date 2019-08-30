@@ -1,6 +1,6 @@
 from flask import Flask, render_template
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.security import current_user, login_required, RoleMixin, Security, \
+from flask_sqlalchemy import SQLAlchemy
+from flask_security import current_user, login_required, RoleMixin, Security, \
     SQLAlchemyUserDatastore, UserMixin, utils
 from flask_mail import Mail
 from flask.ext.admin import Admin
