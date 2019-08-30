@@ -2,6 +2,8 @@ from flask import Flask
 app = Flask(__name__)
 
 from flask_sqlalchemy import SQLAlchemy
+from flask.ext.security import current_user, login_required, RoleMixin, Security, \
+    SQLAlchemyUserDatastore, UserMixin, utils
 
 import os
 
@@ -15,6 +17,9 @@ else:
 db = SQLAlchemy(app)
 
 from application import views
+
+from application.roles import models
+from application.roles import views
 
 from application.tasks import models
 from application.tasks import views
@@ -50,8 +55,13 @@ def load_user(user_id):
 
 # lisätään edelliseen sulkuun, mikäli saadaan toimimaan, needs_tasks=User.find_users_with_no_tasks()
 
+user_datastore = SQLAlchemyUserDatastore(db, User, Role)
+security = Security(app, user_datastore)
+
 
 try: 
     db.create_all()
+    user_datastore.find_or_create_role(name='admin', description='Administrator')
+    user_datastore.find_or_create_role(name='end-user', description='End user')
 except:
     pass
