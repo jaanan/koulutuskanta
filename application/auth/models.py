@@ -1,5 +1,7 @@
 from application import db
 from application.models import Base, kurssilainen
+from flask.ext.security import current_user, login_required, RoleMixin, Security, \
+    SQLAlchemyUserDatastore, UserMixin, utils
 
 from sqlalchemy.sql import text
 
@@ -13,6 +15,12 @@ class User(Base):
 
     tasks = db.relationship("Task", backref='account', lazy=True)
     courseusers = db.relationship('Course', secondary=kurssilainen, backref=db.backref('kurssilaiset', lazy = 'dynamic'))
+    
+    roles = db.relationship(
+        'Role',
+        secondary=roles_users,
+        backref=db.backref('users', lazy='dynamic')
+    )
   
     def __init__(self, name, username, password):
         self.name = name
