@@ -22,12 +22,14 @@ def required_roles(*roles):
     return wrapper
     
 def is_accessible():
-    stmt = text('SELECT role.name FROM Role'
-                    ' LEFT JOIN roles_users ON role_users."role.id" = Role.id'
-                    ' LEFT JOIN Account ON role_users."account.id" = Account.id'
-                    ' WHERE current_user.id = Account.id')
+
+    res = roles_users.query.filter(roles_users.id==current_user.id).first()
+    #stmt = text('SELECT role.name FROM Role'
+                    #' LEFT JOIN roles_users ON role_users."role.id" = Role.id'
+                    #' LEFT JOIN Account ON role_users."account.id" = Account.id'
+                    #' WHERE current_user.id = Account.id')
                     
-    res = db.engine.execute(stmt)
+    #res = db.engine.execute(stmt)
 
     #response = []
     #for row in res:
