@@ -8,6 +8,7 @@ from application import app, db
 from application.auth.models import User
 from application.roles.models import Role
 from application.roles.forms import RoleForm
+from application.roles.forms import RolesForm
 
 from sqlalchemy.sql import text
 from functools import wraps
