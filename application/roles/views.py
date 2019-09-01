@@ -28,7 +28,7 @@ def is_accessible():
     stmt = text('SELECT Account.id FROM Account'
                     ' LEFT JOIN roles_users ON roles_users."account.id" = Account.id'
                     ' LEFT JOIN Roles ON roles_users."role.id" = Role.id'
-                    ' WHERE Role.name IS "admin"')
+                    ' WHERE Role.name = "admin"')
         
     result = db.engine.execute(stmt)
 
