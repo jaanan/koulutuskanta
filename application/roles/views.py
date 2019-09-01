@@ -28,7 +28,7 @@ def is_accessible():
     m = User.query.filter(User.id==1)
     
     if not (current_user == m): 
-        return 'not admin'
+        return 'admin'
 
     #res = roles_users.query.filter(roles_users.id==current_user.id).first()
     #stmt = text('SELECT Account.name FROM Account'
@@ -49,7 +49,7 @@ def is_accessible():
     #for row in res:
         #response.append({"id":row[0]})
 
-    return 'admin'
+    return 'not admin'
 
 @app.route("/roles", methods=["GET"])
 @login_required
