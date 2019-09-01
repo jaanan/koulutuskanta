@@ -21,3 +21,6 @@ class Role(Base, RoleMixin):
     # __hash__ is required to avoid the exception TypeError: unhashable type: 'Role' when saving a User
     def __hash__(self):
         return hash(self.name)
+    
+    def is_accessible(self):
+        return current_user.has_role('admin')
