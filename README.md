@@ -1,10 +1,10 @@
 # koulutuskanta
 Tietokantasovellus-harjoitustyö loppukesä-2019 
-Sovellus löytyy osoitteesta https://koulutuskanta.herokuapp.com/
+Sovellus löytyy osoitteesta https://koulutuspankki.herokuapp.com/
 
 Testitunnukset sovelluksen tarkasteluun:
-käyttäjätunnus: Ojala 
-salasana: Mäkikotka
+käyttäjätunnus: timonen 
+salasana: 666
 
 Sovelluksessa voi tällä hetkellä:
 -Lisätä uusia käyttäjiä
