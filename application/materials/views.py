@@ -15,7 +15,7 @@ def material_index():
 @app.route("/materials/new/")
 @login_required
 def materials_form():
-    return render_template("materials/new.html", form = MaterialForm(), all_materials=Material.find_materials())
+    return render_template("materials/new.html", form = MaterialForm(), material = Material.query.all())
 
 @app.route("/materials/", methods=["POST"])
 @login_required
