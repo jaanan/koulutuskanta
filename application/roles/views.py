@@ -23,7 +23,7 @@ def roles_form():
 
 
 
-@app.route("/auth/new/", methods=["GET", "POST"])
+@app.route("/roles/new/", methods=["GET", "POST"])
 
 def roles_create():
     if request.method == "POST":
