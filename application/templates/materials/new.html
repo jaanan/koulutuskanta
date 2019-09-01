@@ -18,19 +18,18 @@
       </tr>
   </form>
 
-{% if coursematerials is defined %}
-<p>
-  Materiaalit, joihin kursseilla on perehdytty:
-</p>
+  {% if coursematerials is defined %}
+   <p>
+     Materiaalit, joihin kursseilla on perehdytty:
+   </p>
+    <ul>
+     {% for materials in all_materials %}
+    <li>
+      {{materials.Materiaali}}
+    </li>
+      {% endfor %}
+    </ul>
 
-<ul>
-  {% for coursematerials in course_materials %}
-  <li>
-    {{coursematerials.Kurssi}} {{coursematerials.Materiaali}}
-  </li>
-  {% endfor %}
-</ul>
-
-{% endif %}
+  {% endif %}
 	  
   {% endblock %}
