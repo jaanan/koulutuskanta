@@ -96,4 +96,21 @@ class User(Base):
             response.append({"Työntekijä":row[0], "Materiaali":row[1]})
 
         return response
+    
+        @staticmethod
+        def find_materials_courses_users():
+        stmt = text('SELECT Account.name AS Työntekijä, Course.name AS Kurssi Material.name AS Materiaali FROM Account'
+                     ' LEFT JOIN kurssilainen ON kurssilainen."account.id" = Account.id'
+                     ' LEFT JOIN Course ON kurssilainen."course.id" = Course.id'
+                     ' LEFT JOIN kurssimateriaali ON kurssilainen."course.id" = kurssimateriaali."course.id"'
+                     ' LEFT JOIN Material ON kurssimateriaali."material.id" = Material.id'
+                     ' WHERE Material.name IS NOT NULL')
+        
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"Työntekijä":row[0], "Kurssi":row[1]}, "Materiaali":row[2]})
+
+        return response
 
