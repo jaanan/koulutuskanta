@@ -22,7 +22,7 @@ def required_roles(*roles):
     return wrapper
     
 def is_accessible():
-    stmt = text('SELECT "role.id" FROM role_users'
+    stmt = text('SELECT role.name FROM role_users'
                     ' WHERE current_user.id = "account.id"')
     res = db.engine.execute(stmt)
 
@@ -34,7 +34,7 @@ def is_accessible():
 
 @app.route("/roles", methods=["GET"])
 @login_required
-@required_roles('1')
+@required_roles('admin')
 def roles_index():
     return render_template("roles/roleform.html", form = RoleForm())
 
