@@ -21,7 +21,7 @@ class Course(Base):
     def courseto_material():
         stmt = text("SELECT Course.name AS Kurssi, Material.name AS Materiaali FROM Course, Material, kurssimateriaali"
                         " WHERE Course.id = kurssimateriaali.'course.id'"
-                            " AND Material.id = kurssimateriaali.'material.id';")
+                            " AND Material.id = kurssimateriaali.'material.id'")
         
         result = db.engine.execute(stmt)
         ids = []
