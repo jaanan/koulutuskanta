@@ -12,11 +12,13 @@ from sqlalchemy.sql import text
 @app.route("/roles", methods=["GET"])
 @login_required
 def roles_index():
+    if (Role.is_accessible() == 1):
     return render_template("roles/roleform.html", form = RoleForm())
 
 @app.route("/roles/new/")
 @login_required
 def roles_form():
+    if (Role.is_accessible() == 1):
     return render_template("roles/roleform.html", form = RoleForm(), roles = Role.query.all())
 
 
@@ -25,6 +27,7 @@ def roles_form():
 
 def roles_create():
     if request.method == "POST":
+        if (Role.is_accessible() == 1):
         form = RoleForm(request.form)
         #if User.query.filter(User.name == form.name.data).count() > 0:
             #return render_template("roles/roleform.html", form = RoleForm())
