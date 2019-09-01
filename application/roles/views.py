@@ -10,6 +10,28 @@ from application.roles.forms import RoleForm
 from sqlalchemy.sql import text
 from functools import wraps
 
+def required_roles(*roles):
+    def wrapper(f):
+        @wraps(f)
+        def wrapped(*args, **kwargs):
+            if is_accessible() not in roles:
+                flash('Authentication error, please check your details and try again','error')
+                return redirect(url_for('index'))
+            return f(*args, **kwargs)
+        return wrapped
+    return wrapper
+    
+def is_accessible():
+    stmt = text('SELECT "role.id" FROM role_users'
+                    ' WHERE current_user.id = "account.id"')
+    res = db.engine.execute(stmt)
+
+    response = []
+    for row in res:
+        response.append({"id":row[0]})
+
+    return response 
+
 @app.route("/roles", methods=["GET"])
 @login_required
 @required_roles('1')
