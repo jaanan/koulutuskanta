@@ -87,4 +87,4 @@ def role_maker():
     rooli = Role(form.name.data, form.discription.data)
     db.session.add(rooli)
     db.session.commit()
-return render_template("roles_index", form = RolesForm())
+    return render_template("roles_index", form = RolesForm())
