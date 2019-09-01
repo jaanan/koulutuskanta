@@ -21,26 +21,3 @@ class Role(Base, RoleMixin):
     # __hash__ is required to avoid the exception TypeError: unhashable type: 'Role' when saving a User
     def __hash__(self):
         return hash(self.name)
-    
-    def required_roles(*roles):
-        def wrapper(f):
-            @wraps(f)
-            def wrapped(*args, **kwargs):
-                if is_accessible() not in roles:
-                    flash('Authentication error, please check your details and try again','error')
-                    return redirect(url_for('index'))
-                return f(*args, **kwargs)
-            return wrapped
-        return wrapper
- 
-    @staticmethod
-    def is_accessible():
-        stmt = text('SELECT "role.id" FROM role_users'
-                        ' WHERE current_user.id = "account.id"')
-        res = db.engine.execute(stmt)
-
-        response = []
-        for row in res:
-            response.append({"id":row[0]})
-
-        return response 
