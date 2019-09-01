@@ -8,9 +8,11 @@ from application.roles.models import Role
 from application.roles.forms import RoleForm
 
 from sqlalchemy.sql import text
+from functools import wraps
 
 @app.route("/roles", methods=["GET"])
 @login_required
+#@required_roles('admin')
 def roles_index():
     return render_template("roles/roleform.html", form = RoleForm())
 
