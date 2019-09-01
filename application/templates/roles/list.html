@@ -1,6 +1,20 @@
 {% extends "layout.html" %}
   
 {% block body %}
+
+{{ error }}
+ <p>
+  <th>Järjestelmään jo lisätyt Roolit:</th>
+ </p>
+
+   <ul>
+    {% for roles in roles %}
+      <li>
+	 {{ roles.name }}
+      </li>
+    {% endfor %}
+   </ul>
+
 <form method="POST" action="{{ url_for('role_maker') }}">
  Roolin nimi: {{form.name}}
  Kuvauksen nimi: {{form.discription}}
