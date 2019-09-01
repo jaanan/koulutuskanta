@@ -24,7 +24,7 @@ def required_roles(*roles):
     
 def is_accessible():
     
-    if not (current_user.name = "Bill Gates")
+    if not (current_user.name == "Bill Gates")
         return 'not admin'
 
     #res = roles_users.query.filter(roles_users.id==current_user.id).first()
