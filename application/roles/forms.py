@@ -10,7 +10,7 @@ class RoleForm(FlaskForm):
         
 class RolesForm(FlaskForm):
     name = StringField("Roolin nimi")
-    name = StringField("Kuvauksen nimi")
+    discription = StringField("Kuvauksen nimi")
     
     class Meta:
         csrf = False
