@@ -31,7 +31,7 @@ def student_create():
     kurssi = Course.query.filter(Course.name==form.course.data).first() 
     
     opiskelija.courseusers.append(kurssi)
-    db.session.commit()    
+    db.session().commit()    
     
     #if not(opiskelija.name in kurssi.kurssilaiset):
 
