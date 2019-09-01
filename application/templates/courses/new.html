@@ -3,11 +3,11 @@
   {% block body %}
 
  <table>
-    <p>
-      <th>Järjestelmään jo lisätyt kurssit</th>
-    </p>
     {% for course in courses %}
     <ul>
+     <p>
+      <th>Järjestelmään jo lisätyt kurssit</th>
+     </p>
       <li>
 	 {{ course.name }}
       </li>
