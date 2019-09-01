@@ -66,4 +66,19 @@
 
 {% endif %}
 
+{% if find_everything is defined %}
+<p>
+  Työntekijät kursseilla ja heidän siellä lukemansa materiaalit:
+</p>
+
+<ul>
+  {% for materiaalit in find_everything %}
+  <li>
+    {{materiaalit.Työntekijä}} {{materiaalit.Kurssi}} {{materiaalit.Materiaali}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
 {% endblock %}
