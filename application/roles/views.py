@@ -25,9 +25,9 @@ def required_roles(*roles):
     
 def is_accessible():
     
-    m = User.query.filter(User.id==1)
+    admini = User.query.filter(User.id==1)
     
-    if not (current_user == m): 
+    if not (current_user == admini): 
         return 'admin'
 
     return 'not admin'
