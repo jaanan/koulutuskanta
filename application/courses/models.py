@@ -29,3 +29,5 @@ class Course(Base):
             ids.append({"Kurssi":row[0],"Materiaali":row[1]})
             
         return ids
+
+        #koitetaan päivittää heroku ajan tasalle
