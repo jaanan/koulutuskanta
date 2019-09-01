@@ -1,5 +1,5 @@
 from application import db
-from application.models import Base
+from application.models import Base, kurssimateriaalit
 
 from sqlalchemy.sql import text
 
