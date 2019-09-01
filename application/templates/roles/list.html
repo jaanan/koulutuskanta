@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('role_maker') }}">
+ Roolin nimi: {{form.name}}
+ Kuvauksen nimi: {{form.discription}}
+
+  <input type="submit" value="Lisää uusi rooli"/>
+</form>
+{% endblock %}
