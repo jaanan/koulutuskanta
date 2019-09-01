@@ -42,15 +42,20 @@ def roles_index():
 @required_roles('admin')
 @login_required
 def roles_form():
-    return render_template("roles/roleform.html", form = RoleForm(), roles = Role.query.all())
+    return render_template("roles/roleform.html", form = RoleForm()) 
+                           #roles = Role.query.all()) tätä ei oltu vissiin vielä tehty
 
 
 
-@app.route("/roles/new/", methods=["GET", "POST"])
+@app.route("/roles/new/", methods=["POST"])
 @required_roles('admin')
 def roles_create():
-    if request.method == "POST":
-        form = RoleForm(request.form)
+    form = RoleForm(request.form)
+    #if request.method == "POST":
+        #form = RoleForm(request.form)
+        
+    if not form.validate():
+        return render_template("roles/roleform.html", form = form) 
 
     nimi = User.query.filter(User.name==form.name.data).first()
     
