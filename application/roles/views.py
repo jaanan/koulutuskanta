@@ -27,7 +27,7 @@ def is_accessible():
     
     admini = User.query.filter(User.id==1)
     
-    if not (current_user.id == admini.id): 
+    if not (current_user.name == admini.name): 
         return 'not admin'
 
     return 'admin'
