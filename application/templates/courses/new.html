@@ -7,9 +7,11 @@
       <th>Järjestelmään jo lisätyt kurssit</th>
     </tr>
     {% for course in courses %}
-    <tr>
-      <td>{{ course.name }}</td>
-    </t>
+    <ul>
+      <li>
+	 {{ course.name }}
+      </li>
+    </ul>
     {% endfor %}
   </table>
 
