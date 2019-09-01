@@ -2,6 +2,7 @@ from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user
 from flask_login import login_required, current_user
 from application.models import Base, roles_users
+from flask import flash
 
 from application import app, db
 from application.auth.models import User
