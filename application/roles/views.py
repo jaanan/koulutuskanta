@@ -27,10 +27,10 @@ def is_accessible():
     
     admini = User.query.filter(User.id==1)
     
-    if not (current_user == admini): 
-        return 'admin'
+    if not (current_user.id == admini.id): 
+        return 'not admin'
 
-    return 'not admin'
+    return 'admin'
 
 @app.route("/roles", methods=["GET"])
 @login_required
