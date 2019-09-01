@@ -40,7 +40,7 @@ def roles_create():
     
     if not(nimi.name in rooli.users):
     
-        nimi.users.append(rooli)
+        nimi.roles.append(rooli)
         db.session.commit()       
   
     return redirect(url_for("roles_index"))
