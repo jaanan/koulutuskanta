@@ -41,3 +41,5 @@ def auth_create():
             db.session().commit()
             return render_template("auth/loginform.html", form = LoginForm())
     return render_template("auth/new.html", form = RegistrationForm())
+
+    #koitetaan päivittää heroku ajan tasalle
