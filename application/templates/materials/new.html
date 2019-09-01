@@ -17,14 +17,20 @@
 	</td>
       </tr>
   </form>
-  <table>
-    <tr>
-      <th>Järjestelmään jo lisätyt materiaalit</th>
-    </tr>
-    {% for material in materials %}
-    <tr>
-      <td>{{ material.name }}</td>
-    </tr>
-    {% endfor %}
-  </table>
+
+{% if coursematerials is defined %}
+<p>
+  Materiaalit, joihin kursseilla on perehdytty:
+</p>
+
+<ul>
+  {% for coursematerials in course_materials %}
+  <li>
+    {{coursematerials.Kurssi}} {{coursematerials.Materiaali}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+	  
   {% endblock %}
