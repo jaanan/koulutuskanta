@@ -2,12 +2,13 @@
 
   {% block body %}
 
+ <p>
+  <th>Järjestelmään jo lisätyt kurssit:</th>
+ </p>
+
  <table>
     {% for course in courses %}
     <ul>
-     <p>
-      <th>Järjestelmään jo lisätyt kurssit</th>
-     </p>
       <li>
 	 {{ course.name }}
       </li>
