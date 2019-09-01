@@ -55,6 +55,12 @@ def load_user(user_id):
 
 try: 
     db.create_all()
+    myobject = Role('admin', 'Administrator')
+    db.session.add(myobject)
+    db.session.commit()
+    myrole = Role('end-user', 'End user')
+    db.session.add(myrole)
+    db.session.commit()
     
 except:
     pass
