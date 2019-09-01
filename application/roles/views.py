@@ -39,6 +39,7 @@ def roles_index():
     return render_template("roles/roleform.html", form = RoleForm())
 
 @app.route("/roles/new/")
+@required_roles('admin')
 @login_required
 def roles_form():
     return render_template("roles/roleform.html", form = RoleForm(), roles = Role.query.all())
@@ -46,7 +47,7 @@ def roles_form():
 
 
 @app.route("/roles/new/", methods=["GET", "POST"])
-
+@required_roles('admin')
 def roles_create():
     if request.method == "POST":
         form = RoleForm(request.form)
