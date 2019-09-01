@@ -72,7 +72,7 @@ def roles_create():
 @login_required
 @required_roles('admin')
 def roles_index():
-    return render_template("roles/list.html", roles = Roles.query.all(), form = RolesForm())
+    return render_template("roles/list.html", roles = Role.query.all(), form = RolesForm())
 
 @app.route("/roles", methods=["GET", "POST"])
 @login_required
