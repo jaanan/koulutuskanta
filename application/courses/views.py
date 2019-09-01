@@ -35,4 +35,4 @@ def courses_create():
         db.session().add(t)
         db.session().commit()
   
-    return redirect(url_for("course_index"))
+    return redirect(url_for("/courses/new/"))
