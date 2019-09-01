@@ -4,6 +4,8 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_security import current_user, login_required, RoleMixin, Security, \
     SQLAlchemyUserDatastore, UserMixin, utils
+from functools import wraps
+from flask import flash
 
 from wtforms.fields import PasswordField
 
