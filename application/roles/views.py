@@ -29,11 +29,11 @@ def is_accessible():
                     
     res = db.engine.execute(stmt)
 
-    response = []
-    for row in res:
-        response.append({"id":row[0]})
+    #response = []
+    #for row in res:
+        #response.append({"id":row[0]})
 
-    return response 
+    return res 
 
 @app.route("/roles", methods=["GET"])
 @login_required
