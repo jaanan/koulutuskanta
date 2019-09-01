@@ -12,8 +12,8 @@ from wtforms.fields import PasswordField
 class Role(Base, RoleMixin):
 
     # Our Role has three fields, ID, name and description
-    name = db.Column(db.String(80), unique=True)
-    description = db.Column(db.String(255))
+    name = db.Column(db.String(144), nullable=False)
+    description = db.Column(db.String(144), nullable=False)
 
     # __str__ is required by Flask-Admin, so we can have human-readable values for the Role when editing a User.
     # If we were using Python 2.7, this would be __unicode__ instead.
