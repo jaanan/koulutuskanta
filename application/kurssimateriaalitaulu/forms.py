@@ -7,3 +7,5 @@ class UnionForm(FlaskForm):
 
     class Meta:
         csrf = False
+
+            #koitetaan päivittää heroku ajan tasalle
