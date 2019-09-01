@@ -23,15 +23,15 @@ class Role(Base, RoleMixin):
         return hash(self.name)
     
     def required_roles(*roles):
-    def wrapper(f):
-        @wraps(f)
-        def wrapped(*args, **kwargs):
-            if is_accessible() not in roles:
-                flash('Authentication error, please check your details and try again','error')
-                return redirect(url_for('index'))
-            return f(*args, **kwargs)
-        return wrapped
-    return wrapper
+        def wrapper(f):
+            @wraps(f)
+            def wrapped(*args, **kwargs):
+                if is_accessible() not in roles:
+                    flash('Authentication error, please check your details and try again','error')
+                    return redirect(url_for('index'))
+                return f(*args, **kwargs)
+            return wrapped
+        return wrapper
  
     @staticmethod
     def is_accessible():
