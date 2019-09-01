@@ -55,10 +55,10 @@ def load_user(user_id):
 
 try: 
     db.create_all()
-    myobject = Role('admin', 'Administrator')
+    myobject = Role(name='admin', description='Administrator')
     db.session.add(myobject)
     db.session.commit()
-    myrole = Role('end-user', 'End user')
+    myrole = Role(name='end-user', description='End user')
     db.session.add(myrole)
     db.session.commit()
     
