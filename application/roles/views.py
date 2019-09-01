@@ -23,7 +23,10 @@ def required_roles(*roles):
     
 def is_accessible():
     stmt = text('SELECT role.name FROM role_users'
-                    ' WHERE current_user.id = "account.id"')
+                    ' LEFT JOIN Account ON role_users."account.id" = Account.id'
+                    ' WHERE current_user.id = "account.id"'
+                    ' LEFT JOIN Role ON role_users."role.id" = Role.id')
+                    
     res = db.engine.execute(stmt)
 
     response = []
