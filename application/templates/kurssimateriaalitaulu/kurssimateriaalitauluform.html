@@ -33,11 +33,11 @@
 </p>
 
 <ul>
-  {% for coursematerials in course_materials %}
-  <li>
-    {{coursematerials.Kurssi}} {{coursematerials.Materiaali}}
-  </li>
-  {% endfor %}
+    {% for material in materials %}
+    <tr>
+      <td>{{ material.name }}</td>
+    </tr>
+    {% endfor %}
 </ul>
 
 {% endif %}	
