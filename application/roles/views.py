@@ -44,9 +44,5 @@ def roles_create():
         db.session.commit()       
   
         return redirect(url_for("roles_index"))
-
-        else:
-            return render_template("roles/rolesform.html", form = form,
-                               error = "Käyttäjällä on jo rooli")
             
-    return render_template("roles/roleform.html", form = RoleForm())
+    return return render_template("roles/rolesform.html", form = form, error = "Käyttäjällä on jo rooli")
