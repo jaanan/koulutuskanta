@@ -45,4 +45,4 @@ def roles_create():
   
         return redirect(url_for("roles_index"))
             
-    return return render_template("roles/rolesform.html", form = form, error = "Käyttäjällä on jo rooli")
+    return render_template("roles/rolesform.html", form = form, error = "Käyttäjällä on jo rooli")
