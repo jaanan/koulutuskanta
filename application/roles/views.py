@@ -43,6 +43,10 @@ def roles_create():
         nimi.roles.append(rooli)
         db.session.commit()       
   
-    return redirect(url_for("roles_index"))
+        return redirect(url_for("roles_index"))
+
+        if nimi.name in rooli.users):
+        return render_template("auth/loginform.html", form = form,
+                               error = "Käyttäjällä on jo rooli")
             
     return render_template("roles/roleform.html", form = RoleForm())
