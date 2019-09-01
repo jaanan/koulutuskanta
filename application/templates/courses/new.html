@@ -6,7 +6,6 @@
   <th>Järjestelmään jo lisätyt kurssit:</th>
  </p>
 
- <table>
     {% for course in courses %}
    <ul>
       <li>
@@ -14,7 +13,6 @@
       </li>
     {% endfor %}
    </ul>
-  </table>
 
   <form method="POST" action="{{ url_for('courses_create') }}">
     <table>
