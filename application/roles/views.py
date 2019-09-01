@@ -46,7 +46,7 @@ def roles_create():
         return redirect(url_for("roles_index"))
 
         if (nimi.name in rooli.users):
-        return render_template("roles/rolesform.html", form = form,
+            return render_template("roles/rolesform.html", form = form,
                                error = "Käyttäjällä on jo rooli")
             
     return render_template("roles/roleform.html", form = RoleForm())
