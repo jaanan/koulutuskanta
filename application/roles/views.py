@@ -32,19 +32,17 @@ def is_accessible():
 
     return 'admin'
 
-@app.route("/roles", methods=["GET"])
-@login_required
-@required_roles('admin')
-def roles_index():
-    return render_template("roles/roleform.html", form = RoleForm())
+#@app.route("/roles", methods=["GET"])
+#@login_required
+#@required_roles('admin')
+#def roles_index():
+    #return render_template("roles/roleform.html", form = RolesForm())
 
 @app.route("/roles/new/")
 @required_roles('admin')
 @login_required
 def roles_form():
     return render_template("roles/roleform.html", form = RoleForm(), roles = Role.query.all())
-
-
 
 @app.route("/roles/new/", methods=["POST"])
 @required_roles('admin')
@@ -68,3 +66,24 @@ def roles_create():
         return redirect(url_for("index"))
             
     return render_template("roles/rolesform.html", form = form, error = "Käyttäjällä on jo rooli")
+
+@app.route("/roles", methods=["GET"])
+@login_required
+@required_roles('admin')
+def roles_index():
+    return render_template("roles/list.html", roles = Roles.query.all(), form = RolesForm())
+
+@app.route("/kurssimateriaalitaulu", methods=["GET", "POST"])
+@login_required
+@required_roles('admin')
+def role_maker():
+    form = RolesForm(request.form)
+    
+    if not form.validate():
+       return render_template("roles/list.html", form = form)    
+
+
+    rooli = Role(form.name.data, form.discription.data)
+    db.session.add(rooli)
+    db.session.commit()
+return render_template("roles_index", form = RolesForm())
