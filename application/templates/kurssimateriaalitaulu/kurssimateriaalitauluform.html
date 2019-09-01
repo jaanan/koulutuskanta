@@ -29,15 +29,15 @@
 
 {% if course_materials is defined %}
 <p>
-  Materiaalit, joihin kursseilla on perehdytty:
+  Kurssimateriaalit:
 </p>
 
 <ul>
-    {% for material in materials %}
-    <tr>
-      <td>{{ material.name }}</td>
-    </tr>
-    {% endfor %}
+  {% for kurssimateriaalit in course_materials %}
+  <li>
+    {{kurssimateriaalit.Kurssi}} {{kurssimateriaalit.Materiaali}}
+  </li>
+  {% endfor %}
 </ul>
 
 {% endif %}	
