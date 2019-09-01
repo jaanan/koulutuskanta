@@ -22,5 +22,15 @@ class Role(Base, RoleMixin):
     def __hash__(self):
         return hash(self.name)
     
-    def is_accessible(self):
-        return current_user.has_role('admin')
+ 
+    @staticmethod
+    def is_accessible():
+        stmt = text('SELECT "role.id" FROM role_users'
+                        ' WHERE current_user.id = "account.id"')
+            res = db.engine.execute(stmt)
+
+            response = []
+            for row in res:
+                response.append({"id":row[0]})
+
+            return response 
