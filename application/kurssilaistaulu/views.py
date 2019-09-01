@@ -35,6 +35,6 @@ def student_create():
         opiskelija.courseusers.append(kurssi)
         db.session.commit()       
   
-    return redirect(url_for("/kurssilaistaulu"))
+    return redirect(url_for("kurssilaistaulu_index"))
 
     #koitetaan päivittää heroku ajan tasalle
