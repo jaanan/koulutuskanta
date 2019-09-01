@@ -110,7 +110,7 @@ class User(Base):
 
         response = []
         for row in res:
-            response.append({"Työntekijä":row[0], "Kurssi":row[1]}, "Materiaali":row[2]})
+            response.append({"Työntekijä":row[0], "Kurssi":row[1], "Materiaali":row[2]})
 
         return response
 
