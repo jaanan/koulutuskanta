@@ -2,6 +2,19 @@
 
 {% block body %}
 {{ error }}
+ <p>
+  <th>Järjestelmään jo lisätyt Roolit:</th>
+ </p>
+
+   <ul>
+    {% for roles in roles %}
+      <li>
+	 {{ roles.name }}
+      </li>
+    {% endfor %}
+   </ul>
+
+
 <form method="POST" action="{{ url_for('roles_create') }}">
   <table>
     <tr>
