@@ -12,3 +12,5 @@ class RegistrationForm(FlaskForm):
     name = StringField("Nimi")
     username = StringField("Käyttäjänimi")
     password = PasswordField("Salasana")
+
+    #koitetaan päivittää heroku ajan tasalle
