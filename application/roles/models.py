@@ -43,3 +43,4 @@ class Role(Base, RoleMixin):
             return 'admin'
 
         return 'not admin'
+#tunnistaakohan heroku tän vai mistä johtuu, ettei suostu lisäämään
