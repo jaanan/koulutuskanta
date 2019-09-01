@@ -12,7 +12,7 @@ from functools import wraps
 
 @app.route("/roles", methods=["GET"])
 @login_required
-#@required_roles('admin')
+@required_roles('1')
 def roles_index():
     return render_template("roles/roleform.html", form = RoleForm())
 
