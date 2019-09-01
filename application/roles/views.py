@@ -28,14 +28,7 @@ def roles_form():
 def roles_create():
     if request.method == "POST":
         form = RoleForm(request.form)
-        #if User.query.filter(User.name == form.name.data).count() > 0:
-            #return render_template("roles/roleform.html", form = RoleForm())
-        #else:
-            #user = User(form.name.data)
-            #role = Role(form.role.data)
-            #db.session().add(user)
-            #db.session().commit()
-            #return render_template("roles/rolesform.html", form = RoleForm())
+
     nimi = User.query.filter(User.name==form.name.data).first()
     
     rooli = Role.query.filter(Role.name==form.role.data).first() 
