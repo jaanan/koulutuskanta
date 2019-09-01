@@ -74,7 +74,7 @@ def roles_create():
 def roles_index():
     return render_template("roles/list.html", roles = Roles.query.all(), form = RolesForm())
 
-@app.route("/kurssimateriaalitaulu", methods=["GET", "POST"])
+@app.route("/roles", methods=["GET", "POST"])
 @login_required
 @required_roles('admin')
 def role_maker():
