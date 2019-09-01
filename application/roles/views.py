@@ -12,7 +12,7 @@ from sqlalchemy.sql import text
 @app.route("/roles", methods=["GET"])
 @login_required
 def roles_index():
-    return render_template("roles/roleform.html")
+    return render_template("roles/roleform.html", form = RoleForm())
 
 @app.route("/roles/new/")
 @login_required
