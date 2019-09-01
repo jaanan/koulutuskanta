@@ -36,3 +36,5 @@ def student_create():
         db.session.commit()       
   
     return redirect(url_for("index"))
+
+    #koitetaan päivittää heroku ajan tasalle
