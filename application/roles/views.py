@@ -25,7 +25,14 @@ def required_roles(*roles):
     
 def is_accessible():
     
-    admini = User.query.filter(User.id==1).first()
+    stmt = text('SELECT Account.id FROM Account'
+                    ' LEFT JOIN roles_users ON roles_users."account.id" = Account.id'
+                    ' LEFT JOIN Roles ON roles_users."role.id" = Role.id'
+                    ' WHERE Role.name IS 'admin')
+        
+    result = db.engine.execute(stmt)
+
+    admini = User.query.filter(User.id==result).first()
     
     if not (current_user.name == admini.name): 
         return 'not admin'
