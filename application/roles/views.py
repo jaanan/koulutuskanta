@@ -42,8 +42,7 @@ def roles_index():
 @required_roles('admin')
 @login_required
 def roles_form():
-    return render_template("roles/roleform.html", form = RoleForm()) 
-                           #roles = Role.query.all()) tätä ei oltu vissiin vielä tehty
+    return render_template("roles/roleform.html", form = RoleForm(), roles = Role.query.all())
 
 
 
