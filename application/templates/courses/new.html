@@ -8,12 +8,12 @@
 
  <table>
     {% for course in courses %}
-    <ul>
+   <ul>
       <li>
 	 {{ course.name }}
       </li>
-    </ul>
     {% endfor %}
+   </ul>
   </table>
 
   <form method="POST" action="{{ url_for('courses_create') }}">
