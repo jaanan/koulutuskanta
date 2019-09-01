@@ -18,18 +18,15 @@
       </tr>
   </form>
 
-  {% if all_materials is defined %}
-   <p>
-     Materiaalit, joihin kursseilla on perehdytty:
-   </p>
-    <ul>
-     {% for materials in all_materials %}
-    <li>
-      {{materials.Materiaali}}
-    </li>
-      {% endfor %}
-    </ul>
-
-  {% endif %}
+  <table>
+    <tr>
+      <th>Järjestelmään lisätyt materiaalit</th>
+    </tr>
+    {% for material in materials %}
+    <tr>
+      <td>{{ material.name }}</td>
+    </tr>
+    {% endfor %}
+  </table>
 	  
   {% endblock %}
