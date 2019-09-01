@@ -35,4 +35,4 @@ def materials_create():
         db.session().add(t)
         db.session().commit()
   
-    return redirect(url_for("materials_create"))
+    return redirect(url_for("materials_form"))
