@@ -25,5 +25,5 @@ kurssilainen = db.Table('kurssilainen',
                           db.PrimaryKeyConstraint('account.id', 'course.id'))
 roles_users = db.Table('roles_users',
                           db.Column('account.id', db.Integer, db.ForeignKey('account.id')),
-                          db.Column('role.id', db.Integer, db.ForeignKey('role.id'))),
+                          db.Column('role.id', db.Integer, db.ForeignKey('role.id')),
                           db.PrimaryKeyConstraint('account.id', 'role.id'))
