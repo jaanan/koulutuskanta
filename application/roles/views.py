@@ -59,14 +59,14 @@ def roles_create():
     
     rooli = Role.query.filter(Role.name==form.role.data).first() 
     
-    if not(nimi.name in rooli.users):
+    if not(nimi.name in rooli.brusers):
     
         nimi.roles.append(rooli)
         db.session.commit()       
   
         return redirect(url_for("index"))
             
-    return render_template("roles/rolesform.html", form = form, error = "Käyttäjällä on jo rooli")
+    return render_template("roles/rolesform.html", form = RoleForm(), error = "Käyttäjällä on jo rooli")
 
 @app.route("/roles", methods=["GET"])
 @login_required
@@ -81,11 +81,10 @@ def role_maker():
     form = RolesForm(request.form)
     
     if not form.validate():
-       return render_template("roles/list.html", form = form)    
+       return redirect(url_for("index"))  
 
 
     rooli = Role(form.name.data, form.discription.data)
-    db.session().add(rooli)
-    db.session().commit()
-    return redirect(url_for("index"))
-    #return render_template("roles/list.html", roles = Role.query.all(), form = RolesForm())
+    db.session.add(rooli)
+    db.session.commit()
+    return render_template("roles/list.html", roles = Role.query.all(), form = RolesForm(), error = "Ei saatu lisättyä käyttäjäroolia")
