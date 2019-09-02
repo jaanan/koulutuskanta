@@ -64,7 +64,7 @@ def roles_create():
         nimi.roles.append(rooli)
         db.session.commit()       
   
-        return redirect(url_for("index"))
+        return redirect(url_for("auth_create"))
             
     return render_template("roles/rolesform.html", form = RoleForm(), error = "Käyttäjällä on jo rooli")
 
