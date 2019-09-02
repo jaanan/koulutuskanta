@@ -3,6 +3,18 @@
 {% block body %}
 {{ error }}
 
+ <p>
+  <th>Järjestelmään lisätyt kurssit:</th>
+ </p>
+
+   <ul>
+    {% for course in courses %}
+      <li>
+	 {{ course.name }}
+      </li>
+    {% endfor %}
+   </ul>
+
 {% if course_students is defined %}
 <p>
   Millä kursseilla työkaverisi ovat:
