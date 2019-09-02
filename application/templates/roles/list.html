@@ -16,12 +16,12 @@
    </ul>
 
  <p>
-  <th>Mikäli järjestelmään ei ole vielä lisätty käyttäjärooleja, lisää roolit admin ja end-user. </br>Adminin kuvaus on Administrator, end-userin End user. </br> </br> </th>
+	 <th>Mikäli järjestelmään ei ole vielä lisätty käyttäjärooleja, lisää roolit</br>Roolin nimi: admin Kuvaus: Administrator</br>Roolin nimi: end-user Kuvaus:Enduser</br> </br> </th>
  </p>
 
 <form method="POST" action="{{ url_for('role_maker') }}">
  Roolin nimi: {{form.name}}
- Kuvauksen nimi: {{form.description}}
+ Kuvaus: {{form.description}}
 
   <input type="submit" value="Lisää uusi rooli"/>
 </form>
