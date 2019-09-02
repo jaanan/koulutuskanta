@@ -4,7 +4,7 @@ Sovellus löytyy osoitteesta https://koulutuskanta.herokuapp.com
 
 Testitunnukset sovelluksen tarkasteluun
 käyttäjätunnus: Bill 
-salasana: 666
+salasana: Windows
 
 (nimi: Bill Gates)
 
