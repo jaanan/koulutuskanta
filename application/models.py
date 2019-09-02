@@ -23,3 +23,5 @@ roles_users = db.Table('roles_users',
                           db.Column('account.id', db.Integer, db.ForeignKey('account.id')),
                           db.Column('role.id', db.Integer, db.ForeignKey('role.id')),
                           db.PrimaryKeyConstraint('account.id', 'role.id'))
+
+#koitetaan, jos päivittyis herokuun. näyttää olevan ihan ok. 
