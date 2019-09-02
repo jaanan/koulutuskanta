@@ -87,4 +87,4 @@ def role_maker():
     rooli = Role(name=form.name.data, description=form.description.data)
     db.session.add(rooli)
     db.session.commit()
-    return render_template("roles/list.html", roles = Role.query.all(), form = RolesForm(), error = "Ei saatu lisättyä käyttäjäroolia")
+    return render_template("roles/list.html", roles = Role.query.all(), form = RolesForm())
