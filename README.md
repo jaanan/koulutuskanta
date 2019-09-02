@@ -37,9 +37,7 @@ Koulutuskanta on järjestelmä, jolla voidaan seurata työpaikalla suoritettuja 
 * Käyttäjäroolin lisääminen
 * Käyttäjän liittäminen käyttäjärooliin
 
-###Raportit:
-
-Linkin 'Koulutuskanta' takaa löytyy listat
+###Koulutuskannasta löytyvät raportit
 - Järjestelmän tuntemista käyttäjistä
 - Järjestelmään lisätyistä kurssimateriaaleista
 - Järjestelmään lisätyistä kurssilaisista
