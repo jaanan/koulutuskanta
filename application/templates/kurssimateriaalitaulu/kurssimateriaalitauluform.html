@@ -2,6 +2,32 @@
 
 {% block body %}
 {{ error }}
+
+ <p>
+  <th>Järjestelmään lisätyt kurssit:</th>
+ </p>
+
+   <ul>
+    {% for course in courses %}
+      <li>
+	 {{ course.name }}
+      </li>
+    {% endfor %}
+   </ul>
+
+ <p>
+  <th>Järjestelmään lisätyt Materiaalit:</th>
+ </p>
+
+   <ul>
+    {% for material in materials %}
+      <li>
+	 {{ material.name }}
+      </li>
+    {% endfor %}
+   </ul>
+
+
 <form method="POST" action="{{ url_for('union_create') }}">
   <table>
     <tr>
