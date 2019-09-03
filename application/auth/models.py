@@ -65,9 +65,9 @@ class User(Base):
     
     @staticmethod
     def studentto_course():
-        stmt = text("SELECT Account.name AS Työntekijä, Course.name AS Kurssi FROM Account, Course, kurssilainen"
-                        " WHERE Course.id = kurssilainen.'course.id'"
-                            " AND Account.id = kurssilainen.'account.id'")
+        stmt = text('SELECT Account.name AS Työntekijä, Course.name AS Kurssi FROM Account, Course, kurssilainen'
+                        ' WHERE Course.id = kurssilainen."course.id"' 
+                            ' AND Account.id = kurssilainen."account.id"')
         
         result = db.engine.execute(stmt)
         ids = []
