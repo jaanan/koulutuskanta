@@ -76,9 +76,22 @@ class User(Base):
             
         return ids
     
-    
     @staticmethod
     def find_materials_and_users():
+        stmt = text('SELECT Course.name AS kurssi, COUNT(*) AS materiaaleja FROM Course, kurssimateriaali'
+                     ' WHERE Course.id = kurssimateriaali."course.id"'
+                     ' GROUP BY Course.name')
+        
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"Työntekijä":row[0], "Materiaali":row[1]})
+
+        return response
+   
+    @staticmethod
+    def find_materiaalit_and_users():
         stmt = text('SELECT Account.name AS Työntekijä, Material.name AS Materiaali FROM Account'
                      ' LEFT JOIN kurssilainen ON kurssilainen."account.id" = Account.id'
                      ' LEFT JOIN kurssimateriaali ON kurssilainen."course.id" = kurssimateriaali."course.id"'
