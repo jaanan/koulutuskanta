@@ -66,8 +66,8 @@ class User(Base):
     @staticmethod
     def studentto_course():
         stmt = text("SELECT Account.name AS Työntekijä, Course.name AS Kurssi FROM Account, Course, kurssilainen"
-                        " WHERE Course.id = kurssilainen.'course.id'"
-                            " AND Account.id = kurssilainen.'account.id'")
+                        " WHERE Course.id = kurssilainen.'course_id'"
+                            " AND Account.id = kurssilainen.'account_id'")
         
         result = db.engine.execute(stmt)
         ids = []
@@ -80,9 +80,9 @@ class User(Base):
     @staticmethod
     def find_materials_and_users():
         stmt = text('SELECT Account.name AS Työntekijä, Material.name AS Materiaali FROM Account'
-                     ' LEFT JOIN kurssilainen ON kurssilainen."account.id" = Account.id'
-                     ' LEFT JOIN kurssimateriaali ON kurssilainen."course.id" = kurssimateriaali."course.id"'
-                     ' LEFT JOIN Material ON kurssimateriaali."material.id" = Material.id'
+                     ' LEFT JOIN kurssilainen ON kurssilainen."account_id" = Account.id'
+                     ' LEFT JOIN kurssimateriaali ON kurssilainen."course.id" = kurssimateriaali."course_id"'
+                     ' LEFT JOIN Material ON kurssimateriaali."material_id" = Material.id'
                      ' WHERE Material.name IS NOT NULL')
         
         res = db.engine.execute(stmt)
@@ -96,10 +96,10 @@ class User(Base):
     @staticmethod
     def find_materials_courses_users():
         stmt = text('SELECT Account.name AS Työntekijä, Course.name AS Kurssi, Material.name AS Materiaali FROM Account'
-                     ' LEFT JOIN kurssilainen ON kurssilainen."account.id" = Account.id'
-                     ' LEFT JOIN Course ON kurssilainen."course.id" = Course.id'
-                     ' LEFT JOIN kurssimateriaali ON kurssilainen."course.id" = kurssimateriaali."course.id"'
-                     ' LEFT JOIN Material ON kurssimateriaali."material.id" = Material.id'
+                     ' LEFT JOIN kurssilainen ON kurssilainen."account_id" = Account.id'
+                     ' LEFT JOIN Course ON kurssilainen."course_id" = Course.id'
+                     ' LEFT JOIN kurssimateriaali ON kurssilainen."course_id" = kurssimateriaali."course_id"'
+                     ' LEFT JOIN Material ON kurssimateriaali."material_id" = Material.id'
                      ' WHERE Material.name IS NOT NULL')
         
         res = db.engine.execute(stmt)
