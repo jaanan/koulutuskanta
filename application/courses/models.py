@@ -14,12 +14,12 @@ class Course(Base):
         self.name = name
         self.done = False
         
-    def get_id(name):
+    def get_id(self):
         return id        
 
     @staticmethod
     def courseto_material():
-        stmt = text('SELECT Course.name AS Kurssi, Material.name AS Materiaali FROM Course, Material, kurssimateriaali"
+        stmt = text('SELECT Course.name AS Kurssi, Material.name AS Materiaali FROM Course, Material, kurssimateriaali'
                         ' WHERE Course.id = kurssimateriaali."course_id"' 
                             ' AND Material.id = kurssimateriaali."material_id"')
         
