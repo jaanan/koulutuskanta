@@ -15,29 +15,29 @@ class Task(Base):
         self.done = False
         
     def get_id(name):
-        return id        
+        return id 
         
-    @staticmethod
-    def find_tasks():
-        stmt = text("SELECT Task.name FROM Task"
-                        " GROUP BY Task.name;")
-        res = db.engine.execute(stmt)
+    #@staticmethod
+    #def find_tasks():
+    #    stmt = text("SELECT Task.name FROM Task"
+    #                    " GROUP BY Task.name;")
+    #    res = db.engine.execute(stmt)
 
-        response = []
-        for row in res:
-            response.append({"name":row[0]})
+    #    response = []
+    #    for row in res:
+    #        response.append({"name":row[0]})
 
-        return response 
+    #    return response 
 
-    @staticmethod
-    def connect_account():
-        stmt = text("SELECT Account.name AS Työntekijä, Task.name AS Koulutus  FROM Task, Account"
-                        " WHERE Account.id = Task.account_id"
-                        " ORDER BY Account.name;")
+    #@staticmethod
+    #def connect_account():
+        #stmt = text("SELECT Account.name AS Työntekijä, Task.name AS Koulutus  FROM Task, Account"
+        #                " WHERE Account.id = Task.account_id"
+        #                " ORDER BY Account.name;")
         
-        result = db.engine.execute(stmt)
-        ids = []
-        for row in result:
-            ids.append({"Työntekijä":row[0],"Koulutus":row[1]})
+        #result = db.engine.execute(stmt)
+        #ids = []
+        #for row in result:
+        #    ids.append({"Työntekijä":row[0],"Koulutus":row[1]})
            
-        return ids
+        #return ids
