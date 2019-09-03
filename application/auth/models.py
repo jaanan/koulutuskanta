@@ -39,7 +39,7 @@ class User(Base):
     @staticmethod
     def find_users_with_no_tasks():
         stmt = text("SELECT Account.id, Account.name FROM Account"
-                     " LEFT JOIN Task ON Task.account_id = Account.id"
+                     " LEFT JOIN Task ON Task.account.id = Account.id"
                      " WHERE (Task.done IS null OR Task.done = 1)"
                      " GROUP BY Account.id"
                      " HAVING COUNT(Task.id) = 0")
@@ -80,7 +80,7 @@ class User(Base):
     @staticmethod
     def find_materials_and_users():
         stmt = text('SELECT Account.name AS Työntekijä, Material.name AS Materiaali FROM Account'
-                     ' LEFT JOIN kurssilainen ON kurssilainen."account_id" = Account.id'
+                     ' LEFT JOIN kurssilainen ON kurssilainen."account.id" = Account.id'
                      ' LEFT JOIN kurssimateriaali ON kurssilainen."course.id" = kurssimateriaali."course.id"'
                      ' LEFT JOIN Material ON kurssimateriaali."material.id" = Material.id'
                      ' WHERE Material.name IS NOT NULL')
@@ -109,5 +109,4 @@ class User(Base):
             response.append({"Työntekijä":row[0], "Kurssi":row[1], "Materiaali":row[2]})
 
         return response
-
-        #koitetaan päivittää heroku ajan tasalle
+        
