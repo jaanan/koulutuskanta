@@ -20,8 +20,8 @@ class Course(Base):
     @staticmethod
     def courseto_material():
         stmt = text('SELECT Course.name AS Kurssi, Material.name AS Materiaali FROM Course, Material, kurssimateriaali'
-                        ' WHERE Course.id = kurssimateriaali."course_id"' 
-                            ' AND Material.id = kurssimateriaali."material_id"')
+                        ' WHERE Course.id = kurssimateriaali."course.id"' 
+                            ' AND Material.id = kurssimateriaali."materialid"')
         
         result = db.engine.execute(stmt)
         ids = []
