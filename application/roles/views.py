@@ -37,28 +37,28 @@ def is_accessible():
 def roles_form():
     return render_template("roles/roleform.html", form = RoleForm(), roles = Role.query.all())
 
-@app.route("/roles/new/", methods=["POST"])
-@required_roles('admin')
-def roles_create():
-    form = RoleForm(request.form)
-    #if request.method == "POST":
-        #form = RoleForm(request.form)
+#@app.route("/roles/new/", methods=["POST"])
+#@required_roles('admin')
+#def roles_create():
+#    form = RoleForm(request.form)
+#    #if request.method == "POST":
+#        #form = RoleForm(request.form)
         
-    if not form.validate():
-        return render_template("roles/roleform.html", form = form) 
+#    if not form.validate():
+#        return render_template("roles/roleform.html", form = form) 
 
-    nimi = User.query.filter(User.name==form.name.data).first()
+#    nimi = User.query.filter(User.name==form.name.data).first()
     
-    rooli = Role.query.filter(Role.name==form.role.data).first() 
+#    rooli = Role.query.filter(Role.name==form.role.data).first() 
     
-    if not(nimi.name in rooli.brusers):
+#    if not(nimi.name in rooli.brusers):
     
-        nimi.roles.append(rooli)
-        db.session.commit()       
+#        nimi.roles.append(rooli)
+#        db.session.commit()       
   
-        return redirect(url_for("auth_create"))
+#        return redirect(url_for("auth_create"))
             
-    return render_template("roles/rolesform.html", form = RoleForm(), error = "Käyttäjällä on jo rooli")
+#    return render_template("roles/rolesform.html", form = RoleForm(), error = "Käyttäjällä on jo rooli")
 
 @app.route("/roles", methods=["GET"])
 @login_required
