@@ -85,6 +85,7 @@ def roles_create():
     if (user_to_be_changed.role == True):
         user_to_be_changed.role = False
         db.session.commit()
+        return redirect(url_for("index"))
 
     user_to_be_changed.role = True
     db.session.commit()           
