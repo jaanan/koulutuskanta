@@ -103,8 +103,6 @@ def name_change():
     if not form.validate():
        return render_template("auth/loginform.html", form = LoginForm())  
 
-    user_to_be_changed = current_user.id
-
-    user_to_be_changed.name= (form.name.data)
+    current_user.name = (form.name.data)
     db.session.commit()
     return render_template("auth/personal.html")
