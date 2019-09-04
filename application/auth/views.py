@@ -23,7 +23,7 @@ def auth_login():
 
 
     login_user(user)
-    return redirect(url_for("pesonal_space"))
+    return redirect(url_for("personal_space"))
 
 @app.route("/auth/logout")
 def auth_logout():
@@ -46,6 +46,6 @@ def auth_create():
 
 @app.route("/auth/personal/", methods=["GET", "POST"])
 @login_required
-def pesonal_space():
+def personal_space():
     return render_template("auth/personal.html")
 
