@@ -26,7 +26,7 @@ def auth_login():
 @app.route("/auth/logout")
 def auth_logout():
     logout_user()
-    return redirect(url_for("index"))
+    return redirect(url_for("/auth/<current_user.id>/"))
 
 @app.route("/auth/new/", methods=["GET", "POST"])
 
@@ -42,4 +42,8 @@ def auth_create():
             return render_template("auth/loginform.html", form = LoginForm())
     return render_template("auth/new.html", form = RegistrationForm())
 
-    #koitetaan päivittää heroku ajan tasalle
+@app.route("/auth/<current_user.id>/", methods=["GET", "POST"])
+@login_required
+def pesonal_space():
+    return render_template("personal.html")
+

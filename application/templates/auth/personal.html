@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+
+<p>
+    Hei, {{current_user.name}}, 
+    <br></br>
+    tässä syöttämäsi tiedot: 
+    <br></br>
+    käyttäjänimi: {{current_user.username}}
+    käyttäjänimi: {{current_user.password}}
+    <br></br>
+    Mikäli haluat vaihtaa näitä, se ei valitettavasti vielä ole mahdollista :/
+</p>
+{% endblock %}

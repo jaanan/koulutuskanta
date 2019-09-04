@@ -37,10 +37,9 @@ class Role(Base, RoleMixin):
 
     def is_accessible():
 
-        m = User.query.filter(User.id==1)
+        m = flask_security.current_user.id
 
-        if not (current_user == m): 
+        if not (m.role == True): 
             return 'admin'
 
         return 'not admin'
-#tunnistaakohan heroku tän vai mistä johtuu, ettei suostu lisäämään
