@@ -94,9 +94,9 @@ def personal_space():
 @app.route("/auth/personal/", methods=["GET", "POST"])
 @login_required
 def name_change():
-    if request.method == "GET":
-        return render_template("auth/personal.html", form = NameChangeForm())
-
+    
+    form = NameChangeForm()
+    
     if not form.validate():
        return render_template("auth/loginform.html", form = LoginForm())  
 
@@ -109,9 +109,8 @@ def name_change():
 @app.route("/auth/personal/", methods=["GET", "POST"])
 @login_required
 def username_change():
-    if request.method == "GET":
-        return render_template("auth/personal.html", form = UserChangeForm())
-
+    
+    form = UserChangeForm()
     if not form.validate():
        return render_template("auth/loginform.html", form = LoginForm())  
 
@@ -124,9 +123,8 @@ def username_change():
 @app.route("/auth/personal/", methods=["GET", "POST"])
 @login_required
 def password_change():
-    if request.method == "GET":
-        return render_template("auth/personal.html", form = PasswordChangeForm())
 
+    form = PasswordChangeForm()
     if not form.validate():
        return render_template("auth/loginform.html", form = LoginForm())  
 
