@@ -88,4 +88,4 @@ def roles_create():
 
     user_to_be_changed.role = True
     db.session.commit()           
-    return render_template("roles/list.html", form = RolesForm())
+    return redirect(url_for("index"))
