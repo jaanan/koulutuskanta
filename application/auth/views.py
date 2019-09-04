@@ -71,7 +71,7 @@ def personal_space():
 @app.route("/roles", methods=["GET", "POST"])
 @login_required
 @required_roles('admin')
-def role_maker():
+def roles_create():
     form = RolesForm(request.form)
     
     if not form.validate():
@@ -80,9 +80,9 @@ def role_maker():
     user_to_be_changed = User.query.filter(name=form.name.data).first()
 
     if (user_to_be_changed.role == True):
-        rows_changed = User.query.filter(name=form.name.data).update(dict(role='False'))
+        user_to_be_changed.role = False
         db.session.commit()
 
-    rows_changed = User.query.filter(name=form.name.data).update(dict(role='True'))
+    user_to_be_changed.role = True
     db.session.commit()           
     return render_template("roles/list.html", form = RolesForm())
