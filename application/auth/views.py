@@ -5,8 +5,7 @@ from flask_security import current_user, login_required, RoleMixin, Security, \
 
 from application import app, db
 from application.auth.models import User
-from application.auth.forms import RegistrationForm
-from application.auth.forms import LoginForm
+from application.auth.forms import LoginForm, RolesForm, RegistrationForm
 
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
@@ -49,3 +48,21 @@ def auth_create():
 def personal_space():
     return render_template("auth/personal.html")
 
+@app.route("/roles", methods=["GET", "POST"])
+@login_required
+@required_roles('admin')
+def role_maker():
+    form = RolesForm(request.form)
+    
+    if not form.validate():
+       return redirect(url_for("personal_space"))  
+
+    user_to_be_changed = User.query.filter(name=form.name.data).first()
+
+    if (user_to_be_changed.role == True):
+        rows_changed = User.query.filter(name=form.name.data).update(dict(role='False'))
+        db.session.commit()
+        else:
+            rows_changed = User.query.filter(name=form.name.data).update(dict(role='True'))
+            db.session.commit()           
+    return render_template("roles/list.html", form = RolesForm())

@@ -8,7 +8,7 @@ from application import app, db
 from application.auth.models import User
 from application.roles.models import Role
 from application.roles.forms import RoleForm
-from application.roles.forms import RolesForm
+#from application.roles.forms import RolesForm
 
 from sqlalchemy.sql import text
 from functools import wraps
@@ -19,25 +19,17 @@ def required_roles(*roles):
         def wrapped(*args, **kwargs):
             if is_accessible() not in roles:
                 flash('Authentication error, please check your details and try again','error')
-                return redirect(url_for('index'))
+                return redirect(url_for('personal_space'))
             return f(*args, **kwargs)
         return wrapped
     return wrapper
     
 def is_accessible():
-
-    admini = User.query.filter(User.id==1).first()
     
-    if not (current_user.name == admini.name): 
+    if not (current_user.role == True): 
         return 'not admin'
 
     return 'admin'
-
-#@app.route("/roles", methods=["GET"])
-#@login_required
-#@required_roles('admin')
-#def roles_index():
-    #return render_template("roles/roleform.html", form = RolesForm())
 
 @app.route("/roles/new/")
 @required_roles('admin')
@@ -74,17 +66,17 @@ def roles_create():
 def roles_index():
     return render_template("roles/list.html", roles = Role.query.all(), form = RolesForm())
 
-@app.route("/roles", methods=["GET", "POST"])
-@login_required
-@required_roles('admin')
-def role_maker():
-    form = RolesForm(request.form)
+#@app.route("/roles", methods=["GET", "POST"])
+#@login_required
+#@required_roles('admin')
+#def role_maker():
+#    form = RolesForm(request.form)
     
-    if not form.validate():
-       return redirect(url_for("index"))  
+#    if not form.validate():
+#       return redirect(url_for("index"))  
 
 
-    rooli = Role(name=form.name.data, description=form.description.data)
-    db.session.add(rooli)
-    db.session.commit()
-    return render_template("roles/list.html", roles = Role.query.all(), form = RolesForm())
+#    rooli = Role(name=form.name.data, description=form.description.data)
+#    db.session.add(rooli)
+#    db.session.commit()
+#    return render_template("roles/list.html", roles = Role.query.all(), form = RolesForm())

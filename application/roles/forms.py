@@ -3,14 +3,14 @@ from wtforms import PasswordField, StringField
   
 class RoleForm(FlaskForm):
     name = StringField("Nimi")
-    role = StringField("Rooli")
+    #role = StringField("Rooli")
   
     class Meta:
         csrf = False
         
-class RolesForm(FlaskForm):
-    name = StringField("Roolin nimi")
-    description = StringField("Kuvauksen nimi")
+#class RolesForm(FlaskForm):
+#    name = StringField("Roolin nimi")
+#    description = StringField("Kuvauksen nimi")
     
-    class Meta:
-        csrf = False
+#    class Meta:
+#        csrf = False

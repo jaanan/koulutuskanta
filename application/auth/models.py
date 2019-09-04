@@ -37,6 +37,24 @@ class User(Base):
     def is_authenticated(self):
         return True
 
+    def required_roles(*roles):
+        def wrapper(f):
+            @wraps(f)
+            def wrapped(*args, **kwargs):
+                if is_accessible() not in roles:
+                    flash('Authentication error, please check your details and try again','error')
+                    return redirect(url_for('index'))
+                return f(*args, **kwargs)
+            return wrapped
+        return wrapper
+
+    def is_accessible():
+
+        if not (current_user.role == True): 
+            return 'not admin'
+
+        return 'admin'    
+
 
     @staticmethod
     def find_users_with_no_tasks():

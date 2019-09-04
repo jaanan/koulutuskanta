@@ -13,4 +13,9 @@ class RegistrationForm(FlaskForm):
     username = StringField("Käyttäjänimi")
     password = PasswordField("Salasana")
 
-    #koitetaan päivittää heroku ajan tasalle
+class RolesForm(FlaskForm):
+    name = StringField("Roolin nimi")
+    description = StringField("Kuvauksen nimi")
+    
+    class Meta:
+        csrf = False
