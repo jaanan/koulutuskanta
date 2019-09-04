@@ -19,11 +19,11 @@ class RolesForm(FlaskForm):
     class Meta:
         csrf = False
 
-class NameChangeForm(FlaskForm):
-    name = StringField("Anna uusi nimi")
-    
-    class Meta:
-        csrf = False
+#class NameChangeForm(FlaskForm):
+#    name = StringField("Anna uusi nimi")
+   
+#    class Meta:
+#        csrf = False
 
 class U_nameChangeForm(FlaskForm):
     username = StringField("Anna uusi käyttäjänimi")

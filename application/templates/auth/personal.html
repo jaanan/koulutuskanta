@@ -13,22 +13,4 @@
     Mikäli haluat vaihtaa näitä, kirjoita uudet tiedot alle sopiviin kenttiin
 </p>
 
-<form method="POST" action="{{ url_for('name_change') }}">
-    <table>
-        <tr>
-        <td>
-          {{ form.name.label }}
-        </td>
-        <td>
-          {{ form.name }}
-        </td>
-        </tr>
-        <tr>
-        <td colspan="2">
-          <input type="submit" value="Muuta"/>
-        </td>
-        </tr>
-    </table>  
-</form>     
-
 {% endblock %}
