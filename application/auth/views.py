@@ -76,11 +76,11 @@ def roles_create():
         return render_template("roles/roleform.html", form = RolesForm())
     
     form = RolesForm()
-    
+
     if not form.validate():
        return redirect(url_for("personal_space"))  
 
-    user_to_be_changed = User.query.filter(name=form.name.data).first()
+    user_to_be_changed = User.query.filter(User.name == form.name.data).first()
 
     if (user_to_be_changed.role == True):
         user_to_be_changed.role = False

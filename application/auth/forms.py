@@ -14,8 +14,7 @@ class RegistrationForm(FlaskForm):
     password = PasswordField("Salasana")
 
 class RolesForm(FlaskForm):
-    name = StringField("Roolin nimi")
-    description = StringField("Kuvauksen nimi")
+    name = StringField("Työntekijän nimi")
     
     class Meta:
         csrf = False
