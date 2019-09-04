@@ -72,7 +72,8 @@ def personal_space():
 @login_required
 @required_roles('admin')
 def roles_create():
-    form = RolesForm(request.form)
+    if request.method == "GET":
+        return render_template("roles/roleform.html", form = RolesForm())
     
     if not form.validate():
        return redirect(url_for("personal_space"))  
