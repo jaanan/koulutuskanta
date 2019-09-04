@@ -5,7 +5,26 @@ from application.tasks.models import Task
 from application.materials.models import Material
 from application.courses.models import Course
 from flask_login import login_required, current_user
-from application.auth.models import required_roles
+from flask import flash
+from functools import wraps
+
+def required_roles(*roles):
+    def wrapper(f):
+        @wraps(f)
+        def wrapped(*args, **kwargs):
+            if is_accessible() not in roles:
+                flash('Authentication error, please check your details and try again','error')
+                return redirect(url_for('index'))
+            return f(*args, **kwargs)
+        return wrapped
+    return wrapper
+
+def is_accessible():
+
+    if not (current_user.role == True): 
+        return 'not admin'
+
+    return 'admin'  
 
 @app.route("/")
 @login_required
