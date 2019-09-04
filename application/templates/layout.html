@@ -12,7 +12,7 @@
 	 {% if current_user.is_authenticated %}
           {% if current_user.role == True %}
           <li class="nav-item">
-            <a class="navbar-brand" href="{{ url_for('index') }}"></a>
+            <a class="navbar-brand" href="{{ url_for('index') }}"> Admin</a>
           </li>
           {% endif %}
          {% endif %}
@@ -49,11 +49,11 @@
         </li>
       </ul>
     <div class="form-inline mt-2 mt-md-0">
-	    {% if current_user.is_authenticated %}
-	    <a href="{{ url_for('auth_logout') }}">Moi, {{ current_user.name }} -- Kirjaudu ulos</a>
-	    {% else %}
-	    <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
-	    {% endif %}
+	{% if current_user.is_authenticated %}
+	   <a href="{{ url_for('auth_logout') }}">Moi, {{ current_user.name }} -- Kirjaudu ulos</a>
+	 {% else %}
+	<a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+	{% endif %}
       </div>
     </div>
   </nav>
