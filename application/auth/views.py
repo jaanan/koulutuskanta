@@ -5,7 +5,7 @@ from flask_security import current_user, login_required, RoleMixin, Security, \
 
 from application import app, db
 from application.auth.models import User
-from application.auth.forms import LoginForm, RolesForm, RegistrationForm
+from application.auth.forms import LoginForm, RolesForm, RegistrationForm, NameChangeForm, UsernameChangeForm, PasswordChangeForm
 from flask import flash
 from functools import wraps
 
@@ -63,11 +63,6 @@ def auth_create():
             return render_template("auth/loginform.html", form = LoginForm())
     return render_template("auth/new.html", form = RegistrationForm())
 
-@app.route("/auth/personal/", methods=["GET", "POST"])
-@login_required
-def personal_space():
-    return render_template("auth/personal.html")
-
 @app.route("/roles", methods=["GET", "POST"])
 @login_required
 @required_roles('admin')
@@ -90,3 +85,54 @@ def roles_create():
     user_to_be_changed.role = True
     db.session.commit()           
     return redirect(url_for("index"))
+
+@app.route("/auth/personal/", methods=["GET", "POST"])
+@login_required
+def personal_space():
+    return render_template("auth/personal.html")
+
+@app.route("/auth/personal/", methods=["GET", "POST"])
+@login_required
+def name_change():
+    if request.method == "GET":
+        return render_template("auth/personal.html", form = NameChangeForm())
+
+    if not form.validate():
+       return render_template("auth/loginform.html", form = LoginForm())  
+
+    user_to_be_changed = current_user.id
+
+    user_to_be_changed.name= (form.name.data)
+    db.session.commit()
+    return render_template("auth/personal.html")
+
+@app.route("/auth/personal/", methods=["GET", "POST"])
+@login_required
+def username_change():
+    if request.method == "GET":
+        return render_template("auth/personal.html", form = UserChangeForm())
+
+    if not form.validate():
+       return render_template("auth/loginform.html", form = LoginForm())  
+
+    user_to_be_changed = current_user.id
+
+    user_to_be_changed.username= (form.username.data)
+    db.session.commit()
+    return render_template("auth/personal.html") 
+
+@app.route("/auth/personal/", methods=["GET", "POST"])
+@login_required
+def password_change():
+    if request.method == "GET":
+        return render_template("auth/personal.html", form = PasswordChangeForm())
+
+    if not form.validate():
+       return render_template("auth/loginform.html", form = LoginForm())  
+
+    user_to_be_changed = current_user.id
+
+    user_to_be_changed.username= (form.password.data)
+    db.session.commit()
+    return render_template("auth/personal.html") 
+
