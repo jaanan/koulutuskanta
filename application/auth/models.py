@@ -1,5 +1,5 @@
 from application import db
-from application.models import Base, kurssilainen, roles_users
+from application.models import Base, kurssilainen
 from flask_security import current_user, login_required, RoleMixin, Security, \
     SQLAlchemyUserDatastore, UserMixin, utils
 
