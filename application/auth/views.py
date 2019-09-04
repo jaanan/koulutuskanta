@@ -5,7 +5,7 @@ from flask_security import current_user, login_required, RoleMixin, Security, \
 
 from application import app, db
 from application.auth.models import User
-from application.auth.forms import LoginForm, RolesForm, RegistrationForm, NameChangeForm, UsernameChangeForm, PasswordChangeForm
+from application.auth.forms import LoginForm, RolesForm, RegistrationForm, NameChangeForm, U_nameChangeForm, PasswordChangeForm
 from flask import flash
 from functools import wraps
 
@@ -91,9 +91,12 @@ def roles_create():
 def personal_space():
     return render_template("auth/personal.html")
 
-@app.route("/auth/personal/", methods=["GET", "POST"], form = NameChangeForm())
+@app.route("/auth/personal/", methods=["GET", "POST"])
 @login_required
 def name_change():
+
+    if request.method == "GET":
+        return render_template("auth/personal.html", form = NameChangeForm())    
     
     form = NameChangeForm()
     
@@ -106,11 +109,15 @@ def name_change():
     db.session.commit()
     return render_template("auth/personal.html")
 
-@app.route("/auth/personal/", methods=["GET", "POST"], form = UserChangeForm())
+@app.route("/auth/personal/", methods=["GET", "POST"])
 @login_required
 def username_change():
+
+    if request.method == "GET":
+        return render_template("auth/personal.html", form = U_nameChangeForm())     
     
-    form = UserChangeForm()
+    form = U_nameChangeForm()
+   
     if not form.validate():
        return render_template("auth/loginform.html", form = LoginForm())  
 
