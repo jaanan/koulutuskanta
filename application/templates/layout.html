@@ -22,11 +22,18 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
+	{% if current_user.is_authenticated %}
+         {% if current_user.role == True %}
+	<li class="nav-item">
+          <a class="nav-link" href="{{ url_for('roles_create') }} ">Muuta oikeuksia</a>
+        </li>
+	  {% endif %}
+         {% endif %}     
+	<li class="nav-item">
+          <a class="nav-link" href="{{ url_for('personal_space') }} ">Omat tiedot</a>
+        </li>      
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('courses_form') }} ">Lisää kurssi</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('personal_space') }} ">Omat tiedot</a>
         </li>
         <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('materials_form') }} ">Lisää materiaali</a>
