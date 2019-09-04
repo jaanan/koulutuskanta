@@ -62,7 +62,7 @@ def role_maker():
     if (user_to_be_changed.role == True):
         rows_changed = User.query.filter(name=form.name.data).update(dict(role='False'))
         db.session.commit()
-        else:
-            rows_changed = User.query.filter(name=form.name.data).update(dict(role='True'))
-            db.session.commit()           
+
+    rows_changed = User.query.filter(name=form.name.data).update(dict(role='True'))
+    db.session.commit()           
     return render_template("roles/list.html", form = RolesForm())
