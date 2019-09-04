@@ -108,36 +108,3 @@ def name_change():
     user_to_be_changed.name= (form.name.data)
     db.session.commit()
     return render_template("auth/personal.html")
-
-@app.route("/auth/personal/", methods=["GET", "POST"])
-@login_required
-def username_change():
-
-    if request.method == "GET":
-        return render_template("auth/personal.html", form = U_nameChangeForm())     
-    
-    form = U_nameChangeForm()
-   
-    if not form.validate():
-       return render_template("auth/loginform.html", form = LoginForm())  
-
-    user_to_be_changed = current_user.id
-
-    user_to_be_changed.username= (form.username.data)
-    db.session.commit()
-    return render_template("auth/personal.html") 
-
-@app.route("/auth/personal/", methods=["GET", "POST"], form = PasswordChangeForm())
-@login_required
-def password_change():
-
-    form = PasswordChangeForm()
-    if not form.validate():
-       return render_template("auth/loginform.html", form = LoginForm())  
-
-    user_to_be_changed = current_user.id
-
-    user_to_be_changed.username= (form.password.data)
-    db.session.commit()
-    return render_template("auth/personal.html") 
-
