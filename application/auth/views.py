@@ -91,18 +91,18 @@ def roles_create():
 def personal_space():
     return render_template("auth/personal.html")
 
-@app.route("/auth/personal/", methods=["GET", "POST"])
-@login_required
-def name_change():
+#@app.route("/auth/personal/", methods=["GET", "POST"])
+#@login_required
+#def name_change():
 
-    if request.method == "GET":
-        return render_template("auth/personal.html", form = NameChangeForm())    
+#    if request.method == "POST":
+#        return render_template("auth/personal.html", form = NameChangeForm())    
     
-    form = NameChangeForm()
+#    form = NameChangeForm()
     
-    if not form.validate():
-       return render_template("auth/loginform.html", form = LoginForm())  
+#    if not form.validate():
+#       return render_template("auth/loginform.html", form = LoginForm())  
 
-    current_user.name = (form.name.data)
-    db.session.commit()
-    return render_template("auth/personal.html")
+#    current_user.name = (form.name.data)
+#    db.session.commit()
+#    return render_template("auth/personal.html")
