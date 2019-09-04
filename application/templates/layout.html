@@ -15,34 +15,37 @@
           <span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('courses_form') }} ">Lisää kurssi</a>
-            </li>
-	    <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('materials_form') }} ">Lisää materiaali</a>
-            </li>
-	    <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('union_create') }} ">Kurssimateriaalit</a>
-            </li>
-	    <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('student_create') }} ">Kurssilaiset</a>
-            </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="{{ url_for('auth_create') }}">Lisää käyttäjä</a>
-	    </li>
-          </ul>
-          <div class="form-inline mt-2 mt-md-0">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('courses_form') }} ">Lisää kurssi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('personal_space') }} ">Omat tiedot</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('materials_form') }} ">Lisää materiaali</a>
+              </li>
+        <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('union_create') }} ">Kurssimateriaalit</a>
+              </li>
+        <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('student_create') }} ">Kurssilaiset</a>
+              </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('auth_create') }}">Lisää käyttäjä</a>
+        </li>
+      </ul>
+    <div class="form-inline mt-2 mt-md-0">
 	    {% if current_user.is_authenticated %}
-	    <a href="{{ url_for('auth_logout') }}">Moi, {{ current_user.name }} tunnuksesi on {{ current_user.id }} -- Kirjaudu ulos</a>
+	    <a href="{{ url_for('auth_logout') }}">Moi, {{ current_user.name }} -- Kirjaudu ulos</a>
 	    {% else %}
 	    <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
 	    {% endif %}
-          </div>
-	</div>
-      </nav>
+      </div>
+    </div>
+  </nav>
       
-      <main role="main" class="container">
+  <main role="main" class="container">
 	{% block body %}
 	<p>
 	  Content.
