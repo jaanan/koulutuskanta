@@ -25,10 +25,11 @@
           <a class="nav-link" href="{{ url_for('roles_create') }} ">Muuta oikeuksia</a>
         </li>
 	  {% endif %}
-         {% endif %}     
+         {% endif %}
+	{% if current_user.is_authenticated %}
 	<li class="nav-item">
           <a class="nav-link" href="{{ url_for('personal_space') }} ">Omat tiedot</a>
-        </li>      
+        </li> 
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('courses_form') }} ">Lisää kurssi</a>
         </li>
@@ -41,6 +42,7 @@
         <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('student_create') }} ">Kurssilaiset</a>
               </li>
+	{% endif %}      
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('auth_create') }}">Lisää käyttäjä</a>
         </li>
