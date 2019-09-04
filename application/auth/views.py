@@ -91,7 +91,7 @@ def roles_create():
 def personal_space():
     return render_template("auth/personal.html")
 
-@app.route("/auth/personal/", methods=["GET", "POST"])
+@app.route("/auth/personal/", methods=["GET", "POST"], form = NameChangeForm())
 @login_required
 def name_change():
     
@@ -106,7 +106,7 @@ def name_change():
     db.session.commit()
     return render_template("auth/personal.html")
 
-@app.route("/auth/personal/", methods=["GET", "POST"])
+@app.route("/auth/personal/", methods=["GET", "POST"], form = UserChangeForm())
 @login_required
 def username_change():
     
@@ -120,7 +120,7 @@ def username_change():
     db.session.commit()
     return render_template("auth/personal.html") 
 
-@app.route("/auth/personal/", methods=["GET", "POST"])
+@app.route("/auth/personal/", methods=["GET", "POST"], form = PasswordChangeForm())
 @login_required
 def password_change():
 
