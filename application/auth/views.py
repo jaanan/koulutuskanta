@@ -75,6 +75,8 @@ def roles_create():
     if request.method == "GET":
         return render_template("roles/roleform.html", form = RolesForm())
     
+    form = RolesForm()
+    
     if not form.validate():
        return redirect(url_for("personal_space"))  
 
