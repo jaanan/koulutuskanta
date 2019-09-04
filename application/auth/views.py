@@ -47,5 +47,5 @@ def auth_create():
 @app.route("/auth/personal/", methods=["GET", "POST"])
 @login_required
 def pesonal_space():
-    return render_template("personal.html")
+    return render_template("auth/personal.html")
 
