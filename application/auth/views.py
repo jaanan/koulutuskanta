@@ -5,7 +5,7 @@ from flask_security import current_user, login_required, RoleMixin, Security, \
 
 from application import app, db
 from application.auth.models import User
-from application.auth.forms import LoginForm, RolesForm, RegistrationForm, NameChangeForm, U_nameChangeForm, PasswordChangeForm
+from application.auth.forms import LoginForm, RolesForm, RegistrationForm
 from flask import flash
 from functools import wraps
 
