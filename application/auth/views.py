@@ -1,11 +1,29 @@
 from flask import render_template, request, redirect, url_for
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, current_user
 from flask_security import current_user, login_required, RoleMixin, Security, \
     SQLAlchemyUserDatastore, UserMixin, utils
 
 from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm, RolesForm, RegistrationForm
+
+def required_roles(*roles):
+    def wrapper(f):
+        @wraps(f)
+        def wrapped(*args, **kwargs):
+            if is_accessible() not in roles:
+                flash('Authentication error, please check your details and try again','error')
+                return redirect(url_for('index'))
+            return f(*args, **kwargs)
+        return wrapped
+    return wrapper
+
+def is_accessible():
+
+    if not (current_user.role == True): 
+        return 'not admin'
+
+    return 'admin'  
 
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
