@@ -96,9 +96,7 @@ def personal_space():
 #def name_change():
 
 #    if request.method == "POST":
-#        return render_template("auth/personal.html", form = NameChangeForm())    
-    
-    form = NameChangeForm()
+#        return render_template("auth/personal.html", form = NameChangeForm())
     
 #    if not form.validate():
 #       return render_template("auth/loginform.html", form = LoginForm())  
