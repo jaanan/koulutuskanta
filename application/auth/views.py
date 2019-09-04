@@ -95,8 +95,8 @@ def personal_space():
 @login_required
 def name_change():
 
-#    if request.method == "POST":
-#        return render_template("auth/personal.html", form = NameChangeForm())    
+    if request.method == "POST":
+        return render_template("auth/personal.html", form = NameChangeForm())    
     
 #    form = NameChangeForm()
     
