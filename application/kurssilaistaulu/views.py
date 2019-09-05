@@ -27,10 +27,10 @@ def student_create():
        return render_template("auth/new.html", form = form)
 
     if User.query.filter(User.name == form.user.data).count() == 0:
-            return render_template("/kurssilaistaulu", form = StudentForm(), error = "Tämän nimistä kurssilaista ei löytynyt") 
+            return render_template("kurssilaistaulu_index", form = StudentForm(), error = "Tämän nimistä kurssilaista ei löytynyt") 
 
     if Course.query.filter(Course.name == form.course.data).count() == 0:
-        return render_template("/kurssilaistaulu", form = StudentForm(), error = "Tämän nimistä kurssia ei löytynyt")     
+        return render_template("kurssilaistaulu_index", form = StudentForm(), error = "Tämän nimistä kurssia ei löytynyt")     
 
 
     opiskelija = User.query.filter(User.name==form.user.data).first()
