@@ -115,9 +115,36 @@ def change_name():
 @app.route("/auth/changeusername.html/", methods=["GET", "POST"])
 @login_required
 def change_username():
-    return render_template("auth/changename.html", form=UsernameChangeForm())
+    if request.method == "GET":
+        return render_template("auth/changeusername.html", form=UsernameChangeForm())
+
+    form = UsernameChangeForm(request.form)
+
+    if not form.validate():
+       return redirect(url_for("personal_space"))  
+
+    if User.query.filter(User.username == form.username.data).count() > 0:
+        return render_template("auth/changeusernameform.html", form = form,
+                               error = "Käyttäjänimi on jo käytössä")
+
+    else:
+        current_user.username = form.username.data
+        db.session.commit()
+        flash('Your account has been updated')
+        return redirect(url_for("personal_space"))
 
 @app.route("/auth/changepassword.html/", methods=["GET", "POST"])
 @login_required
 def change_password():
-    return render_template("auth/changepassword.html", form=PasswordChangeForm())  
+    if request.method == "GET":
+        return render_template("auth/changepassword.html", form=PasswordChangeForm())
+
+    form = PasswordChangeForm(request.form)
+
+    if not form.validate():
+       return redirect(url_for("personal_space"))  
+
+        current_user.password = form.password.data
+        db.session.commit()
+        flash('Your account has been updated')
+        return redirect(url_for("personal_space"))

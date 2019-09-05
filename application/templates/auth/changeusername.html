@@ -2,18 +2,35 @@
   
 {% block body %}
 {{ error }}
+
 <p>
     Hei, {{current_user.name}}, 
     <br></br>
     tässä syöttämäsi tiedot: 
     <br></br>
+    nimi: {{current_user.username}}
+    <form method="POST" action="{{ url_for('change_username') }}">
+        <table>
+          <tr>
+            <td>
+          {{ form.username.label }}
+            </td>
+            <td>
+          {{ form.username }}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+          <input type="submit" value="Muuta käyttäjänimi"/>
+            </td>
+          </tr>
+        </table>  
+      </form>    <br></br>
     nimi: {{current_user.name}}
-        <a href="{{ url_for('index') }}" class="button">Muuta käyttäjänimi</a></br>
-    käyttäjänimi: {{current_user.username}}
-        <a href="{{ url_for('index') }}" class="button">Muuta käyttäjänimi</a></br>
+        <a href="{{ url_for('change_name') }}" class="button">Muuta nimi</a></br>
     salasana: {{current_user.password}}
-        <a href="{{ url_for('index') }}"class="button">Muuta salasana</a>
-    <br></br>
+        <a href="{{ url_for('change_password') }}"class="button">Muuta salasana</a>
+
 </p>
 
 {% endblock %}
