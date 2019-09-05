@@ -3,17 +3,8 @@
 {% block body %}
 {{ error }}
  <p>
-  <th>Järjestelmään jo lisätyt Roolit:</th>
+  <th>Muuta työntekijän roolia end-userista adminiksi tai toisinpäin<br>kirjoittamalla hänen nimensä allaolevaan kenttään.<br></br>Paina lopuksi Lisää rooli-nappia.</th>
  </p>
-
-   <ul>
-    {% for roles in roles %}
-      <li>
-	 {{ roles.name }}
-      </li>
-    {% endfor %}
-   </ul>
-
 
 <form method="POST" action="{{ url_for('roles_create') }}">
   <table>
