@@ -94,9 +94,10 @@ def personal_space():
 @app.route("/auth/changename.html/", methods=["GET", "POST"])
 @login_required
 def change_name():
-    return render_template("auth/changename.html", form=NameChangeForm())
+    if request.method == "GET":
+        return render_template("auth/changename.html", form=NameChangeForm())
 
-    form = NameChangeForm()
+    form = NameChangeForm(request.form)
 
     if not form.validate():
        return redirect(url_for("personal_space"))  
@@ -106,8 +107,9 @@ def change_name():
                                error = "Nimi on jo käytössä")
 
     else:
-        current_user.username == form.username.data
+        current_user.username = form.username.data
         db.session.commit()
+        flash('Your account has been updated')
         return redirect(url_for("personal_space"))
 
 @app.route("/auth/changeusername.html/", methods=["GET", "POST"])

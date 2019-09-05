@@ -20,19 +20,19 @@ class RolesForm(FlaskForm):
         csrf = False
 
 class NameChangeForm(FlaskForm):
-    name = StringField("Anna uusi nimi")
+    name = StringField("Anna uusi nimi: ")
    
     class Meta:
         csrf = False
 
 class UsnameChangeForm(FlaskForm):
-    username = StringField("Anna uusi käyttäjänimi")
+    username = StringField("Anna uusi käyttäjänimi:")
     
     class Meta:
         csrf = False 
 
 class PasswordChangeForm(FlaskForm):
-    password = PasswordField("Anna uusi salasana")
+    password = PasswordField("Anna uusi salasana:")
     
     class Meta:
         csrf = False         
