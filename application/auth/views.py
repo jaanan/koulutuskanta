@@ -89,7 +89,7 @@ def roles_create():
 @app.route("/auth/personal/", methods=["GET", "POST"])
 @login_required
 def personal_space():
-    return render_template("auth/personal.html", my_courses = find_all_my_courses())
+    return render_template("auth/personal.html", my_courses=User.find_all_my_courses())
 
 @app.route("/auth/changename.html/", methods=["GET", "POST"])
 @login_required
