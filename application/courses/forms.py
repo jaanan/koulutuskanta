@@ -6,13 +6,5 @@ class CourseForm(FlaskForm):
     
     class Meta:
         csrf = False
-        
-            #koitetaan päivittää heroku ajan tasalle
 
-class CourseForm(FlaskForm):
-    name = StringField("Kurssin nimi", [validators.Length(min=8)])
-    
-    class Meta:
-        csrf = False
-        
-            #koitetaan päivittää heroku ajan tasalle            
+              

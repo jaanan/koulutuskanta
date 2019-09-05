@@ -68,7 +68,7 @@ def auth_create():
 @required_roles('admin')
 def roles_create():
     if request.method == "GET":
-        return render_template("roles/roleform.html", form = RolesForm())
+        return render_template("auth/roleform.html", form = RolesForm())
     
     form = RolesForm()
 
@@ -90,17 +90,3 @@ def roles_create():
 @login_required
 def personal_space():
     return render_template("auth/personal.html")
-
-#@app.route("/auth/personal/", methods=["GET", "POST"])
-#@login_required
-#def name_change():
-
-#    if request.method == "POST":
-#        return render_template("auth/personal.html", form = NameChangeForm())
-    
-#    if not form.validate():
-#       return render_template("auth/loginform.html", form = LoginForm())  
-
-#    current_user.name = (form.name.data)
-#    db.session.commit()
-#    return render_template("auth/personal.html")
