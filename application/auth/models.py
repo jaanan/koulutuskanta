@@ -14,7 +14,7 @@ class User(Base):
     password = db.Column(db.String(144), nullable=False)
     role = db.Column(db.Boolean(), nullable=False)
 
-    tasks = db.relationship("Task", backref='account', lazy=True)
+    #tasks = db.relationship("Task", backref='account', lazy=True)
     courseusers = db.relationship('Course', secondary=kurssilainen, backref=db.backref('kurssilaiset', lazy = 'dynamic'))
     
     #roles = db.relationship('Role', secondary=roles_users, backref=db.backref('brusers', lazy='dynamic'))

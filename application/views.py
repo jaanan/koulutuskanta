@@ -1,7 +1,7 @@
 from flask import render_template
 from application import app
 from application.auth.models import User
-from application.tasks.models import Task
+#from application.tasks.models import Task
 from application.materials.models import Material
 from application.courses.models import Course
 from flask_login import login_required, current_user
