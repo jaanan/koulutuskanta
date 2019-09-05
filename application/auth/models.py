@@ -72,7 +72,7 @@ class User(Base):
         #                    ' AND Account.id = kurssilainen."account.id"')
         
         stmt = text(' SELECT kurssilainen."account.id" COUNT(*) AS Osallistujat, Course.name as Kurssi FROM kurssilainen, Course '
-                    ' WHERE Course.id = kurssilainen."course.id"'
+                    ' WHERE Course.id = kurssilainen."course.id"')
 
         result = db.engine.execute(stmt)
         ids = []
