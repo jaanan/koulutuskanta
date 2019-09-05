@@ -71,14 +71,13 @@ class User(Base):
         #                ' WHERE Course.id = kurssilainen."course.id"' 
         #                    ' AND Account.id = kurssilainen."account.id"')
         
-        stmt = text(' SELECT kurssilainen."account.id" COUNT(*) FROM kurssilainen, Course '
+        stmt = text(' SELECT kurssilainen."account.id" COUNT(*) AS Osallistujat, Course.name as Kurssi FROM kurssilainen, Course '
                     ' WHERE Course.id = kurssilainen."course.id"'
-                    ' GROUP BY Couse.name'
 
         result = db.engine.execute(stmt)
         ids = []
         for row in result:
-            ids.append({"id":row[0], "Course.name":row[1]})
+            ids.append({"Osallistujat":row[0], "Kurssi":row[1]})
             
         return ids
     
