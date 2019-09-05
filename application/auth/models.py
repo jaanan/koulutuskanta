@@ -128,10 +128,9 @@ class User(Base):
     @staticmethod
     def find_all_my_courses():
         id = current_user.id
-        smt = text('SELECT "course.name" AS Kurssi FROM Course'
-                     ' LEFT JOIN kurssilainen ON kurssilainen."course.id" = Course.id'
-                     ' WHERE kurssilainen."account.id"= ?', (id,))
-
+        stmt = text('SELECT Course.name AS Kurssi FROM Course '
+                     'LEFT JOIN kurssilainen ON kurssilainen."course.id" = Course.id '
+                     'WHERE kurssilainen."account.id" = {} '.format(id))
         res = db.engine.execute(stmt)
 
         response = []
