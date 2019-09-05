@@ -136,7 +136,7 @@ class User(Base):
 
         response = []
         for row in res:
-            response.append({"Kurssi":row[0])
+            response.append({"Kurssi":row[0]})
 
         return response               
 
