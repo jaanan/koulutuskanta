@@ -2,8 +2,8 @@
   
 {% block body %}
 <form method="POST" action="{{ url_for('auth_create') }}">
- Työntekijän nimi: {{form.name}}
- Käyttäjänimi: {{form.username}}
+ Työntekijän nimi: {{form.name}}</br>
+ Käyttäjänimi: {{form.username}}</br>
  Salasana: {{form.password}}
 
   <input type="submit" value="Lisää uusi käyttäjä"/>

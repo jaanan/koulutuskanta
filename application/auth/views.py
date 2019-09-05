@@ -5,7 +5,7 @@ from flask_security import current_user, login_required, RoleMixin, Security, \
 
 from application import app, db
 from application.auth.models import User
-from application.auth.forms import LoginForm, RolesForm, RegistrationForm
+from application.auth.forms import LoginForm, RolesForm, RegistrationForm, NameChangeForm, UsnameChangeForm, PasswordChangeForm
 from flask import flash
 from functools import wraps
 
@@ -90,3 +90,32 @@ def roles_create():
 @login_required
 def personal_space():
     return render_template("auth/personal.html")
+
+@app.route("/auth/changename.html/", methods=["GET", "POST"])
+@login_required
+def change_name():
+    return render_template("auth/changename.html", form=NameChangeForm())
+
+    form = NameChangeForm()
+
+    if not form.validate():
+       return redirect(url_for("personal_space"))  
+
+    if User.query.filter(User.username == form.username.data).count() > 0:
+        return render_template("auth/changenameform.html", form = form,
+                               error = "Käyttäjänimi on jo käytössä")
+
+    else:
+        current_user.username == form.username.data
+        db.session.commit()
+        return redirect(url_for("personal_space"))
+
+@app.route("/auth/changeusername.html/", methods=["GET", "POST"])
+@login_required
+def change_username():
+    return render_template("auth/changename.html", form=UsernameChangeForm())
+
+@app.route("/auth/changepassword.html/", methods=["GET", "POST"])
+@login_required
+def change_password():
+    return render_template("auth/changepassword.html", form=PasswordChangeForm())  
