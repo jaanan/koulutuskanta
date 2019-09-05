@@ -7,10 +7,14 @@
     <br></br>
     tässä syöttämäsi tiedot: 
     <br></br>
-    käyttäjänimi: {{current_user.username}}<br>
+    nimi: {{current_user.name}}
+        <a href="{{ url_for('index') }}" class="button">Muuta käyttäjänimi</a>
+    käyttäjänimi: {{current_user.username}}
+        <a href="{{ url_for('index') }}" class="button">Muuta käyttäjänimi</a>
     salasana: {{current_user.password}}
+        <a href="{{ url_for('index') }}"class="button">Muuta salasana</a>
     <br></br>
-    Mikäli haluat vaihtaa näitä, kirjoita uudet tiedot alle sopiviin kenttiin
 </p>
 
 {% endblock %}
+
