@@ -144,7 +144,7 @@ def change_password():
     if not form.validate():
        return redirect(url_for("personal_space"))  
 
-        current_user.password = form.password.data
-        db.session.commit()
-        flash('Your account has been updated')
-        return redirect(url_for("personal_space"))
+    current_user.password = form.password.data
+    db.session.commit()
+    flash('Your account has been updated')
+    return redirect(url_for("personal_space"))
