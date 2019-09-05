@@ -16,5 +16,19 @@
     <br></br>
 </p>
 
+{% if my_courses is defined %}
+<p>
+  Millä kursseilla olet:
+</p>
+
+<ul>
+  {% for courses in my_courses %}
+  <li>
+    {{courses.Kurssi}}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}	
+
 {% endblock %}
 

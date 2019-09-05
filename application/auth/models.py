@@ -124,4 +124,19 @@ class User(Base):
             response.append({"Työntekijä":row[0], "Kurssi":row[1], "Materiaali":row[2]})
 
         return response
+    
+    @staticmethod
+    def find_all_my_courses():
+        id = current_user.id
+        smt = text('SELECT "course.name" AS Kurssi FROM Course'
+                     ' LEFT JOIN kurssilainen ON kurssilainen."course.id" = Course.id'
+                     ' WHERE kurssilainen."account.id"= ?', (id,))
+
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"Kurssi":row[0])
+
+        return response               
 
