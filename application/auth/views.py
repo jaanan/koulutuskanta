@@ -101,9 +101,9 @@ def change_name():
     if not form.validate():
        return redirect(url_for("personal_space"))  
 
-    if User.query.filter(User.username == form.username.data).count() > 0:
+    if User.query.filter(User.name == form.name.data).count() > 0:
         return render_template("auth/changenameform.html", form = form,
-                               error = "Käyttäjänimi on jo käytössä")
+                               error = "Nimi on jo käytössä")
 
     else:
         current_user.username == form.username.data
