@@ -71,7 +71,7 @@ class User(Base):
         #                ' WHERE Course.id = kurssilainen."course.id"' 
         #                    ' AND Account.id = kurssilainen."account.id"')
         
-        stmt = text(' SELECT "account.id" COUNT(*) FROM kurssilainen, Course '
+        stmt = text(' SELECT kurssilainen."account.id" COUNT(*) FROM kurssilainen, Course '
                     ' WHERE Course.id = kurssilainen."course.id"'
                     ' GROUP BY Couse.name'
 
