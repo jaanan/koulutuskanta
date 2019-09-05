@@ -25,7 +25,7 @@ class NameChangeForm(FlaskForm):
     class Meta:
         csrf = False
 
-class UsnameChangeForm(FlaskForm):
+class UsernameChangeForm(FlaskForm):
     username = StringField("Anna uusi käyttäjänimi:")
     
     class Meta:
