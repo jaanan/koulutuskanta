@@ -107,7 +107,7 @@ def change_name():
                                error = "Nimi on jo käytössä")
 
     else:
-        current_user.username = form.username.data
+        current_user.name = form.name.data
         db.session.commit()
         flash('Your account has been updated')
         return redirect(url_for("personal_space"))
