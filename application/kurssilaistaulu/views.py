@@ -24,7 +24,13 @@ def student_create():
     form = StudentForm(request.form)
     
     if not form.validate():
-       return render_template("auth/new.html", form = form)    
+       return render_template("auth/new.html", form = form)
+
+    if User.query.filter(User.name == form.user.data).count() == 0:
+            return render_template("/kurssilaistaulu", form = StudentForm(), error="Tämän nimistä kurssilaista ei löytynyt") 
+
+    if Course.query.filter(Course.name == form.course.data).count() == 0:
+        return render_template("/kurssilaistaulu", form = StudentForm(), error="Tämän nimistä kurssia ei löytynyt")     
 
 
     opiskelija = User.query.filter(User.name==form.user.data).first()
@@ -37,5 +43,3 @@ def student_create():
         db.session.commit()       
   
     return redirect(url_for("kurssilaistaulu_index"))
-
-    #koitetaan päivittää heroku ajan tasalle
