@@ -66,11 +66,19 @@ class User(Base):
     
     
     @staticmethod
-    def studentto_course():
-        #stmt = text('SELECT Account.name AS Työntekijä, Course.name AS Kurssi FROM Account, Course, kurssilainen'
-        #                ' WHERE Course.id = kurssilainen."course.id"' 
-        #                    ' AND Account.id = kurssilainen."account.id"')
-        
+    def student_to_course():
+        stmt = text('SELECT Account.name AS Työntekijä, Course.name AS Kurssi FROM Account, Course, kurssilainen'
+                        ' WHERE Course.id = kurssilainen."course.id"' 
+                            ' AND Account.id = kurssilainen."account.id"')
+    
+        result = db.engine.execute(stmt)
+        ids = []
+        for row in result:
+            ids.append({"Työntekijät":row[0], "Kurssi":row[1]})
+            
+        return ids
+    @staticmethod
+    def studentto_course():    
         stmt = text(' SELECT Course.name, COUNT(*) total FROM Course, kurssilainen'
                     ' WHERE kurssilainen."course.id" = Course.id'
                     ' GROUP BY Course.id')

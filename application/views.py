@@ -30,5 +30,5 @@ def is_accessible():
 @login_required
 @required_roles('admin')
 def index():
-    return render_template("index.html", all_users=User.find_users(), course_students=User.studentto_course(), 
+    return render_template("index.html", all_users=User.find_users(), course_students=User.student_to_course(), 
                            student_materials=User.find_materials_and_users(), find_everything=User.find_materials_courses_users())
