@@ -2,46 +2,43 @@
 Tietokantasovellus-harjoitustyö loppukesä-2019 
 Sovellus löytyy osoitteesta https://koulutuskanta.herokuapp.com
 
+
+## Aihe: Työntekijöiden osaamisalueiden kartoittaminen yrityksen HR-henkilöiden ja myyjien käyttöön
+Koulutuskanta on tehty yrityksen HR-henkilölle ja myyjille, jotka pystyvät Koulutuskannasta katsomaan, minkä nimisiä kursseja organisaation tyntekijät ovat käyneet ja minkälaisia materiaaleja kursseilla on käytetty. Näin he pysyvät perässä siitä, minkälaista osaamista yrityksestä löytyy, mitä osa-alueita pitäisi ehkä kehittää ja kenet voi lähettää mihinkin asiakasprojektiin Koulutuskannasta ilmenevän osaamisensa perusteella.
+
 Testitunnukset sovelluksen tarkasteluun
+*Admin*
 käyttäjätunnus: Bill 
 salasana: Windows
 
-(nimi: Bill Gates)
+*End user*
+käyttäjätunnus: Steve
+salasana: Apple
 
-Sovelluksessa voi tällä hetkellä:
--Lisätä uusia käyttäjiä
--Kirjautua sisään ja ulos
--Lisätä kursseja ja materiaaleja
--Lisätä materiaaleja kursseihin
--Lisätä käyttäjiä kursseihin
--Nähdä, mitä kursseja ja materiaaleja on jo lisätty
--Nähdä, ketkä ovat milläkin kurssilla ja mitä materiaaleja milläkin kurssilla on käytetty
-
-Admin (käyttäjä id:llä 1) voi:
--Lisätä käyttäjärooleja
--Liittää käyttäjille käyttäjärooleja
-
-## Aihe: Työntekijöiden suorittamien koulutusten hallinta ja seuranta. 
-
-Koulutuskanta on järjestelmä, jolla voidaan seurata työpaikalla suoritettuja koulutuksia sekä työntekijöiden osaamista. Järjestelmää on tarkoitus käyttää tehostamaan rekrytointia ja myyntiä. Toimitusjohtaja saa järjestelmältä yhteenvetoja suoritetuista koulutuksista henkilöittäin ja aiheittain. Kukin koulutuksia suorittava henkilö kirjaa järjestelmän suorittamansa koulutuksen ja siihen liittyvät materiaalit tai lisää itselleen suorituksen jo jonkun muun lisäämästä kurssista. Työntekijä näkee vain omat suorituksensa. Toimitusjohtaja voi hakea tietoa myös henkilöittäin.
 
 ### Toimintoja:
-* Rekisteröityminen
-* Kirjautuminen
-* Kurssin lisäämine
-* Materiaalin lisääminen
-* Materiaalin liittäminen kurssiin
-* Käyttäjän liittäminen kurssille
+Sovelluksessa voi tällä hetkellä:
+-Rekisteröityä käyttäjäksi
+-Kirjautua sisään ja ulos
+-Muuttaa omia tietojaan (nimi, käyttäjätunnus, salasana)
+-Lisätä kursseja ja materiaaleja
+-Liittää materiaaleja kursseihin eli lisätä kurssimateriaaleja
+-Liittä kurssilaisia kursseihin eli lisätä kurssilaisia
+-Nähdä, mitä kursseja, materiaaleja ja kurssimateriaaleja on jo lisätty
+-Nähdä, kuinka monta osallistujaa on kullakin kurssilla
 
-### Toimintoja vain adminille:
-* Käyttäjäroolin lisääminen
-* Käyttäjän liittäminen käyttäjärooliin
+Admin oikeuksilla voi
+-Tehdä end userista adminin ja toisinpäin
+-Poistaa käyttäjän
+-Nähdä listauksia siitä, kuka työntekijä on milläkin kurssilla
+-Nähdä listauksia siitä, mihin materiaaleihin ihmiset ovat käymiensä kurssien perusteella perehtyneet
 
-### Koulutuskannasta löytyvät raportit:
-- Järjestelmän tuntemista käyttäjistä
-- Järjestelmään lisätyistä kurssimateriaaleista
-- Järjestelmään lisätyistä kurssilaisista
+### Koulutuskannasta löytyvät raportit Adminille:
+- Järjestelmän tuntemista käyttäjistä ja heidän käyttäjätunnuksistaan
+- Työntekijöiden käymistä kursseista
+- Eri kursseilla käytetyistä materiaalien määristä
 - Materiaaleista, joihin käyttäjät ovat kursseilla perehtyneet
 
+Tietokantakaavio löytyy täältä: <lisää linkki>
 
 
