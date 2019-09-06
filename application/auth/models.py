@@ -156,7 +156,7 @@ class User(Base):
 
     @staticmethod
     def find_roles():
-        stmt = text('SELECT Account.name, Account.role FROM Account '
+        stmt = text('SELECT Account.name, Account.role FROM Account ')
 
         res = db.engine.execute(stmt)
 
