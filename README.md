@@ -1,9 +1,10 @@
-# koulutuskanta
+# Koulutuskanta
 Tietokantasovellus-harjoitustyö loppukesä-2019 
 Sovellus löytyy osoitteesta https://koulutuskanta.herokuapp.com
+Tietokantakaavio löytyy täältä: <lisää linkki>
 
 
-## Aihe: Työntekijöiden osaamisalueiden kartoittaminen yrityksen HR-henkilöiden ja myyjien käyttöön
+## Työntekijöiden osaamisalueiden kartoittaminen yrityksen HR-henkilöiden ja myyjien käyttöön
 Koulutuskanta on tehty yrityksen HR-henkilölle ja myyjille, jotka pystyvät Koulutuskannasta katsomaan, minkä nimisiä kursseja organisaation tyntekijät ovat käyneet ja minkälaisia materiaaleja kursseilla on käytetty. Näin he pysyvät perässä siitä, minkälaista osaamista yrityksestä löytyy, mitä osa-alueita pitäisi ehkä kehittää ja kenet voi lähettää mihinkin asiakasprojektiin Koulutuskannasta ilmenevän osaamisensa perusteella.
 
 Testitunnukset sovelluksen tarkasteluun
@@ -16,7 +17,7 @@ käyttäjätunnus: Steve
 salasana: Apple
 
 
-### Toimintoja:
+## Toimintoja:
 Sovelluksessa voi tällä hetkellä:
 -Rekisteröityä käyttäjäksi
 -Kirjautua sisään ja ulos
@@ -38,7 +39,5 @@ Admin oikeuksilla voi
 - Työntekijöiden käymistä kursseista
 - Eri kursseilla käytetyistä materiaalien määristä
 - Materiaaleista, joihin käyttäjät ovat kursseilla perehtyneet
-
-Tietokantakaavio löytyy täältä: <lisää linkki>
 
 
