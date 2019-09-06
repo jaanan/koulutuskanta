@@ -94,7 +94,8 @@ class User(Base):
     def find_materials_and_users():
         stmt = text('SELECT Course.name AS kurssi, COUNT(*) AS materiaaleja FROM Course, kurssimateriaali'
                      ' WHERE Course.id = kurssimateriaali."course.id"'
-                     ' GROUP BY Course.name')
+                     ' GROUP BY Course.name'
+                     ' ORDER BY Course.name')
         
         res = db.engine.execute(stmt)
 
