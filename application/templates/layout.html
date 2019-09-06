@@ -17,20 +17,20 @@
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
 	</button>
-	<div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
+  <div class="dropdown">
+    <button class="dropbtn">Admin
+        <i class="fa fa-caret-down"></i>
+      </button>
 	{% if current_user.is_authenticated %}
          {% if current_user.role == True %}
-         <div class="dropdown">
-          <button class="dropbtn">Admin</button>
           <div class="dropdown-content">
-          <li><a class="nav-link" href="{{ url_for('roles_create') }} ">Muuta oikeuksia</a></li>
-          <li><a class="nav-link" href="{{ url_for('roles_create') }} ">Poista käyttäjä</a></li>
-          <li style="float:left"><a class="active" href="{{ url_for('index') }}">Yhteenveto</a></li>
+            <li><a class="nav-link" href="{{ url_for('roles_create') }} ">Muuta oikeuksia</a></li>
+            <li><a class="nav-link" href="{{ url_for('roles_create') }} ">Poista käyttäjä</a></li>
+            <li style="float:left"><a class="active" href="{{ url_for('index') }}">Yhteenveto</a></li>
           </div>
         </div>
-	  {% endif %}
-         {% endif %}
+	      {% endif %}
+  {% endif %}
 	{% if current_user.is_authenticated %}
 	<li class="nav-item">
           <a class="nav-link" href="{{ url_for('personal_space') }} ">Omat tiedot</a>
