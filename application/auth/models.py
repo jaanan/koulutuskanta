@@ -130,7 +130,7 @@ class User(Base):
                      ' LEFT JOIN kurssimateriaali ON kurssilainen."course.id" = kurssimateriaali."course.id"'
                      ' LEFT JOIN Material ON kurssimateriaali."material.id" = Material.id'
                      ' WHERE Material.name IS NOT NULL'
-                     ' ORDER BY Account.name')
+                     ' ORDER BY Account.name, Course.name, Material.name')
         
         res = db.engine.execute(stmt)
 
