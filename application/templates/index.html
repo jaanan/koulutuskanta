@@ -6,13 +6,16 @@
 {{ error }}
 
 <p>
-  Lisää itsesi käyttäjäksi tai kirjaudu lisätäksesi käymiäsi kursseja sekä niihin liittyviä materiaaleja. 
-</p>
-
-{% if all_users is defined %}
-<p>
   Järjestelmän tuntemat käyttäjät ja heidän käyttäjätunnuksensa:
 </p>
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <th scope="col">Työntekijän käyttäjämnimi</th>
+    <th scope="col">Työntekijän nimi/th>
+    </thead>
+{% if all_users is defined %}
 
 <ul>
   {% for user in all_users %}
@@ -23,6 +26,7 @@
 </ul>
 
 {% endif %}
+</table>
 
 {% if all_materials is defined %}
 <p>

@@ -55,7 +55,7 @@ class User(Base):
 
     @staticmethod
     def find_users():
-        stmt = text("SELECT Account.id, Account.name FROM Account")
+        stmt = text("SELECT Account.username, Account.name FROM Account")
         res = db.engine.execute(stmt)
 
         response = []
