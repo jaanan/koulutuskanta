@@ -4,11 +4,11 @@
 {% block body %}
 
 {{ error }}
-
-<p>
-  Järjestelmän tuntemat käyttäjät ja heidän käyttäjätunnuksensa:
-</p>
-
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4" align=center>Järjestelmän tuntemat käyttäjät ja heidän käyttäjänimensä</h1>
+  </div>
+</div>
 {% if all_users is defined %}
 <table class="table">
   <thead class="thead-dark">
@@ -17,8 +17,8 @@
     </thead>
   {% for user in all_users %}
   <tr>
-    <td>{{user.id}}</td>
-    <td> {{user.name}}</td>
+    <td>{{user.name}}</td>
+    <td>{{user.id}} </td>
   {% endfor %}
 </table>
 {% endif %}
