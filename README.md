@@ -10,11 +10,15 @@ Koulutuskanta on tehty yrityksen HR-henkilölle ja myyjille, jotka pystyvät Kou
 Testitunnukset sovelluksen tarkasteluun
 
 *Admin*
+
 käyttäjätunnus: Bill 
+
 salasana: Windows
 
 *End user*
+
 käyttäjätunnus: Steve
+
 salasana: Apple
 
 
