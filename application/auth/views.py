@@ -165,6 +165,7 @@ def remove_user():
 
     user_to_be_removed = User.query.filter(User.username == form.username.data).first()
     user_to_be_removed.courseusers = []
+    db.session.delete(user_to_be_removed)
     db.session.commit()    
     flash('The account has been removed')
     return redirect(url_for("index"))
