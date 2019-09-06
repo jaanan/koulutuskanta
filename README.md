@@ -8,6 +8,7 @@ Tietokantakaavio löytyy täältä: https://github.com/jaanan/koulutuskanta/blob
 Koulutuskanta on tehty yrityksen HR-henkilölle ja myyjille, jotka pystyvät Koulutuskannasta katsomaan, minkä nimisiä kursseja organisaation tyntekijät ovat käyneet ja minkälaisia materiaaleja kursseilla on käytetty. Näin he pysyvät perässä siitä, minkälaista osaamista yrityksestä löytyy, mitä osa-alueita pitäisi ehkä kehittää ja kenet voi lähettää mihinkin asiakasprojektiin Koulutuskannasta ilmenevän osaamisensa perusteella.
 
 Testitunnukset sovelluksen tarkasteluun
+
 *Admin*
 käyttäjätunnus: Bill 
 salasana: Windows
