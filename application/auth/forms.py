@@ -38,7 +38,7 @@ class PasswordChangeForm(FlaskForm):
         csrf = False  
 
 class RemoveUserForm(FlaskForm):
-    password = PasswordField("Poista käyttäjä: ")
+    username = StringField("Poista käyttäjä: ")
     
     class Meta:
         csrf = False                  
