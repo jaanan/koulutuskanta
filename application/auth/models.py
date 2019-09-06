@@ -69,7 +69,8 @@ class User(Base):
     def student_to_course():
         stmt = text('SELECT Account.name AS Työntekijä, Course.name AS Kurssi FROM Account, Course, kurssilainen'
                         ' WHERE Course.id = kurssilainen."course.id"' 
-                            ' AND Account.id = kurssilainen."account.id"')
+                            ' AND Account.id = kurssilainen."account.id"'
+                        ' ORDER BY Account.name')
     
         result = db.engine.execute(stmt)
         ids = []
@@ -128,7 +129,8 @@ class User(Base):
                      ' LEFT JOIN Course ON kurssilainen."course.id" = Course.id'
                      ' LEFT JOIN kurssimateriaali ON kurssilainen."course.id" = kurssimateriaali."course.id"'
                      ' LEFT JOIN Material ON kurssimateriaali."material.id" = Material.id'
-                     ' WHERE Material.name IS NOT NULL')
+                     ' WHERE Material.name IS NOT NULL'
+                     ' ORDER BY Account.name')
         
         res = db.engine.execute(stmt)
 
