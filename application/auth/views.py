@@ -164,7 +164,7 @@ def remove_user():
        return redirect(url_for("personal_space"))  
 
     user_to_be_removed = User.query.filter(User.username == form.username.data).first()
-    d = kurssilainen.delete().where(kurssilainen."account_id" = user_to_be_removed.id)
+    kurssilainen.delete().where(kurssilainen."account_id" = user_to_be_removed.id)
     db.session.commit()
     flash('The account has been removed')
     return redirect(url_for("index"))
