@@ -35,4 +35,10 @@ class PasswordChangeForm(FlaskForm):
     password = PasswordField("Anna uusi salasana:")
     
     class Meta:
-        csrf = False         
+        csrf = False  
+
+class RemoveUserFormFlaskForm):
+    password = PasswordField("Poista käyttäjä: ")
+    
+    class Meta:
+        csrf = False                  

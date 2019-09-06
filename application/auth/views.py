@@ -5,9 +5,10 @@ from flask_security import current_user, login_required, RoleMixin, Security, \
 
 from application import app, db
 from application.auth.models import User
-from application.auth.forms import LoginForm, RolesForm, RegistrationForm, NameChangeForm, UsernameChangeForm, PasswordChangeForm
+from application.auth.forms import LoginForm, RolesForm, RegistrationForm, NameChangeForm, UsernameChangeForm, PasswordChangeForm, RemoveUserForm
 from flask import flash
 from functools import wraps
+from application.models import kurssilainen
 
 def required_roles(*roles):
     def wrapper(f):
@@ -149,3 +150,22 @@ def change_password():
     db.session.commit()
     flash('Your account has been updated')
     return redirect(url_for("personal_space"))
+
+@app.route("/auth/deleteuser.html", methods=["GET", "POST"])
+@login_required
+@required_roles('admin')
+def remove_user():
+    if request.method == "GET":
+        return render_template("/auth/deleteuser.html", form = RemoveUserForm())
+    
+    form = RemoveUserForm()
+
+    if not form.validate():
+       return redirect(url_for("personal_space"))  
+
+    user_to_be_removed = User.query.filter(User.username == form.username.data).first()
+    d = kurssilainen.delete().where(kurssilainen."account_id" = user_to_be_removed.id)
+    db.session.commit()
+    flash('The account has been removed')
+    return redirect(url_for("index"))
+

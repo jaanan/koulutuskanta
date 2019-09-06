@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{{ error }}
+ <p>
+  <th>Poista työntekijä<br>Kirjoita sen henkilön, jonka haluat poistaa, käyttäjätunnus allaolevaan kenttään. <br></br>Paina lopuksi Poista käyttäjä-nappia.</th>
+ </p>
+
+<form method="POST" action="{{ url_for('remove_user') }}">
+  <table>
+    <tr>
+      <td>
+	{{ form.username.label }}
+      </td>
+      <td>
+	{{ form.username }}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+	<input type="submit" value="Poista käyttäjä"/>
+      </td>
+    </tr>
+</form>
+{% endblock %}
