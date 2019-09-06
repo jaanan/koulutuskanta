@@ -25,55 +25,25 @@ salasana: Apple
 
 
 ## Toimintoja
-Sovelluksessa voi tällä hetkellä:
+### Use cases kaikille käyttäjille
 
--Rekisteröityä käyttäjäksi
-
--Kirjautua sisään ja ulos
-
--Muuttaa omia tietojaan (nimi, käyttäjätunnus, salasana)
-
--Lisätä kursseja ja materiaaleja
-
--Liittää materiaaleja kursseihin eli lisätä kurssimateriaaleja
-
--Liittä kurssilaisia kursseihin eli lisätä kurssilaisia
-
--Nähdä, mitä kursseja, materiaaleja ja kurssimateriaaleja on jo lisätty
-
--Nähdä, kuinka monta osallistujaa on kullakin kurssilla
-
-
-#### Admin-oikeuksilla voi
-
--Tehdä end userista adminin ja toisinpäin
-
--Poistaa käyttäjän
-
--Nähdä listauksia siitä, kuka työntekijä on milläkin kurssilla
-
--Nähdä listauksia siitä, mihin materiaaleihin ihmiset ovat käymiensä kurssien perusteella perehtyneet
-
-### Koulutuskannasta löytyvät raportit Adminille:
-
-- Järjestelmän tuntemista käyttäjistä ja heidän käyttäjätunnuksistaan
-
-- Työntekijöiden käymistä kursseista
-
-- Eri kursseilla käytetyistä materiaalien määristä
-
-- Materiaaleista, joihin käyttäjät ovat kursseilla perehtyneet
-
-### Use cases
-
++ Rekisteröityä käyttäjäksi
++ Kirjautua sisään ja ulos
 + Käyttäjät voivat lisätä kursseja, materiaaleja, materiaaleja kursseihin (kurssimateriaaleja) sekä käyttäjiä kursseihin (kurssilaisia). 
 + Käyttäjät voivat muuttaa omaa nimeään, käyttäjänimeään ja salasanaansa. 
 + Käyttäjät näkevät mitä materiaaleja, kursseja ja kurssimateriaaleja on lisätty sekä montako osallistujaa eri kursseilla on.
 + Käyttäjä näkee omilta sivuiltaan, mitä kursseja on itse käynyt. 
-+ Vain admin-oikeuksilla näkee, kuka on käynyt minkäkin kurssin ja saa näkyvilleen taulun, josta käy myös selväksi, mitä materiaaleja kukakin on lukenut käymiensä kurssien perusteella.
-+ Admin voi poistaa käyttäjiä ja muuttaa näiden käyttäjäoikeuksia end userista adminiksi ja toisinpäin.
 
+### Use cases admineille
++ Admin voi poistaa käyttäjiä
++ Admin voi muuttaa näiden käyttäjäoikeuksia end userista adminiksi ja toisinpäin.
 
+### Koulutuskannasta löytyvät raportit Adminille:
+
++ Järjestelmän tuntemista käyttäjistä ja heidän käyttäjätunnuksistaan
++ Työntekijöiden käymistä kursseista
++ Eri kursseilla käytetyistä materiaalien määristä
++ Materiaaleista, joihin käyttäjät ovat kursseilla perehtyneet
 
 ### SQL queries
 
