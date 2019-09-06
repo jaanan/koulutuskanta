@@ -23,7 +23,7 @@
   {% endfor %}
 </table>
 {% endif %}
-
+<br></br>
 {% if course_students is defined %}
 <table class="table">
   <thead class="thead-info">
@@ -37,12 +37,12 @@
   {% endfor %}
 </table>
 {% endif %}	
-
+<br></br>
 {% if student_materials is defined %}
 <table class="table">
-  <thead class="thead-info">
-    <th scope="col">Työntekijä</th>
-    <th scope="col">Luettujen materiaalien määrä eri kursseilla</th>
+  <thead class="thead-light">
+    <th scope="col">Kurssi</th>
+    <th scope="col">Käytettyjen materiaalien määrä</th>
     </thead>
   {% for materiaalit in student_materials %}
   <tr>
@@ -51,7 +51,7 @@
   {% endfor %}
 </table>
 {% endif %}
-
+<br></br>
 {% if find_everything is defined %}
 <table class="table">
   <thead class="thead-info">
