@@ -21,9 +21,11 @@
       <ul class="navbar-nav mr-auto">
 	{% if current_user.is_authenticated %}
          {% if current_user.role == True %}
-	<li class="nav-item">
-          <a class="nav-link" href="{{ url_for('roles_create') }} ">Muuta oikeuksia</a>
-        </li>
+         <ul>
+          <li><a class="nav-link" href="{{ url_for('roles_create') }} ">Muuta oikeuksia</a></li>
+          <li><a class="nav-link" href="{{ url_for('roles_create') }} ">Poista käyttäjä</a></li>
+          <li style="float:left"><a class="active" href="{{ url_for('index') }}">Admin</a></li>
+        </ul>
 	  {% endif %}
          {% endif %}
 	{% if current_user.is_authenticated %}
