@@ -23,14 +23,16 @@
   <table>
     <th>Järjestelmään lisätyt kurssit:</th>
 
-  
-     <ul>
+  <tr>     
+    <ul>
       {% for course in courses %}
         <li>
      {{ course.name }}
         </li>
       {% endfor %}
      </ul>
+    </tr>
+
     </table>
 	  
 	  
