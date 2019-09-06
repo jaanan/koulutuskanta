@@ -156,7 +156,7 @@ def change_password():
 @required_roles('admin')
 def remove_user():
     if request.method == "GET":
-        return render_template("/auth/deleteuser.html", form = RemoveUserForm(), find_usernames=find_users())
+        return render_template("/auth/deleteuser.html", form = RemoveUserForm(), find_usernames=User.find_users())
     
     form = RemoveUserForm()
 
