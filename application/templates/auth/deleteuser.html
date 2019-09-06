@@ -2,8 +2,10 @@
 
 {% block body %}
 {{ error }}
+
+<h1>Poista työntekijä<br></h1>
  <p>
-  <th>Poista työntekijä<br>Kirjoita sen henkilön, jonka haluat poistaa, käyttäjätunnus allaolevaan kenttään. <br></br>Paina lopuksi Poista käyttäjä-nappia.</th>
+  <th>Kirjoita sen henkilön, jonka haluat poistaa, käyttäjätunnus alla olevaan kenttään. <br></br>Paina lopuksi Poista käyttäjä-nappia.</th>
  </p>
 
 <form method="POST" action="{{ url_for('remove_user') }}">

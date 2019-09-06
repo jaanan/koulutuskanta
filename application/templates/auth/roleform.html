@@ -2,8 +2,9 @@
 
 {% block body %}
 {{ error }}
+<h1>Muuta työntekijän roolia</h1>
  <p>
-  <th>Muuta työntekijän roolia end-userista adminiksi tai toisinpäin<br>kirjoittamalla hänen nimensä allaolevaan kenttään.<br></br>Paina lopuksi Lisää rooli-nappia.</th>
+  <th>Muuta työntekijän roolia end-userista adminiksi tai toisinpäin kirjoittamalla hänen nimensä allaolevaan kenttään.<br></br>Paina lopuksi Lisää rooli-nappia.</th>
  </p>
 
 <form method="POST" action="{{ url_for('roles_create') }}">
