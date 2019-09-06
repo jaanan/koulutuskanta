@@ -42,7 +42,7 @@ Sovelluksessa voi tällä hetkellä:
 -Nähdä, kuinka monta osallistujaa on kullakin kurssilla
 
 
--Admin oikeuksilla voi-
+####Admin oikeuksilla voi
 
 -Tehdä end userista adminin ja toisinpäin
 
