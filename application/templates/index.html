@@ -24,64 +24,47 @@
 </table>
 {% endif %}
 
-{% if all_materials is defined %}
-<p>
-  Kursseilla käytetty materiaali:
-</p>
-
-<ul>
-  {% for material in all_materials %}
-  <li>
-    {{material.id}} {{material.name}}
-  </li>
-  {% endfor %}
-</ul>
-
-{% endif %}
-
 {% if course_students is defined %}
-<p>
-  Millä kursseilla työkaverisi ovat:
-</p>
-
-<ul>
+<table class="table">
+  <thead class="thead-info">
+    <th scope="col">Työntekijä</th>
+    <th scope="col">Kurssi</th>
+    </thead>
   {% for kurssilaiset in course_students %}
-  <li>
-    {{kurssilaiset.Työntekijät}} {{kurssilaiset.Kurssi}}
-  </li>
+  <tr>
+    <td>{{kurssilaiset.Työntekijät}}</td>
+    <td>{{kurssilaiset.Kurssi}}</td>
   {% endfor %}
-</ul>
-
+</table>
 {% endif %}	
 
 {% if student_materials is defined %}
-<p>
-  Kursseilla käytettyjen materiaalien määrä:
-</p>
-
-<ul>
+<table class="table">
+  <thead class="thead-info">
+    <th scope="col">Työntekijä</th>
+    <th scope="col">Kurssi</th>
+    </thead>
   {% for materiaalit in student_materials %}
-  <li>
-    {{materiaalit.Työntekijä}} {{materiaalit.Materiaali}}
-  </li>
+  <tr>
+    <td>{{materiaalit.Työntekijä}}</td>
+    <td>{{materiaalit.Materiaali}}</td>
   {% endfor %}
-</ul>
-
+</table>
 {% endif %}
 
 {% if find_everything is defined %}
-<p>
-  Työntekijät kursseilla ja heidän siellä lukemansa materiaalit:
-</p>
-
-<ul>
+<table class="table">
+  <thead class="thead-info">
+    <th scope="col">Työntekijä</th>
+    <th scope="col">Kurssi</th>
+    </thead>
   {% for materiaalit in find_everything %}
-  <li>
-    {{materiaalit.Työntekijä}} {{materiaalit.Kurssi}} {{materiaalit.Materiaali}}
-  </li>
+  <tr>
+    <td>{{materiaalit.Työntekijä}}</td>
+    <td>{{materiaalit.Kurssi}}</td>
+    <td>{{materiaalit.Materiaali}}</td>
   {% endfor %}
-</ul>
-
+</table>
 {% endif %}
 
 {% endblock %}
