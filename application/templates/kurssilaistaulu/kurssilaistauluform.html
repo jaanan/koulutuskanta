@@ -32,29 +32,33 @@
 
   <table>    
     <th>Järjestelmään lisätyt kurssit:</th>
- 
-    <ul>
-     {% for course in courses %}
-       <li>
-    {{ course.name }}
-       </li>
-     {% endfor %}
-    </ul></table>
-
+  <td>    
+   <ul>
+    {% for course in courses %}
+      <li>
+   {{ course.name }}
+      </li>
+    {% endfor %}
+   </ul>
+  </td>
+</table>
+<br></br>
   
   <table>  
     {% if course_students is defined %}
-      <p><br></br>
+      <p>
         <th>Millä kursseilla työkaverisi ovat:</th>
       </p>
-      
-      <ul>
-        {% for kurssilaiset in course_students %}
-        <li>
-          {{kurssilaiset.Osallistujat}} {{kurssilaiset.Kurssi}}
-        </li>
-        {% endfor %}
-      </ul>
+      <td>      
+        <ul>
+          {% for kurssilaiset in course_students %}
+          <li>
+            {{kurssilaiset.Osallistujat}} {{kurssilaiset.Kurssi}}
+          </li>
+          {% endfor %}
+        </ul>
+      </td>
+
       
       {% endif %}	</table>
 
