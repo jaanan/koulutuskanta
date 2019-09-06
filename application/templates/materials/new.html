@@ -2,17 +2,7 @@
 
   {% block body %}
 
- <p>
-  <th>Järjestelmään jo lisätyt Materiaalit:</th>
- </p>
 
-   <ul>
-    {% for material in materials %}
-      <li>
-	 {{ material.name }}
-      </li>
-    {% endfor %}
-   </ul>
 
   <form method="POST" action="{{ url_for('materials_create') }}">
     <table>
@@ -30,5 +20,17 @@
 	</td>
       </tr>
   </form>
+
+  <p>
+      <th>Järjestelmään jo lisätyt Materiaalit:</th>
+     </p>
+    
+       <ul>
+        {% for material in materials %}
+          <li>
+       {{ material.name }}
+          </li>
+        {% endfor %}
+       </ul>
 
   {% endblock %}

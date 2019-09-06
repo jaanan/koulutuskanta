@@ -3,33 +3,6 @@
 {% block body %}
 {{ error }}
 
- <p>
-  <th>Järjestelmään lisätyt kurssit:</th>
- </p>
-
-   <ul>
-    {% for course in courses %}
-      <li>
-	 {{ course.name }}
-      </li>
-    {% endfor %}
-   </ul>
-
-{% if course_students is defined %}
-<p>
-  Millä kursseilla työkaverisi ovat:
-</p>
-
-<ul>
-  {% for kurssilaiset in course_students %}
-  <li>
-    {{kurssilaiset.Osallistujat}} {{kurssilaiset.Kurssi}}
-  </li>
-  {% endfor %}
-</ul>
-
-{% endif %}	
-
 <form method="POST" action="{{ url_for('student_create') }}">
   <table>
     <tr>
@@ -54,5 +27,32 @@
       </td>
     </tr>
 </form>
+
+<p><br></br>
+    <th>Järjestelmään lisätyt kurssit:</th>
+   </p>
+  
+     <ul>
+      {% for course in courses %}
+        <li>
+     {{ course.name }}
+        </li>
+      {% endfor %}
+     </ul>
+  
+  {% if course_students is defined %}
+  <p><br></br>
+    <th>Millä kursseilla työkaverisi ovat:</th>
+  </p>
+  
+  <ul>
+    {% for kurssilaiset in course_students %}
+    <li>
+      {{kurssilaiset.Osallistujat}} {{kurssilaiset.Kurssi}}
+    </li>
+    {% endfor %}
+  </ul>
+  
+  {% endif %}	
 	
 {% endblock %}

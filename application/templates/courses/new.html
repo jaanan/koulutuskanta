@@ -2,18 +2,6 @@
 
   {% block body %}
 
- <p>
-  <th>Järjestelmään lisätyt kurssit:</th>
- </p>
-
-   <ul>
-    {% for course in courses %}
-      <li>
-	 {{ course.name }}
-      </li>
-    {% endfor %}
-   </ul>
-
   <form method="POST" action="{{ url_for('courses_create') }}">
     <table>
       <tr>
@@ -30,6 +18,19 @@
 	</td>
       </tr>
   </form>
+
+  
+  <p>
+    <th>Järjestelmään lisätyt kurssit:</th>
+   </p>
+  
+     <ul>
+      {% for course in courses %}
+        <li>
+     {{ course.name }}
+        </li>
+      {% endfor %}
+     </ul>
 	  
 	  
   {% endblock %}
