@@ -24,25 +24,41 @@ salasana: Apple
 
 ## Toimintoja
 Sovelluksessa voi tällä hetkellä:
+
 -Rekisteröityä käyttäjäksi
+
 -Kirjautua sisään ja ulos
+
 -Muuttaa omia tietojaan (nimi, käyttäjätunnus, salasana)
+
 -Lisätä kursseja ja materiaaleja
+
 -Liittää materiaaleja kursseihin eli lisätä kurssimateriaaleja
+
 -Liittä kurssilaisia kursseihin eli lisätä kurssilaisia
+
 -Nähdä, mitä kursseja, materiaaleja ja kurssimateriaaleja on jo lisätty
+
 -Nähdä, kuinka monta osallistujaa on kullakin kurssilla
 
 Admin oikeuksilla voi
+
 -Tehdä end userista adminin ja toisinpäin
+
 -Poistaa käyttäjän
+
 -Nähdä listauksia siitä, kuka työntekijä on milläkin kurssilla
+
 -Nähdä listauksia siitä, mihin materiaaleihin ihmiset ovat käymiensä kurssien perusteella perehtyneet
 
 ### Koulutuskannasta löytyvät raportit Adminille:
+
 - Järjestelmän tuntemista käyttäjistä ja heidän käyttäjätunnuksistaan
+
 - Työntekijöiden käymistä kursseista
+
 - Eri kursseilla käytetyistä materiaalien määristä
+
 - Materiaaleista, joihin käyttäjät ovat kursseilla perehtyneet
 
 
