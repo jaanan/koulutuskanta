@@ -28,31 +28,35 @@
     </tr>
 </form>
 
-<p><br></br>
+<br></br>
+
+  <table>    
     <th>Järjestelmään lisätyt kurssit:</th>
-   </p>
+ 
+    <ul>
+     {% for course in courses %}
+       <li>
+    {{ course.name }}
+       </li>
+     {% endfor %}
+    </ul></table>
+
   
-     <ul>
-      {% for course in courses %}
+  <table>  
+    {% if course_students is defined %}
+      <p><br></br>
+        <th>Millä kursseilla työkaverisi ovat:</th>
+      </p>
+      
+      <ul>
+        {% for kurssilaiset in course_students %}
         <li>
-     {{ course.name }}
+          {{kurssilaiset.Osallistujat}} {{kurssilaiset.Kurssi}}
         </li>
-      {% endfor %}
-     </ul>
-  
-  {% if course_students is defined %}
-  <p><br></br>
-    <th>Millä kursseilla työkaverisi ovat:</th>
-  </p>
-  
-  <ul>
-    {% for kurssilaiset in course_students %}
-    <li>
-      {{kurssilaiset.Osallistujat}} {{kurssilaiset.Kurssi}}
-    </li>
-    {% endfor %}
-  </ul>
-  
-  {% endif %}	
+        {% endfor %}
+      </ul>
+      
+      {% endif %}	</table>
+
 	
 {% endblock %}

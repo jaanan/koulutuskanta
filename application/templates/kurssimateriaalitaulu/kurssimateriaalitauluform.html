@@ -27,26 +27,26 @@
       </td>
     </tr>
 </form>
+<table>
+  {% if course_materials is defined %}
+    <th>
+      Kurssimateriaalit:
+    </th>
+    
+    <ul>
+      {% for kurssimateriaalit in course_materials %}
+      <li>
+        {{kurssimateriaalit.Kurssi}} {{kurssimateriaalit.Materiaali}}
+      </li>
+      {% endfor %}
+    </ul>
+    
+    {% endif %}	</table>
 
-{% if course_materials is defined %}
-<p>
-  Kurssimateriaalit:
-</p>
 
-<ul>
-  {% for kurssimateriaalit in course_materials %}
-  <li>
-    {{kurssimateriaalit.Kurssi}} {{kurssimateriaalit.Materiaali}}
-  </li>
-  {% endfor %}
-</ul>
-
-{% endif %}	
-
-<p>
+<table>
     <th>Järjestelmään lisätyt kurssit:</th>
-   </p>
-  
+
      <ul>
       {% for course in courses %}
         <li>
@@ -54,10 +54,10 @@
         </li>
       {% endfor %}
      </ul>
-  
-   <p>
+    </table>
+
+    <table>
     <th>Järjestelmään lisätyt Materiaalit:</th>
-   </p>
   
      <ul>
       {% for material in materials %}
@@ -66,7 +66,7 @@
         </li>
       {% endfor %}
      </ul>
-  
+    </table>
 
 
 {% endblock %}
