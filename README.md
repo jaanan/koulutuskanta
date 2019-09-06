@@ -17,7 +17,7 @@ käyttäjätunnus: Steve
 salasana: Apple
 
 
-## Toimintoja:
+## Toimintoja
 Sovelluksessa voi tällä hetkellä:
 -Rekisteröityä käyttäjäksi
 -Kirjautua sisään ja ulos
