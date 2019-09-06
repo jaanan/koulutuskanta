@@ -3,27 +3,6 @@
 {% block body %}
 {{ error }}
 
-<table> 
-  {% if role_query is defined %}
-    <th>
-      Jos rooli on TRUE, käyttäjä on admin. Muussa tapauksessa hän on end user:
-  </th>
-
-  <td>    
-    <ul>
-      {% for roolit in role_query %}
-      <li>
-        {{roolit.Nimi}} {{roolit.Rooli}}
-      </li>
-      {% endfor %}
-    </ul>
-    
-    {% endif %}
-  </td>
-</table>
-
-
-
 <h1>Muuta työntekijän roolia</h1>
  <p>
   <th>Muuta työntekijän roolia end-userista adminiksi tai toisinpäin kirjoittamalla hänen nimensä allaolevaan kenttään.<br></br>Paina lopuksi Lisää rooli-nappia.</th>
@@ -46,3 +25,24 @@
     </tr>
 </form>
 {% endblock %}
+
+<table> 
+    {% if role_query is defined %}
+      <th>
+        <tr>
+        <br></br>Jos rooli on TRUE, käyttäjä on admin. Muussa tapauksessa hän on end user:
+      </tr>
+      </th>
+  
+    <td>    
+      <ul>
+        {% for roolit in role_query %}
+        <li>
+          {{roolit.Nimi}} {{roolit.Rooli}}
+        </li>
+        {% endfor %}
+      </ul>
+      
+      {% endif %}
+    </td>
+  </table>
