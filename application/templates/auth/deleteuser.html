@@ -24,4 +24,19 @@
       </td>
     </tr>
 </form>
+
+{% if find_usernames is defined %}
+<p>
+  Käyttäjänimet käyttäjittäin:
+</p>
+
+<ul>
+  {% for usernames in find_usernames %}
+  <li>
+    {{id.Kurssi}}{{name.Kurssi}}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}	
+
 {% endblock %}
