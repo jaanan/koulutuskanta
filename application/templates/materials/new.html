@@ -20,10 +20,7 @@
   </form></table>
 
 <table>    
-  <p>
-    <th>Järjestelmään jo lisätyt Materiaalit:</th>
-   </p>
-  
+  <th>Järjestelmään jo lisätyt materiaalit:</th>
      <ul>
       {% for material in materials %}
         <li>
@@ -32,18 +29,3 @@
       {% endfor %}
      </ul>
     </table>
-
-    <table>    
-      <p>
-        <th>Järjestelmään jo lisätyt Materiaalit:</th>
-       </p>
-      
-         <ul>
-          {% for material in materials %}
-            <li>
-         {{ material.name }}
-            </li>
-          {% endfor %}
-         </ul>
-  </table>
-  {% endblock %}
