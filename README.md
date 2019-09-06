@@ -1,7 +1,7 @@
 # Koulutuskanta
 Tietokantasovellus-harjoitustyö loppukesä-2019 
 Sovellus löytyy osoitteesta https://koulutuskanta.herokuapp.com
-Tietokantakaavio löytyy täältä: <lisää linkki>
+Tietokantakaavio löytyy täältä: https://github.com/jaanan/koulutuskanta/blob/master/documentation/Untitled%20Diagram.png
 
 
 ## Työntekijöiden osaamisalueiden kartoittaminen yrityksen HR-henkilöiden ja myyjien käyttöön
