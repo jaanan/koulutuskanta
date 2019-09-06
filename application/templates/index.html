@@ -9,24 +9,19 @@
   Järjestelmän tuntemat käyttäjät ja heidän käyttäjätunnuksensa:
 </p>
 
-
+{% if all_users is defined %}
 <table class="table">
   <thead class="thead-dark">
-    <th scope="col">Työntekijän käyttäjämnimi</th>
-    <th scope="col">Työntekijän nimi/th>
+    <th scope="col">Työntekijän käyttäjänimi</th>
+    <th scope="col">Työntekijän nimi</th>
     </thead>
-{% if all_users is defined %}
-
-<ul>
   {% for user in all_users %}
-  <li>
-    {{user.id}} {{user.name}}
-  </li>
+  <tr>
+    <td>{{user.id}}</td>
+    <td> {{user.name}}</td>
   {% endfor %}
-</ul>
-
-{% endif %}
 </table>
+{% endif %}
 
 {% if all_materials is defined %}
 <p>
