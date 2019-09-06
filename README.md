@@ -1,5 +1,5 @@
 # Koulutuskanta
-Tietokantasovellus-harjoitustyö loppukesä-2019
+Tietokantasovellusharjoitustyö loppukesä-2019
 
 Sovellus löytyy osoitteesta https://koulutuskanta.herokuapp.com
 
