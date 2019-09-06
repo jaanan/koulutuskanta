@@ -35,18 +35,17 @@
       <li class="nav-item">
           <a class="nav-link" href="{{ url_for('personal_space') }} ">Omat tiedot</a>
         </li> 
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('courses_form') }} ">Lisää kurssi</a>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('materials_form') }} ">Lisää materiaali</a>
-              </li>
-        <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('union_create') }} ">Kurssimateriaalit</a>
-              </li>
-        <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('student_create') }} ">Kurssilaiset</a>
-              </li>
+        <div class="dropdown">
+            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Lisää
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{{ url_for('courses_form') }}">Lisää kurssi</a>
+              <a class="dropdown-item" href="{{ url_for('materials_form') }}">Lisää käyttäjä</a>
+              <a class="dropdown-item" href="{{ url_for('union_create') }}">Lisää kurssimateriaali</a>
+              <a class="dropdown-item" href="{{ url_for('student_create') }} ">Lisää kurssilainen</a>
+            </div>
+          </div>
 	{% endif %}      
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('auth_create') }}">Lisää käyttäjä</a>
