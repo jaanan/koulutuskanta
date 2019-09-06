@@ -16,6 +16,19 @@
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
   </button>
+
+  {% if current_user.role == True %}
+  <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Admin
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{{ url_for('index') }}">Yhteenveto</a>
+        <a class="dropdown-item" href="{{ url_for('roles_create') }}">Muuta roolia</a>
+        <a class="dropdown-item" href="{{ url_for('remove_user') }}">Poista käyttäjä</a>
+      </div>
+    </div>
+    {% endif %} 
  
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
