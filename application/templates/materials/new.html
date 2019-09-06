@@ -1,9 +1,7 @@
   {% extends "layout.html" %}
 
   {% block body %}
-
-
-
+<table>  
   <form method="POST" action="{{ url_for('materials_create') }}">
     <table>
       <tr>
@@ -19,18 +17,33 @@
 	  <input type="submit" value="Lisää käsitelty aihe"/>
 	</td>
       </tr>
-  </form>
+  </form></table>
 
+<table>    
   <p>
-      <th>Järjestelmään jo lisätyt Materiaalit:</th>
-     </p>
-    
-       <ul>
-        {% for material in materials %}
-          <li>
-       {{ material.name }}
-          </li>
-        {% endfor %}
-       </ul>
+    <th>Järjestelmään jo lisätyt Materiaalit:</th>
+   </p>
+  
+     <ul>
+      {% for material in materials %}
+        <li>
+     {{ material.name }}
+        </li>
+      {% endfor %}
+     </ul>
+    </table>
 
+    <table>    
+      <p>
+        <th>Järjestelmään jo lisätyt Materiaalit:</th>
+       </p>
+      
+         <ul>
+          {% for material in materials %}
+            <li>
+         {{ material.name }}
+            </li>
+          {% endfor %}
+         </ul>
+  </table>
   {% endblock %}
