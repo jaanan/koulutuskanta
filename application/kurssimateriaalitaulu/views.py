@@ -37,5 +37,4 @@ def union_create():
         db.session.commit()       
   
     return redirect(url_for("kurssimateriaalitaulu_index"))
-
-#lisätään kommentti, jos auttais päivittämään tuota herokua. 
+ 
