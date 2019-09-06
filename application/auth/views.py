@@ -54,8 +54,8 @@ def auth_logout():
 def auth_create():
     if request.method == "POST":
         form = RegistrationForm(request.form)
-        if User.query.filter(User.name == form.name.data).count() > 0:
-            return render_template("auth/new.html", form = RegistrationForm())
+        if User.query.filter(User.username == form.username.data).count() > 0:
+            return render_template("auth/new.html", form = RegistrationForm(), error = "Käyttäjänimi on jo käytössä")
         else:
             user = User(form.name.data, form.username.data, form.password.data)
             db.session().add(user)

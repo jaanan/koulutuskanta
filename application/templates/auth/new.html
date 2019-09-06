@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
   
 {% block body %}
+
+{{ error }}
+
 <form method="POST" action="{{ url_for('auth_create') }}">
  Työntekijän nimi: {{form.name}}</br>
  Käyttäjänimi: {{form.username}}</br>
