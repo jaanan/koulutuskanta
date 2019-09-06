@@ -101,7 +101,7 @@ WHERE Course.id = kurssimateriaali."course.id"
 AND Material.id = kurssimateriaali."material.id"
 ```
 
-# Sovelluksen käyttöön otto
+# Sovelluksen käyttöönotto
 Sinun tulee ladata python, pip ja sqlite3, jotta saat ohjelman toimimaan. 
 Klootaa tämä github reporitorio tai lataa zip-tiedosto tämän projektin githubista. 
 Navigoi tiedoston juurikansioon.
