@@ -152,5 +152,17 @@ class User(Base):
         for row in res:
             response.append({"Kurssi":row[0]})
 
+        return response
+
+    @staticmethod
+    def find_roles():
+        stmt = text('SELECT Account.name, Account.role FROM Account '
+
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"Nimi":row[0], "Rooli":row[1]})
+
         return response               
 

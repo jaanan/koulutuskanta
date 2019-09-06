@@ -69,7 +69,7 @@ def auth_create():
 @required_roles('admin')
 def roles_create():
     if request.method == "GET":
-        return render_template("auth/roleform.html", form = RolesForm())
+        return render_template("auth/roleform.html", form = RolesForm(), role_query=User.find_roles())
     
     form = RolesForm()
 
